@@ -3,7 +3,6 @@ set nocompatible
 silent! call pathogen#runtime_append_all_bundles()
 
 
-set relativenumber
 "filetype off
 "call pathogen#helptags()
 
@@ -75,7 +74,8 @@ inoremap <s-tab> <c-n>
 set title
 set visualbell
 
-set number
+set relativenumber
+"set number  "incompatibly with relativenumber
 set gdefault
 "set nocompatible
 set autoindent
