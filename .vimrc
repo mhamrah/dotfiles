@@ -3,6 +3,7 @@ set nocompatible
 silent! call pathogen#runtime_append_all_bundles()
 
 
+set relativenumber
 "filetype off
 "call pathogen#helptags()
 
@@ -75,7 +76,6 @@ set title
 set visualbell
 
 set number
-set relativenumber
 set gdefault
 "set nocompatible
 set autoindent
