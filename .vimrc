@@ -105,10 +105,11 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+map <leader>t :!rspec %<cr>
+
+map <leader>qw <C-w>q<cr>
+
 nnoremap <leader><space> :noh<cr>
 
 nmap :bd <plug>Kwbd
 au FocusLost * :wa
-
-" For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
-autocmd BufNewFile,BufRead *_spec.rb compiler rspec
