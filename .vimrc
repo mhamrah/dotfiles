@@ -12,46 +12,46 @@ filetype plugin indent on
 "remap leader to ,
 let mapleader=","
 
+"use ; as the command leader
 nnoremap ; :
 vnoremap ; :
 
-"test
 colorscheme hammer
 
 set showcmd				"Display incomplete commands
-set showmode				"Show the mode your in
+set showmode			"Show the mode your in
 set backspace=indent,eol,start
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
 
-set wildmenu				"Enhance command line completion
-set wildmode=list:longest		"Just like the shell
+set wildmenu				      "Enhance command line completion
+set wildmode=list:longest	"Just like the shell
 
-set ignorecase
-set smartcase
+set ignorecase "case-insensitive searching
+set smartcase  "ignore case if search is lowercase; case-sensitive otherwise
 
-" Keep more context when scrolling off the end of a buffer
+"Keep more context when scrolling off the end of a buffer
 set scrolloff=3
 
+"Set tab sizes
 set tabstop=2
 set shiftwidth=2
 set expandtab
 
+"Incremental, matched, highlighted searches
 set incsearch
 set showmatch
 set hlsearch
 
+"disable backup and swaps
+set nobackup
+set noswapfile
+
 " Store temporary files in a central spot
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
 
 "Remove toolbar for guis
 if has("gui_running")
@@ -72,7 +72,8 @@ inoremap <tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <s-tab> <c-n>
 
 set title
-set visualbell
+set visualbell   "no beeping!
+set noerrorbells "no beeping!
 
 set relativenumber
 "set number  "incompatibly with relativenumber
@@ -82,6 +83,8 @@ set autoindent
 set autowrite
 set autowriteall
 
+set history=1000
+set undolevels=1000
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -105,11 +108,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+"run specs on current file
 map <leader>t :!rspec %<cr>
 
+"close window
 map <leader>qw <C-w>q<cr>
 
+"clear current search
 nnoremap <leader><space> :noh<cr>
 
+"remove file from buffer
 nmap :bd <plug>Kwbd
+
+"auto save when losing focus
 au FocusLost * :wa
