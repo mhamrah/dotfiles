@@ -58,8 +58,8 @@ if has("gui_running")
     set go-=T
 end
 
-" Remap the tab key to do autocompletion or indentation depending on the
-" context (from http://www.vim.org/tips/tip.php?tip_id=102)
+"Perform new omnicomplete first, then fall back as necessary
+"note: look into c-p; that's what was here before.
  function! SuperCleverTab()
     if strpart(getline('.'), 0, col('.') - 1) =~ '^\s*$'
         return "\<Tab>"
