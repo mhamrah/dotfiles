@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users/Michael/r/twisk'
-let g:netrw_dirhist_2='/Users/Michael/Desktop/peepcode-061-backbone-ii-1-code/9-final'
-let g:netrw_dirhist_3='/Users/Michael/r/twisk'
-let g:netrw_dirhist_4='/Users/Michael/r/thumbtack'
-let g:netrw_dirhist_5='/Users/Michael/r/t2'
-let g:netrw_dirhist_6='/Users/Michael/r/twisk'
