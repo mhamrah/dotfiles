@@ -18,6 +18,7 @@ vnoremap ; :
 
 colorscheme hammer
 
+set noballooneval
 set showcmd				"Display incomplete commands
 set showmode			"Show the mode your in
 set backspace=indent,eol,start
@@ -124,7 +125,23 @@ map <leader>qw <C-w>q<cr>
 nnoremap <leader><space> :noh<cr>
 
 "remove file from buffer
-nmap :bd <plug>Kwbd
+nmap <leader>bd <plug>Kwbd<cr>
 
 "auto save when losing focus
 au FocusLost * :wa
+
+"reindent an entire page
+map <leader>ri gg=G
+
+nmap <leader>c<cr> <leader><F2><cr>
+nmap <leader>h :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")') synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")  
+endfunction
+
+"map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>

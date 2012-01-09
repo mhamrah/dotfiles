@@ -7,13 +7,9 @@ hi clear
 
 set background=dark
 
-if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+hi clear
+if exists("syntax_on")
+    syntax reset
 endif
 
 let g:colors_name="hammer"
@@ -23,15 +19,26 @@ hi Comment	guifg=#888888
 hi Statement	guifg=#bbedfc gui=none
 hi Type		guifg=#d2d7fc gui=none
 hi PreProc	guifg=#ffd979
-hi Define	guifg=#ffd976
-hi Identifier	guifg=#72929c
+hi Define	guifg=#72929c"#ffd976
+hi Identifier	guifg=#d89292
+hi Function guifg=#bbedfc
 hi Constant	guifg=#91b8c4
-hi LineNr	guifg=#5e5e5e guibg=#090b0d
-hi Special	guifg=#9bcc93
-hi String	guifg=#9bcc93 "#90ff91 "#c25353
+hi Special	guifg=#d2d7fc "#eb7752"#9bcc93
+hi String	guifg=#ffe39b
 hi Keyword	guifg=#Bae8Bd
+hi Number	guifg=#d89292
+hi Delimiter guifg=#ffc124
 hi NonText	guifg=#565656
-hi Directory	guifg=#6b987a
-hi Title	guifg=#a6e5bb
-hi treePart	guifg=#b5d5a5 
-hi Number	guifg=#ffd976
+hi Title	guifg=#6b987a
+
+"NERDTree
+hi Directory	guifg=#a6e5bb
+hi NerdTreeDirSlash guifg=#6b987a
+hi NERDTreePart guifg=#bbedfc
+"hi treePart	guifg=#b5d5a5 
+
+"Special
+hi Search guifg=#343334 guibg=#e3e8ed
+hi LineNr	guifg=#5e5e5e guibg=#090b0d
+"ruby
+
