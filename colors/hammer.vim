@@ -16,18 +16,18 @@ let g:colors_name="hammer"
 
 hi Normal	guifg=#E5E5E5 guibg=#15191E
 hi Comment	guifg=#888888
-hi Statement	guifg=#bbedfc gui=none
-hi Type		guifg=#d2d7fc gui=none
+hi Statement	guifg=#bbedfc 
+hi Type		guifg=#d2d7fc 
 hi PreProc	guifg=#ffd979
-hi Define	guifg=#72929c"#ffd976
+hi Define	guifg=#72929c "#ffd976
 hi Identifier	guifg=#d89292
 hi Function guifg=#bbedfc
 hi Constant	guifg=#91b8c4
 hi Special	guifg=#d2d7fc "#eb7752"#9bcc93
-hi String	guifg=#ffe39b
+hi String	guifg=#ecd5c2"#a2d6a2"#ffe39b
 hi Keyword	guifg=#Bae8Bd
 hi Number	guifg=#d89292
-hi Delimiter guifg=#ffc124
+hi Delimiter guifg=#d8b292"#75ad75"#ffc124
 hi NonText	guifg=#565656
 hi Title	guifg=#6b987a
 
@@ -40,5 +40,10 @@ hi NERDTreePart guifg=#bbedfc
 "Special
 hi Search guifg=#343334 guibg=#e3e8ed
 hi LineNr	guifg=#5e5e5e guibg=#090b0d
-"ruby
 
+"html
+hi htmlTagN guifg=#72929c
+hi htmlEndTag guifg=#72929c
+hi htmlTag guifg=#72929c
+hi htmlTagName guifg=#72929c
+hi htmlSpecialTagName guifg=#72929c
