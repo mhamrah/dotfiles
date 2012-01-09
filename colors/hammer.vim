@@ -19,17 +19,17 @@ hi Comment	guifg=#888888
 hi Statement	guifg=#bbedfc 
 hi Type		guifg=#d2d7fc 
 hi PreProc	guifg=#ffd979
-hi Define	guifg=#72929c "#ffd976
+hi Define	guifg=#72929c 
 hi Identifier	guifg=#d89292
 hi Function guifg=#bbedfc
-hi Constant	guifg=#91b8c4
+hi Constant	guifg=#ffd979"#91b8c4
 hi Special	guifg=#d2d7fc "#eb7752"#9bcc93
 hi String	guifg=#ecd5c2"#a2d6a2"#ffe39b
 hi Keyword	guifg=#Bae8Bd
-hi Number	guifg=#d89292
-hi Delimiter guifg=#d8b292"#75ad75"#ffc124
+hi Number	guifg=#Bae8Bd"#d89292
+hi Delimiter guifg=#d8b292
 hi NonText	guifg=#565656
-hi Title	guifg=#6b987a
+hi Title	guifg=#ffd979"#6b987a
 
 "NERDTree
 hi Directory	guifg=#a6e5bb
@@ -47,3 +47,6 @@ hi htmlEndTag guifg=#72929c
 hi htmlTag guifg=#72929c
 hi htmlTagName guifg=#72929c
 hi htmlSpecialTagName guifg=#72929c
+
+
+
