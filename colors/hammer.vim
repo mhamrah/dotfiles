@@ -20,21 +20,22 @@ hi Statement	guifg=#bbedfc
 hi Type		guifg=#d2d7fc 
 hi PreProc	guifg=#ffd979
 hi Define	guifg=#72929c 
-hi Identifier	guifg=#d89292
+hi Identifier	guifg=#ecd5c2"#d89292
 hi Function guifg=#bbedfc
-hi Constant	guifg=#ffd979"#91b8c4
+hi Constant	guifg=#ffe39b"#91b8c4
 hi Special	guifg=#d2d7fc "#eb7752"#9bcc93
-hi String	guifg=#ecd5c2"#a2d6a2"#ffe39b
+hi String	guifg=#d89292"#a2d6a2"#ffe39b
 hi Keyword	guifg=#Bae8Bd
 hi Number	guifg=#Bae8Bd"#d89292
 hi Delimiter guifg=#d8b292
 hi NonText	guifg=#565656
-hi Title	guifg=#ffd979"#6b987a
+hi Title	guifg=#ffe39b
 
 "NERDTree
 hi Directory	guifg=#a6e5bb
 hi NerdTreeDirSlash guifg=#6b987a
 hi NERDTreePart guifg=#bbedfc
+hi NERDTreeOpenable guifg=#6b987a
 "hi treePart	guifg=#b5d5a5 
 
 "Special
@@ -47,6 +48,8 @@ hi htmlEndTag guifg=#72929c
 hi htmlTag guifg=#72929c
 hi htmlTagName guifg=#72929c
 hi htmlSpecialTagName guifg=#72929c
+
+
 
 
 
