@@ -18,7 +18,6 @@ vnoremap ; :
 
 colorscheme hammer
 
-set noballooneval
 set showcmd				"Display incomplete commands
 set showmode			"Show the mode your in
 set backspace=indent,eol,start
@@ -56,6 +55,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 "Remove toolbar for guis
 if has("gui_running")
+    set noballooneval
     set go-=T
 end
 
