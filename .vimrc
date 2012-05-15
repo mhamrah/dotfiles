@@ -126,9 +126,11 @@ nnoremap <leader><space> :noh<cr>
 
 "remove file from buffer
 nmap <leader>bd <plug>Kwbd<cr>
-
+nmap <plug>bd <plug>Kwbd<cr>
 "auto save when losing focus
 au FocusLost * :wa
+
+nnoremap <leader>a :Ack 
 
 "reindent an entire page
 map <leader>ri gg=G
@@ -145,3 +147,7 @@ endfunction
 "map <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+"json highlighting
+au BufRead,BufNewFile *.json set filetype=json
+map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
