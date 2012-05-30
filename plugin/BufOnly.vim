@@ -13,8 +13,6 @@
 
 command! -nargs=? -complete=buffer -bang Bonly
     \ :call BufOnly('<args>', '<bang>')
-command! -nargs=? -complete=buffer -bang BOnly
-    \ :call BufOnly('<args>', '<bang>')
 command! -nargs=? -complete=buffer -bang Bufonly
     \ :call BufOnly('<args>', '<bang>')
 
