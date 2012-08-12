@@ -22,3 +22,6 @@
 [submodule "bundle/vim-rspec"]
 	path = bundle/vim-rspec
 	url = https://github.com/taq/vim-rspec.git
+[submodule "bundle/handlebars"]
+	path = bundle/handlebars
+	url = git://github.com/nono/vim-handlebars.git

@@ -151,3 +151,5 @@ endfunction
 "json highlighting
 au BufRead,BufNewFile *.json set filetype=json
 map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+
+au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby
