@@ -2,10 +2,12 @@ export TM_RUBY=/usr/local/bin/ruby
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 
 alias flushdns="dscacheutil -flushcache"
-alias cloud="ssh -p 7373 michael@204.232.206.110"
-alias twisk="ssh -i ~/.ssh/twisk2.pem ec2-user@twisk.me"
+alias mlh-cloud="ssh -i ~/.ssh/aws-mlh.pem ec2-user@23.23.186.107"
 alias vi="vim"
 alias gka="gitk --all"
+alias vs="ssh -i ~/.ssh/vfiles_str.pem ubuntu@ec2-50-19-208-123.compute-1.amazonaws.com"
+
+export PGDATABASE=postgres
 
 #PS1='\[\e[0;35m\]\u\[\e[m\] \[\e[0;33m\]\w\[\e[m\] \[\e[0;35m\]\$ \[\e[m\]\[\e[0m\]'
 
