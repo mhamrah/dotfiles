@@ -1,11 +1,10 @@
 export TM_RUBY=/usr/local/bin/ruby
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
 
-alias flushdns="dscacheutil -flushcache"
+alias dnsflush="dscacheutil -flushcache"
 alias mlh-cloud="ssh -i ~/.ssh/aws-mlh.pem ec2-user@23.23.186.107"
 alias vi="vim"
 alias gka="gitk --all"
-alias vs="ssh -i ~/.ssh/vfiles_str.pem ubuntu@ec2-50-19-208-123.compute-1.amazonaws.com"
 
 export PGDATABASE=postgres
 
