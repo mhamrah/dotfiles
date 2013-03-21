@@ -7,7 +7,8 @@ silent! call pathogen#runtime_append_all_bundles()
 "call pathogen#helptags()
 
 syntax enable
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 
 "remap leader to ,
 let mapleader=","
