@@ -128,6 +128,9 @@ nnoremap <leader><space> :noh<cr>
 "remove file from buffer
 nmap <leader>bd <plug>Kwbd<cr>
 nmap <plug>bd <plug>Kwbd<cr>
+"I keep doing :bd, so remaping
+nmap :bd :BD
+
 "auto save when losing focus
 au FocusLost * :wa
 
