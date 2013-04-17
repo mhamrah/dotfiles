@@ -6,6 +6,8 @@ silent! call pathogen#runtime_append_all_bundles()
 "filetype off
 "call pathogen#helptags()
 
+set rtp+=$GOROOT/misc/vim
+
 syntax enable
 filetype plugin on
 filetype indent on
@@ -18,6 +20,7 @@ nnoremap ; :
 vnoremap ; :
 
 colorscheme hammer
+
 
 set showcmd				"Display incomplete commands
 set showmode			"Show the mode your in

@@ -1,5 +1,7 @@
 export TM_RUBY=/usr/local/bin/ruby
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:$PATH
+export GOROOT=/usr/local/Cellar/go/1.0.3
+export GOPATH=~/dev/go
 
 alias dnsflush="dscacheutil -flushcache"
 alias mlh-cloud="ssh -i ~/.ssh/aws-mlh.pem ec2-user@23.23.186.107"
