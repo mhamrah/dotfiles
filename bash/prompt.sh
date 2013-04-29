@@ -48,11 +48,11 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="$M\u$C@\h $G\w$Y\$(__git_prompt)$RESET$ "
+  #PS1="$M\u$C@\h $G\w$Y\$(__git_prompt)$RESET$ "
 
+  PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
 }
 
 bash_prompt
 unset bash_prompt
 
-#PS1="$Magenta\u@\h $Cyan\w$YELLOW\$(__git_ps1)$Magenta \$ \[\e[m\]\[\e[0m\]"
