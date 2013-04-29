@@ -48,7 +48,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="$M\u$W@$C\h $G\w$Y\$(__git_prompt)$RESET$ "
+  PS1="$M\u$C@\h $G\w$Y\$(__git_prompt)$RESET$ "
 
 }
 
