@@ -1,4 +1,4 @@
-[[ -s "/Users/Michael/.rvm/scripts/rvm" ]] && source "/Users/Michael/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 source ~/.bash/path.sh
 source ~/.bash/env.sh
