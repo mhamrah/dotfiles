@@ -18,9 +18,9 @@ function __git_prompt {
 
 # Only show username@server over SSH.
 function __name_and_server {
-  if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
+  #if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     echo "`whoami`@`hostname -s` "
-  fi
+  #fi
 }
 
 bash_prompt() {
@@ -48,7 +48,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  PS1="\t $BY\$(__name_and_server)$Y\W$G\$(__rvm_prompt)$G\$(__git_prompt)$RESET$ "
+  PS1="$M\u$W@$C\h $G\w$Y\$(__git_prompt)$RESET$ "
 
 }
 
