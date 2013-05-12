@@ -156,7 +156,7 @@ endfunction
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 "json highlighting
-au BufRead,BufNewFile *.json set filetype=json
+au BufRead,BufNewFile *.json set ft=javascript
 map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
 
 au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby
