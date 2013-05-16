@@ -139,8 +139,8 @@ au FocusLost * :wa
 
 nnoremap <leader>a :Ack 
 
-"reindent an entire page
-map <leader>ri gg=G
+"reindent an entire page, and go back to where you were
+map <leader>ri gg=G''
 
 nmap <leader>c<cr> <leader><F2><cr>
 nmap <leader>h :call <SID>SynStack()<CR>
