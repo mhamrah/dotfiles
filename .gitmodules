@@ -22,15 +22,3 @@
 [submodule "bundle/vim-rspec"]
 	path = vim/bundle/vim-rspec
 	url = https://github.com/taq/vim-rspec.git
-[submodule "vim/bundle/vim-haml"]
-	path = vim/bundle/vim-haml
-	url = https://github.com/tpope/vim-markdown.git
-[submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/bundle/play2vim"]
-	path = vim/bundle/play2vim
-	url = git://github.com/alswl/play2vim.git
-[submodule "vim/bundle/vim-scala"]
-	path = vim/bundle/vim-scala
-	url = git://github.com/derekwyatt/vim-scala.git
