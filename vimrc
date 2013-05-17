@@ -9,8 +9,6 @@ filetype plugin indent on
 set rtp+=$GOROOT/misc/vim
 
 syntax enable
-filetype plugin on
-filetype indent on
 
 "remap leader to ,
 let mapleader=","
@@ -90,7 +88,7 @@ set relativenumber
 "set number  "incompatibly with relativenumber
 set gdefault
 "set nocompatible
-set autoindent
+set smartindent
 set autowrite
 set autowriteall
 
