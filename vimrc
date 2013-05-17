@@ -89,6 +89,7 @@ set relativenumber
 set gdefault
 "set nocompatible
 set smartindent
+set cindent
 set autowrite
 set autowriteall
 
