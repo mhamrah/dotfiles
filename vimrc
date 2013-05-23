@@ -154,8 +154,14 @@ endfunction
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-"json highlighting
-au BufRead,BufNewFile *.json set ft=javascript
-map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+"For CTAGS support, hit Ctrl-] to enable
+set tags=tags;/
+
+"organize scala import pacakges
+let g:scala_sort_across_groups=1
+let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|com.gettyimages.\|im.gty.\|com.mlh.\)'
+
+"Autocomplete settings, see https://github.com/Shougo/neocomplcache.vim
+let g:neocomplcache_enable_at_startup = 1
 
 au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby

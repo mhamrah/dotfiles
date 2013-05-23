@@ -28,3 +28,9 @@
 [submodule "vim/bundle/play2vim"]
 	path = vim/bundle/play2vim
 	url = git://github.com/gre/play2vim.git
+[submodule "vim/bundle/neocomplcache"]
+	path = vim/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.vim.git
+[submodule "vim/bundle/vim-indent-guides"]
+	path = vim/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
