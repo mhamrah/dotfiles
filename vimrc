@@ -22,7 +22,7 @@ colorscheme hammer
 
 set showcmd				"Display incomplete commands
 set showmode			"Show the mode your in
-set backspace=indent,eol,start
+set backspace=2 "indent,eol,start
 
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
@@ -162,6 +162,6 @@ let g:scala_sort_across_groups=1
 let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|com.gettyimages.\|im.gty.\|com.mlh.\)'
 
 "Autocomplete settings, see https://github.com/Shougo/neocomplcache.vim
-let g:neocomplcache_enable_at_startup = 1
+"let g:neocomplcache_enable_at_startup = 1
 
 au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby
