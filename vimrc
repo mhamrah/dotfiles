@@ -165,3 +165,6 @@ let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\|com.gett
 "let g:neocomplcache_enable_at_startup = 1
 
 au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby
+
+
+nmap <leader>nt :NERDTreeToggle<cr>
