@@ -155,7 +155,7 @@ endfunction
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 "For CTAGS support, hit Ctrl-] to enable
-set tags=tags;/
+set tags=./tags,tags;/
 
 "organize scala import pacakges
 let g:scala_sort_across_groups=1
