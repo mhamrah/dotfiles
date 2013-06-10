@@ -168,3 +168,6 @@ au BufNewFile,BufRead *.hbs.erb set filetype=html.ruby
 
 
 nmap <leader>nt :NERDTreeToggle<cr>
+
+"au BufEnter *.scala setl formatprg=java\ -jar\ ~/.bin/scalariform.jar\ --stdin\ --stdout
+
