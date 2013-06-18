@@ -31,6 +31,8 @@ set hidden
 set wildmenu				      "Enhance command line completion
 set wildmode=list:longest	"Just like the shell
 
+set autoread "don't prompt for reload buffers"
+
 set ignorecase "case-insensitive searching
 set smartcase  "ignore case if search is lowercase; case-sensitive otherwise
 
