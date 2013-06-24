@@ -5,3 +5,5 @@ alias gka="gitk --all"
 
 alias ct="ctags -R . --exclude=target --exclude=vendor"
 alias ctags="`brew --prefix`/bin/ctags"
+
+alias discourse="ssh -i ~/.ssh/discourse.pem ubuntu@discourse.gtty.in"
