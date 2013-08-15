@@ -6,10 +6,11 @@ alias ct="ctags -R . --exclude=target --exclude=vendor"
 alias ctags="`brew --prefix`/bin/ctags"
 
 alias discourse="ssh -i ~/.ssh/discourse.pem ubuntu@discourse.gtty.in"
+alias docsite="ssh -i ~/.ssh/devtools.pem ec2-user@23.21.60.193"
 
 alias dsa="cd ~/dev/gyi/dsa"
-alias gh="cd ~/dev/gh"
-alias pd="cd ~/dev/p"
+alias dgh="cd ~/dev/gh"
+alias dp="cd ~/dev/p"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -17,10 +18,14 @@ alias ....="cd ../../.."
 
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias g="git"
 alias v="mvim ."
 alias h="history"
 alias j="jobs"
+
+#git
+alias g="git"
+alias gs="git status "
+alias gc="git add . --all && git commit -m "
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
