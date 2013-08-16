@@ -17,7 +17,7 @@ let mapleader=","
 nnoremap ; :
 vnoremap ; :
 
-colorscheme hammer
+colorscheme zenburn
 
 
 set showcmd				"Display incomplete commands
