@@ -1,4 +1,5 @@
-I pulled most of these settings from https://github.com/henrik/dotfiles, an excellent repository for dotfiles.  There's also some stuff from https://github.com/garybernhardt/dotfiles.
+I pulled most of these settings from https://github.com/henrik/dotfiles, an excellent repository for dotfiles.
+There's also some stuff from https://github.com/garybernhardt/dotfiles.
 
 
 ## Install
@@ -19,6 +20,5 @@ The dotfiles will be symlinked, e.g. `~/.bash_profile` symlinked to `~/.dotfiles
 
 ## Vim
 
-Install plugins from submodules:
-
-    git submodule update --init
+See http://github.com/mhamrah/maximum-awesome for vim/tmux support.  vimrc.bundles.local, vimrc.local and tmux.conf will be
+symlinked from this directory until I merge everything together.
