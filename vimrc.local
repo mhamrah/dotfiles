@@ -1,0 +1,48 @@
+set nocursorline " don't highlight current line
+set relativenumber
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+"use ; as the command leader
+nnoremap ; :
+vnoremap ; :
+
+" Allow backgrounding buffers without writing them, and remember marks/undo
+" for backgrounded buffers
+set hidden
+
+set autowrite
+set autowriteall
+set nowritebackup
+
+"disable backup and swaps
+set nobackup
+set noswapfile
+
+"better splitting
+nnoremap <leader>w <C-w>v<C-w>l
+
+"close window
+map <leader>qw <C-w>q<cr>
+
+set term=screen-256color
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  colorscheme zenburn
+endif
+
+autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost .vimrc.local source ~/.vimrc
+
+set laststatus=2                  " Show the status line all the time
+
+" Useful status information at bottom of screen
+set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+"auto save when losing focus
+au FocusLost * :wa
+
+set clipboard=unnamed
