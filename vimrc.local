@@ -26,7 +26,9 @@ nnoremap <leader>w <C-w>v<C-w>l
 "close window
 map <leader>qw <C-w>q<cr>
 
-set term=screen-256color
+if !has('gui_running')
+  set term=screen-256color
+endif
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
@@ -46,3 +48,14 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 au FocusLost * :wa
 
 set clipboard=unnamed
+"if &term =~ 'term'
+  " solid underscore
+  let &t_SI .= "\<Esc>[6 q"
+  " solid block
+  let &t_EI .= "\<Esc>[2 q"
+  " 1 or 0 -> blinking block
+  " 3 -> blinking underscore
+  " Recent versions of xterm (282 or above) also support
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+"endif
