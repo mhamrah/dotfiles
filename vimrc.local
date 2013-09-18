@@ -8,11 +8,16 @@ inoremap jj <ESC>
 nnoremap ; :
 vnoremap ; :
 
+set showmode "show the mode you're in
+
 " Allow backgrounding buffers without writing them, and remember marks/undo
 " for backgrounded buffers
 set hidden
 
-set autowrite
+set showmatch
+set hlsearch
+
+"set autowrite
 set autowriteall
 set nowritebackup
 
@@ -20,11 +25,31 @@ set nowritebackup
 set nobackup
 set noswapfile
 
-"better splitting
-nnoremap <leader>w <C-w>v<C-w>l
+"Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+if has("gui_running")
+  set noballooneval
+  set go-=T
+endif
+
+set title
+set visualbell
+set noerrorbells
+
+set history=300
+set undolevels=300
+
+"split and move
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>j
 
 "close window
 map <leader>qw <C-w>q<cr>
+
+"clear current search
+nnoremap <leader>n :noh<cr>
 
 set term=screen-256color
 
@@ -43,6 +68,12 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 "auto save when losing focus
-au FocusLost * :wa
+autocmd FocusLost * :wa
 
 set clipboard=unnamed
+
+"TODO: syntack?
+
+autocmd FileType c,cpp,java,php,ruby,python,scala autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
+
+:au FileChangedShell * echo "Warning: File changed on disk"
