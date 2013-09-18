@@ -52,6 +52,9 @@ map <leader>qw <C-w>q<cr>
 nnoremap <leader>n :noh<cr>
 
 set term=screen-256color
+if !has('gui_running')
+  set term=screen-256color
+endif
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
@@ -77,3 +80,14 @@ set clipboard=unnamed
 autocmd FileType c,cpp,java,php,ruby,python,scala autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
 
 :au FileChangedShell * echo "Warning: File changed on disk"
+"if &term =~ 'term'
+  " solid underscore
+  let &t_SI .= "\<Esc>[6 q"
+  " solid block
+  let &t_EI .= "\<Esc>[2 q"
+  " 1 or 0 -> blinking block
+  " 3 -> blinking underscore
+  " Recent versions of xterm (282 or above) also support
+  " 5 -> blinking vertical bar
+  " 6 -> solid vertical bar
+"endif
