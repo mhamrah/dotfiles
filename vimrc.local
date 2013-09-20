@@ -91,3 +91,5 @@ autocmd FileType c,cpp,java,php,ruby,python,scala autocmd BufWritePre <buffer> :
   " 5 -> blinking vertical bar
   " 6 -> solid vertical bar
 "endif
+
+au BufEnter *.scala setl formatprg=~/.bin/scalariform.jar\ --stdin\ --stdout
