@@ -16,6 +16,7 @@ set hidden
 
 set showmatch
 set hlsearch
+set autoread
 
 "set autowrite
 set autowriteall
