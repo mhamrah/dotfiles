@@ -52,7 +52,6 @@ map <leader>qw <C-w>q<cr>
 "clear current search
 nnoremap <leader>n :noh<cr>
 
-set term=screen-256color
 if !has('gui_running')
   set term=screen-256color
 endif
@@ -97,3 +96,7 @@ function! s:RemoveConflictingAlignMaps()
 endfunction
 command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+"Scalariform"
+au BufEnter *.scala setl formatprg=java\ -jar\ ~/.bin/scalariform.jar\ +alignParameters\ +alignSingleLineCaseStatements\ +compactControlReadability\ +doubleIndentClassDeclaration\ +indentLocalDefs\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+
