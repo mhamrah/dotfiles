@@ -18,7 +18,7 @@ set showmatch
 set hlsearch
 set autoread
 
-"set autowrite
+set autowrite
 set autowriteall
 set nowritebackup
 
@@ -78,4 +78,7 @@ set clipboard=unnamed
 
 "TODO: syntack?
 
-autocmd FileType c,cpp,java,php,ruby,python,scala autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
+autocmd FileType c,cpp,java,php,ruby,python,scala,javascript,json autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
+
+autocmd BufLeave,FocusLost,VimResized * silent! wall
+
