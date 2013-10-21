@@ -100,3 +100,31 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 "Scalariform"
 au BufEnter *.scala setl formatprg=java\ -jar\ ~/.bin/scalariform.jar\ +alignParameters\ +alignSingleLineCaseStatements\ +compactControlReadability\ +doubleIndentClassDeclaration\ +indentLocalDefs\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
 
+au BufRead *.txt,*.md,*.html setlocal spell
+
+"let g:neocomplcache_enable_at_startup = 1
+"noremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+function! CleverTab()
+  if pumvisible()
+    return "\<C-N>"
+  endif
+  if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s*$'
+    return "\<Tab>"
+  elseif exists('&omnifunc') && &omnifunc != ''
+    return "\<C-X>\<C-O>"
+  else
+    return "\<C-N>"
+  endif
+endfunction
+inoremap <Tab> <C-R>=CleverTab()<CR>
+"set omnifunc=syntaxcomplete#Complete
+"au FileType ruby,eruby setl ofu=rubycomplete#Complete
+"au FileType html,xhtml setl ofu=htmlcomplete#CompleteTags
+"au FileType css setl ofu=csscomplete#CompleteCSS
+"au FileType scala setl ofu=scala

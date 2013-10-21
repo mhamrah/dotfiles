@@ -1,4 +1,5 @@
 Bundle 'derekwyatt/vim-scala'
+Bundle 'Shougo/neocomplcache'
 Bundle 'twe4ked/vim-peepopen'
 Bundle 'pivotal/tmux-config'
 Bundle 'christoomey/vim-tmux-navigator'
