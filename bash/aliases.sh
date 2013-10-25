@@ -8,6 +8,7 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias discourse="ssh -i ~/.ssh/discourse.pem ubuntu@discourse.gtty.in"
 alias devtools="ssh -i ~/.ssh/devtools.pem ec2-user@devtools.gtty.in"
 alias bastion="ssh -i ~/.ssh/gyi-production.pem ec2-user@54.208.150.69"
+function beta() { ssh -i ~/.ssh/dsa-beta.pem ec2-user@$@ ;}
 
 alias dsa="cd ~/dev/gyi/dsa"
 alias dgh="cd ~/dev/gh"
