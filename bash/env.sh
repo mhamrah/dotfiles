@@ -15,6 +15,7 @@ export TERM='xterm-256color'
 #export EC2_HOME="/usr/local/Library/LinkedKegs/ec2-api-tools/jars"
 #export EC2_PRIVATE_KEY="$(/bin/ls "$HOME"/.ssh/gyi-production.pem | /usr/bin/head -1)"
 
+source ~/Dropbox/Trunk/env.sh
 #source ~/.ssh/g2-aws-cred.env
 
 #export AWS_CLOUDFORMATION_URL=https://cloudformation.us-west-2.amazonaws.com
