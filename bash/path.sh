@@ -8,3 +8,4 @@ export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 export PATH=~/.bin:$PATH
+

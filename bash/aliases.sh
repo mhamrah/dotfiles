@@ -8,7 +8,8 @@ alias ctags="`brew --prefix`/bin/ctags"
 alias discourse="ssh -i ~/.ssh/discourse.pem ubuntu@discourse.gtty.in"
 alias devtools="ssh -i ~/.ssh/devtools.pem ec2-user@devtools.gtty.in"
 alias bastion="ssh -i ~/.ssh/gyi-production.pem ec2-user@54.208.150.69"
-function beta() { ssh -i ~/.ssh/dsa-beta.pem ec2-user@$@ ;}
+function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
+function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
 
 alias dsa="cd ~/dev/gyi/dsa"
 alias dgh="cd ~/dev/gh"
@@ -59,7 +60,7 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 
 
 # Flush Directory Service cache
-alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias flushdns="dscacheutil -flushcache;sudo killall -HUP mDNSResponder"
 
 # Show/hide hidden files in Finder
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
