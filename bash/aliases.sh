@@ -7,11 +7,11 @@ alias ctags="`brew --prefix`/bin/ctags"
 
 alias discourse="ssh -i ~/.ssh/discourse.pem ubuntu@discourse.gtty.in"
 alias devtools="ssh -i ~/.ssh/devtools.pem ec2-user@devtools.gtty.in"
-alias bastion="ssh -i ~/.ssh/gyi-production.pem ec2-user@54.208.150.69"
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
 
 alias dsa="cd ~/dev/gyi/dsa"
+alias gy="cd ~/dev/gyi"
 alias dgh="cd ~/dev/gh"
 alias dp="cd ~/dev/p"
 
@@ -32,6 +32,7 @@ alias gc="git add . --all && git commit -m "
 alias gp="git push"
 alias gd="git diff"
 alias gco="git checkout "
+alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
