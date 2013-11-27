@@ -25,5 +25,5 @@ function mcd {
   mkdir -p "$1" && cd "$1"
 }
 
-
-
+# vim autosave
+source ~/.vim/bundle/tmux-config/tmux-autowrite/autowrite-vim.sh
