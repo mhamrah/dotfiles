@@ -10,10 +10,10 @@ alias devtools="ssh -i ~/.ssh/devtools.pem ec2-user@devtools.gtty.in"
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
 
-alias dsa="cd ~/dev/gyi/dsa"
-alias gy="cd ~/dev/gyi"
-alias dgh="cd ~/dev/gh"
-alias dp="cd ~/dev/p"
+alias dsa="cd ~/Dropbox/code/gyi/dsa"
+alias inf="cd ~/Dropbox/code/gyi/infrastructure"
+alias dgh="cd ~/Dropbox/code/gh"
+alias dp="cd ~/Dropbox/code/p"
 
 alias ..="cd .."
 alias ...="cd ../.."
@@ -21,7 +21,7 @@ alias ....="cd ../../.."
 
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
-alias v="mvim ."
+alias v="mvim"
 alias h="history"
 alias j="jobs"
 

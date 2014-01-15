@@ -1,7 +1,7 @@
 export TM_RUBY=/usr/local/bin/ruby
 export PGDATABASE=postgres
 
-export GOPATH=~/dev/go
+export GOPATH=~/Dropbox/code/go
 export PATH="$PATH:$GOPATH/bin"
 
 # Colors in Vim.
