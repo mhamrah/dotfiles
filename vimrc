@@ -1,4 +1,4 @@
->\\" don't bother with vi compatibility
+" don't bother with vi compatibility
 set nocompatible
 
 " configure Vundle
