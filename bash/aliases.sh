@@ -1,4 +1,4 @@
-alias mlh-cloud="ssh -i ~/.ssh/aws-mlh.pem ec2-user@23.23.186.107"
+alias mlh-cloud="ssh root@michaelhamrah.com"
 alias vi="vim"
 alias gka="gitk --all"
 
