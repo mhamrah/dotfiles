@@ -1,4 +1,4 @@
-" don't bother with vi compatibility
+>\\" don't bother with vi compatibility
 set nocompatible
 
 " configure Vundle
@@ -12,6 +12,7 @@ if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
   source ~/.vimrc.bundles.local
 endif
+
 
 filetype plugin indent on
 
@@ -60,13 +61,16 @@ nmap <leader>a :Ack<space>
 nmap <leader>b :CtrlPBuffer<CR>
 nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
-nmap <leader>t :CtrlPMixed<CR>
+nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" in case you forgot to sudo
+cmap w!! %!sudo tee > /dev/null %
 
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
