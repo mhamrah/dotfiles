@@ -73,7 +73,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "auto save when losing focus
 autocmd FocusLost * :wa
 
-set clipboard=unnamed
+"set clipboard=unnamed
 
 "TODO: syntack?
 
