@@ -6,7 +6,6 @@ export PATH="$PATH:$GOPATH/bin"
 
 # Colors in Vim.
 export TERM='xterm-256color'
-source ~/Dropbox/Trunk/env.sh
 # No duplicates in history.
 #export HISTCONTROL=ignoredups
 
