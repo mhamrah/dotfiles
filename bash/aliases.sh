@@ -28,6 +28,7 @@ alias vs="vagrant ssh"
 alias vu="vagrant up"
 alias vr="vagrant reload"
 alias al="mvim ~/.dotfiles/bash/aliases.sh"
+alias gr="grep -i"
 #git
 alias g="git"
 alias gs="git status "
