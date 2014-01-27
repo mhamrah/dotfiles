@@ -58,7 +58,9 @@ endif
 
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
-  colorscheme zenburn
+  "colorscheme hammer
+  colorscheme grb256
+  "let g something about high contrast for zenburn
 endif
 
 autocmd! bufwritepost .vimrc source ~/.vimrc

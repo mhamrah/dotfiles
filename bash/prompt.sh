@@ -12,15 +12,11 @@ function __rvm_prompt {
 }
 
 function __git_prompt {
-  GIT_PS1_SHOWDIRTYSTATE=1
-  __git_ps1 " %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
-}
-
-# Only show username@server over SSH.
-function __name_and_server {
-  #if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    echo "`whoami`@`hostname -s` "
-  #fi
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWCOLORHINTS=1
+#GIT_PS1_SHOWUPSTREAM="verbose"
+  __git_ps1 #" %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
 bash_prompt() {
@@ -48,9 +44,9 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  #PS1="$M\u$C@\h $G\w$Y\$(__git_prompt)$RESET$ "
-
-  PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
+  #PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
+  
+  PS1="$B\u$G@\h $B\w$R\$(__git_prompt) $C\$$RESET "
 }
 
 bash_prompt

@@ -1,7 +1,5 @@
-# Bash completion for git commands and branch names.
-# Also required for the prompt.
-. ~/.dotfiles/bash/lib/git-completion.bash
-
-# Rake task completion.
-complete -C ~/.bash/lib/rake-completion.rb -o default rake
+source /usr/local/etc/bash_completion.d/git-completion.bash
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+source /usr/local/etc/bash_completion.d/go-completion.bash
+#source /usr/local/etc/bash_completion.d/ag.bashcomp.sh
 
