@@ -15,7 +15,6 @@ function __git_prompt {
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=1
-#GIT_PS1_SHOWUPSTREAM="verbose"
   __git_ps1 #" %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
