@@ -153,3 +153,7 @@ syntax on
 
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 autocmd FileType go setlocal noexpandtab|setlocal nolist
+
+"Ctags, recursively search up
+"Ctrl-], Ctrl-T to go back
+set tags=tags;/
