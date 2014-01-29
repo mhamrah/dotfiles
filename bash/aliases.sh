@@ -2,8 +2,8 @@ alias mlh-cloud="ssh root@michaelhamrah.com"
 alias vi="vim"
 alias gka="gitk --all"
 
-#alias ct="ctags -R . --exclude=target --exclude=vendor"
-#alias ctags="`brew --prefix`/bin/ctags"
+alias ct="ctags -R . --exclude=target --exclude=vendor"
+alias ctags="`brew --prefix`/bin/ctags"
 
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
