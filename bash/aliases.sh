@@ -2,8 +2,8 @@ alias mlh-cloud="ssh root@michaelhamrah.com"
 alias vi="vim"
 alias gka="gitk --all"
 
-alias ct="ctags -R . --exclude=target --exclude=vendor"
-alias ctags="`brew --prefix`/bin/ctags"
+alias ct="ctags ." #recurse and ignore is set in ctags
+#alias ctags="`brew --prefix`/bin/ctags"
 
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
@@ -91,3 +91,14 @@ alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo 
 #required for new copy-pipe with tmux/vim
 alias mvim="reattach-to-user-namespace mvim"
 alias vim="reattach-to-user-namespace vim"
+
+#serve a directory locally
+function serve() {
+  local port="${1:-4040}"
+  open "http://localhost:${port}/"
+  twistd -n web --path . -p "$port"
+}
+#alias serve="ruby -run -e httpd . -p 9090"
+#also python/twistd: twistd -n web --path .
+#node has a serve npm
+#http://get-serve.com/documentation/usage

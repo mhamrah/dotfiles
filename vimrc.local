@@ -100,7 +100,7 @@ command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
 silent! autocmd VimEnter * RemoveConflictingAlignMaps
 
 "Scalariform"
-au BufEnter *.scala setl formatprg=java\ -jar\ ~/.bin/scalariform.jar\ +alignParameters\ +alignSingleLineCaseStatements\ +compactControlReadability\ +doubleIndentClassDeclaration\ +indentLocalDefs\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+"au BufEnter *.scala setl formatprg=java\ -jar\ ~/.bin/scalariform.jar\ +alignParameters\ +alignSingleLineCaseStatements\ +compactControlReadability\ +doubleIndentClassDeclaration\ +indentLocalDefs\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
 
 au BufRead *.txt,*.md,*.html setlocal spell
 
