@@ -11,5 +11,6 @@ export TERM='xterm-256color'
 
 export VAGRANT_CPUS=4
 export VAGRANT_MEMORY=4096
+export VAGRANT_NFS=0
 
 source ~/Dropbox/Trunk/env.sh

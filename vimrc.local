@@ -59,7 +59,8 @@ endif
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   "colorscheme hammer
-  colorscheme grb256
+
+  colorscheme mlh256
   "let g something about high contrast for zenburn
 endif
 
@@ -70,14 +71,22 @@ set laststatus=2                  " Show the status line all the time
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
+
+"disable nerdtree from annoying startup mode
 let g:nerdtree_tabs_open_on_gui_startup=0
 
 "auto save when losing focus
 autocmd FocusLost * :wa
 
-"set clipboard=unnamed
+"syntack: Identify WTF is under the cursor
+"adds to statusline
+set statusline+=" hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")
 
-"TODO: syntack?
+" a little more informative version of the above
+nmap <Leader>sI :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+
+
+"whitespace management
 
 autocmd FileType c,cpp,java,php,ruby,python,scala,javascript,json autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
 
