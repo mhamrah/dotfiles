@@ -142,7 +142,7 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 "
 
 "ignore for ctrlp, etc
-set wildignore+=*.class,*.swp,*.zip,*/target/*
+set wildignore+=*.class,*.swp,*.zip,*/target/*,*/resources/*
 let g:ctrlp_working_path_mode = 'ra'
 
 " bind K to grep word under cursor

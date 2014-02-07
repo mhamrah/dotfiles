@@ -1,12 +1,9 @@
-alias mlh-cloud="ssh root@michaelhamrah.com"
-alias vi="vim"
-alias gka="gitk --all"
-
-alias ct="ctags ." #recurse and ignore is set in ctags
-#alias ctags="`brew --prefix`/bin/ctags"
-
+#ssh
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
+alias work="ssh mhamrah@nyclm6610"
+alias mlh-cloud="ssh root@michaelhamrah.com"
+alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
 alias dsa="cd ~/dev/gyi/dsa"
@@ -21,6 +18,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 #frequent commands
+alias vi="vim"
+alias gka="gitk --all"
+alias ct="ctags ." #recurse and ignore is set in ctags
 alias v="mvim"
 alias h="history"
 alias hs="h | ag"
@@ -28,9 +28,9 @@ alias j="jobs"
 alias al="mvim ~/.dotfiles/bash/aliases.sh"
 alias gr="grep -i"
 alias s="source ~/.bash_profile"
-alias work="ssh mhamrah@nyclm6610"
 # Copy my public key to the pasteboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+function del() { sed $@d ~/.ssh/known_hosts > ~/.ssh/known_hosts; }
 
 #vagrant commans (v*)
 alias vs="vagrant ssh"
