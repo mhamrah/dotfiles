@@ -24,11 +24,11 @@ hi Normal           guifg=#f6f3e8     guibg=#121212       gui=NONE      ctermfg=
 hi NonText          guifg=#070707     guibg=black       gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
 
 hi Cursor           guifg=black       guibg=white       gui=NONE      ctermfg=black       ctermbg=white       cterm=reverse
-hi LineNr           guifg=#3D3D3D     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
+hi LineNr           guifg=#3D3D3D     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=black        cterm=NONE
 
 hi VertSplit        guifg=#202020     guibg=#202020     gui=NONE      ctermfg=darkgray    ctermbg=darkgray    cterm=NONE
-hi StatusLine       guifg=#CCCCCC     guibg=#202020     gui=italic    ctermfg=white       ctermbg=darkgray    cterm=NONE
-hi StatusLineNC     guifg=black       guibg=#202020     gui=NONE      ctermfg=blue        ctermbg=darkgray    cterm=NONE  
+hi StatusLine       guifg=#e4e4e4     guibg=#444444     gui=italic    ctermfg=254         ctermbg=238    cterm=NONE
+hi StatusLineNC     guifg=#767676     guibg=#262626     gui=NONE      ctermfg=243         ctermbg=235     cterm=NONE  
 
 hi Folded           guifg=#a0a8b0     guibg=#384048     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 hi Title            guifg=#f6f3e8     guibg=NONE        gui=bold      ctermfg=NONE        ctermbg=NONE        cterm=NONE
@@ -173,3 +173,6 @@ highlight DiffAdd term=reverse cterm=bold ctermbg=lightgreen ctermfg=16
 highlight DiffChange term=reverse cterm=bold ctermbg=lightblue ctermfg=16
 highlight DiffText term=reverse cterm=bold ctermbg=lightgray ctermfg=16
 highlight DiffDelete term=reverse cterm=bold ctermbg=lightred ctermfg=16
+
+" mlh custom
+hi clear SignColumn "cterfg=white ctermbg=black
