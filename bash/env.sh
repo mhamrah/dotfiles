@@ -9,8 +9,8 @@ export TERM='xterm-256color'
 # No duplicates in history.
 #export HISTCONTROL=ignoredups
 
-export VAGRANT_CPUS=4
-export VAGRANT_MEMORY=4096
+export VAGRANT_CPUS=6
+export VAGRANT_MEMORY=8192
 export VAGRANT_NFS=0
 
 source ~/Dropbox/Trunk/env.sh
