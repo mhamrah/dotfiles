@@ -166,3 +166,7 @@ autocmd FileType go setlocal noexpandtab|setlocal nolist
 "Ctags, recursively search up
 "Ctrl-], Ctrl-T to go back
 set tags=tags;/
+
+" Recognize puppet files as ruby syntax
+au BufRead,BufNewFile *.pp        set filetype=ruby
+
