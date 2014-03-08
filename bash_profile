@@ -6,6 +6,9 @@ source ~/.bash/completion.sh
 source ~/.bash/aliases.sh
 source ~/.bash/functions.sh
 source ~/.bash/prompt.sh
+source ~/Dropbox/Trunk/alias.sh
+
+
 
 #function parse_git_dirty {
 #  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"

@@ -20,8 +20,8 @@ let colors_name = "mlh256"
 "hi Example         guifg=NONE        guibg=NONE        gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
 " General colors
-hi Normal           guifg=#f6f3e8     guibg=#121212       gui=NONE      ctermfg=NONE        ctermbg=233        cterm=NONE
-hi NonText          guifg=#070707     guibg=black       gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
+hi Normal           guifg=#f6f3e8     guibg=#262626     gui=NONE      ctermfg=NONE        ctermbg=235        cterm=NONE
+hi NonText          guifg=#070707     guibg=#1c1c1c     gui=NONE      ctermfg=black       ctermbg=234        cterm=NONE
 
 hi Cursor           guifg=black       guibg=white       gui=NONE      ctermfg=black       ctermbg=white       cterm=reverse
 hi LineNr           guifg=#3D3D3D     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=black        cterm=NONE

@@ -1,6 +1,9 @@
 source /usr/local/etc/bash_completion.d/git-completion.bash
 source /usr/local/etc/bash_completion.d/git-prompt.sh
 source /usr/local/etc/bash_completion.d/go-completion.bash
+
+#add g for git completion
+ __git_complete g _git
 #source /usr/local/etc/bash_completion.d/ag.bashcomp.sh
 
 #from http://superuser.com/questions/436314/how-can-i-get-bash-to-perform-tab-completion-for-my-aliases
