@@ -19,6 +19,10 @@ GIT_PS1_SHOWUPSTREAM="auto verbose"
   __git_ps1 #" %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
+  if [ $TMUX ]; then tmux_prompt="x "
+
+  fi
+
 bash_prompt() {
 
   # regular colors
@@ -46,7 +50,7 @@ bash_prompt() {
 
   #PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
   
-  PS1="$B\u$G@\h $B\w$R\$(__git_prompt) $C\$$RESET "
+  PS1="$B\u$G@\h $B\w$R\$(__git_prompt) $C${tmux_prompt}\$$RESET "
 }
 
 bash_prompt
