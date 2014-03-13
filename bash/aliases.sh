@@ -78,7 +78,7 @@ alias la="ls -la ${colorflag}"
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
 
 #homebrew
-alias hrm="brew cleanup --force -s; rm -rf $(brew --cache)"
+alias hrm="brew cleanup --force -s"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
