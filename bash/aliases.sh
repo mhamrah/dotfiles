@@ -77,6 +77,9 @@ alias la="ls -la ${colorflag}"
 # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
 
+#homebrew
+alias hrm="brew cleanup --force -s; rm -rf $(brew --cache)"
+
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias lip="ipconfig getifaddr en1"
