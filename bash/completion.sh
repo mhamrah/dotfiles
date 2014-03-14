@@ -1,6 +1,7 @@
-source /usr/local/etc/bash_completion.d/git-completion.bash
-source /usr/local/etc/bash_completion.d/git-prompt.sh
-source /usr/local/etc/bash_completion.d/go-completion.bash
+source ~/.bash/completion/git-completion.bash
+source ~/.bash/completion/git-prompt.sh
+source ~/.bash/completion/go-completion.bash
+source ~/.bash/completion/scala
 
 #add g for git completion
  __git_complete g _git
