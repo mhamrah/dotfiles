@@ -203,7 +203,16 @@ LINKED_FILES = filemap(
   'vim'           => '~/.vim',
   'tmux.conf'     => '~/.tmux.conf',
   'vimrc'         => '~/.vimrc',
-  'vimrc.bundles' => '~/.vimrc.bundles'
+  'vimrc.bundles' => '~/.vimrc.bundles',
+  'vimrc.local'         => '~/.vimrc.local',
+  'vimrc.bundles.local' => '~/.vimrc.bundles.local',
+  'bash_profile' => '~/.bash_profile',
+  'bash' => '~/.bash',
+  'bin' => '~/.bin',
+  'ctags' => '~/.ctags',
+  'gitconfig' => '~/.gitconfig',
+  'sbtconfig' => '~/.sbtconfig',
+  'gemrc' => '~/.gemrc'
 )
 
 desc 'Install these config files.'
@@ -251,6 +260,17 @@ task :install do
   puts
   puts "  Enjoy!"
   puts
+end
+
+namespace :install do
+  desc "install on a linux machine"
+  task :linux do
+   LINKED_FILES.each do |orig, link|
+    link_file orig, link
+   end 
+
+   Rake::Task['install:vundle'].invoke
+  end
 end
 
 desc 'Uninstall these config files.'
