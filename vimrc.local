@@ -170,4 +170,5 @@ set tags=tags;/
 "Xmllint for xml formatting
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
-nnoremap <leader>rf :%!python -m json.tool<cr>
+"format json 
+nmap <Leader>= :%!python -m json.tool<Enter>

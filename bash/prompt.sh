@@ -19,9 +19,6 @@ GIT_PS1_SHOWUPSTREAM="auto verbose"
   __git_ps1 #" %s" | sed 's/ \([+*]\{1,\}\)$/\1/'
 }
 
-  if [ $TMUX ]; then tmux_prompt="x "
-
-  fi
 
 bash_prompt() {
 
@@ -50,7 +47,19 @@ bash_prompt() {
 
   #PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
   
-  PS1="$B\u$G@\h $B\w$R\$(__git_prompt) $C${tmux_prompt}\$$RESET "
+  PS1=""
+  if [ $TMUX ]
+  then 
+    PS1+="$Y"
+    PS1+="tmux "
+  fi
+
+  if [[ -n $SSH_CONNECTION ]]
+  then
+    PS1+="$B\u$G@\h "
+  fi
+
+  PS1+="$B\w$R\$(__git_prompt) \$$RESET "
 }
 
 bash_prompt

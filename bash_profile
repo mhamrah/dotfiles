@@ -6,7 +6,10 @@ source ~/.bash/completion.sh
 source ~/.bash/aliases.sh
 source ~/.bash/functions.sh
 source ~/.bash/prompt.sh
-source ~/Dropbox/Trunk/alias.sh
+
+if [ -f ~/Dropbox/Trunk/alias.sh ]; then
+  source ~/Dropbox/Trunk/alias.sh
+fi
 
 #set vi mode
 set -o vi

@@ -13,4 +13,6 @@ export VAGRANT_CPUS=6
 export VAGRANT_MEMORY=8192
 export VAGRANT_NFS=0
 
-source ~/Dropbox/Trunk/env.sh
+if [ -f ~/Dropbox/Trunk/env.sh ]; then
+  source ~/Dropbox/Trunk/env.sh
+fi
