@@ -107,8 +107,8 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 
 #required for new copy-pipe with tmux/vim
-alias mvim="reattach-to-user-namespace mvim"
-alias vim="reattach-to-user-namespace vim"
+#alias mvim="reattach-to-user-namespace mvim"
+#alias vim="reattach-to-user-namespace vim"
 
 #functions
 
