@@ -183,7 +183,7 @@ exec /Applications/MacVim.app/Contents/MacOS/Vim "$@"
   task :vundle do
     step 'vundle'
     install_github_bundle 'gmarik','vundle'
-    sh '~/bin/vim -c "BundleInstall" -c "q" -c "q"'
+    sh 'vim -c "BundleInstall" -c "q" -c "q"'
   end
 end
 
@@ -267,7 +267,7 @@ namespace :install do
   task :linux do
    LINKED_FILES.each do |orig, link|
     link_file orig, link
-   end 
+   end
 
    Rake::Task['install:vundle'].invoke
   end
