@@ -16,3 +16,7 @@ export VAGRANT_NFS=0
 if [ -f ~/Dropbox/Trunk/env.sh ]; then
   source ~/Dropbox/Trunk/env.sh
 fi
+
+export DB_HOST=dsa-dev
+export RMQ_HOST=dsa-dev
+export ES_HOST=dsa-dev
