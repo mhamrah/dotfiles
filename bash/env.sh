@@ -20,3 +20,7 @@ fi
 export DB_HOST=dsa-dev
 export RMQ_HOST=dsa-dev
 export ES_HOST=dsa-dev
+
+if [ -f /usr/local/bin/boot2docker ]; then
+  export DOCKER_HOST=tcp://localhost:4243
+fi
