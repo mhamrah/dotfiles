@@ -1,6 +1,16 @@
 #ssh
 function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
 function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
+
+alias dcb1="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-01"
+alias dcb2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-02"
+
+alias dcc1="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-01"
+alias dcc2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-02"
+
+alias dcp1="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-01"
+alias dcp2="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-02"
+
 alias work="ssh mhamrah@nyclm6610"
 alias mlh-cloud="ssh root@michaelhamrah.com"
 alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
