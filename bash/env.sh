@@ -24,3 +24,5 @@ export ES_HOST=dsa-dev
 if [ -f /usr/local/bin/boot2docker ]; then
   export DOCKER_HOST=tcp://localhost:4243
 fi
+
+export IP_ADDR=`/sbin/ifconfig en0 | grep 'inet ' | cut -d: -f2 | awk '{ print $2}'`

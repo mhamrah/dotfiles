@@ -28,6 +28,8 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 
 #frequent commands
+alias dr="cd ~/gd"
+alias mt="sudo mount -t nfs fresutasnas.amer.gettywan.com:/tas/fs2/fadefs /mnt/tas/editorial && sudo mount -t nfs fresutasnas.amer.gettywan.com:/tas/fs2/fadcfs /mnt/tas/creative"
 alias vi="vim"
 alias gka="gitk --all"
 alias ct="ctags ." #recurse and ignore is set in ctags
