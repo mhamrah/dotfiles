@@ -13,12 +13,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'leafgarland/typescript-vim'
 Bundle 'majutsushi/tagbar'
-<<<<<<< HEAD
-Bundle 'mileszs/ack.vim'
-=======
 Bundle 'rking/ag.vim'
 Bundle 'msanders/snipmate.vim'
->>>>>>> upstream/master
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'nono/vim-handlebars'
 Bundle 'pangloss/vim-javascript'
