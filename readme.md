@@ -1,4 +1,16 @@
-# Maximum Awesome
+# Michael Hamrah's Dotfiles
+
+This is a combination of variout dotfiles found on github and square's maximum-awesome repository with linux support.
+
+### Linux Install
+
+```
+rake install:linux
+```
+
+will link up various dotfiles and deal with vundle.
+
+## Begin Maximum-Awesome
 
 Config files for vim and tmux, lovingly tended by a small subculture of
 peace-loving hippies. Built for Mac OS X.
