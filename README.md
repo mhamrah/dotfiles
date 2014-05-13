@@ -16,7 +16,7 @@ peace-loving hippies. Built for Mac OS X.
 * `,d` brings up [NERDTree](https://github.com/scrooloose/nerdtree), a sidebar buffer for navigating and manipulating files
 * `,t` brings up [ctrlp.vim](https://github.com/kien/ctrlp.vim), a project file filter for easily opening specific files
 * `,b` restricts ctrlp.vim to open buffers
-* `,a` starts project search with [ack.vim](https://github.com/mileszs/ack.vim) using [ag](https://github.com/ggreer/the_silver_searcher) (like ack)
+* `,a` starts project search with [ag.vim](https://github.com/rking/ag.vim) using [the silver searcher](https://github.com/ggreer/the_silver_searcher) (like ack, but faster)
 * `ds`/`cs` delete/change surrounding characters (e.g. `"Hey!"` + `ds"` = `Hey!`, `"Hey!"` + `cs"'` = `'Hey!'`) with [vim-surround](https://github.com/tpope/vim-surround)
 * `\\\` toggles current line comment
 * `\\` toggles visual selection comment lines
@@ -32,6 +32,12 @@ peace-loving hippies. Built for Mac OS X.
 * mouse scroll initiates tmux scroll
 * `prefix v` makes a vertical split
 * `prefix s` makes a horizontal split
+
+If you have three or more panes:
+* `prefix +` opens up the main-horizontal-layout
+* `prefix =` opens up the main-vertical-layout
+
+You can adjust the size of the smaller panes in `tmux.conf` by lowering or increasing the `other-pane-height` and `other-pane-width` options.
 
 ## Install
 
