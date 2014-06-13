@@ -92,6 +92,7 @@ alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup
 
 #homebrew
 alias hrm="brew cleanup --force -s"
+alias bc="brew cask"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
