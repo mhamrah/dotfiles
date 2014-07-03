@@ -22,7 +22,9 @@ export RMQ_HOST=dsa-dev
 export ES_HOST=dsa-dev
 
 if [ -f /usr/local/bin/boot2docker ]; then
-  export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
+  
+  export DOCKER_HOST=tcp://192.168.59.103:2375
+ # export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
 fi
 
 #export IP_ADDR=`/sbin/ifconfig en0 | grep 'inet ' | cut -d: -f2 | awk '{ print $2}'`
