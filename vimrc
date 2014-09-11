@@ -1,23 +1,23 @@
 " don't bother with vi compatibility
 set nocompatible
 
+" enable syntax highlighting
+syntax enable
+
 " configure Vundle
-filetype on " without this vim emits a zero exit status, later, because of :ft off
+" filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
   source ~/.vimrc.bundles.local
 endif
-
+call vundle#end()
 
 filetype plugin indent on
-
-" enable syntax highlighting
-syntax enable
 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -114,6 +114,9 @@ else
   let &t_SI = "\<Esc>]50;CursorShape=1\x7"
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
+" Don't copy the contents of an overwritten selection.
+vnoremap p "_dP
 
 " Go crazy!
 if filereadable(expand("~/.vimrc.local"))

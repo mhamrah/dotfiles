@@ -6,10 +6,11 @@ alias dcb1="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-01"
 alias dcb2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-02"
 
 alias dcc1="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-01"
-alias dcc2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-02"
+alias dcc2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-03"
 
 alias dcp1="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-01"
 alias dcp2="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-02"
+alias dcp3="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-03"
 
 alias work="ssh mhamrah@nyclm6610"
 alias mlh-cloud="ssh root@michaelhamrah.com"
@@ -17,7 +18,9 @@ alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
 alias dsa="cd ~/dev/gyi/dsa"
+alias core="cd ~/dev/gyi/dsa-core"
 alias inf="cd ~/dev/gyi/infrastructure"
+alias rmq="cd ~/dev/gyi/rmqtracker"
 alias dgh="cd ~/dev/gh"
 alias dp="cd ~/dev/p"
 alias d="cd ~/Dropbox"
@@ -37,7 +40,8 @@ alias v="mvim"
 alias h="history"
 alias hs="h | ag"
 alias j="jobs"
-alias al="mvim ~/.dotfiles/bash/aliases.sh"
+alias al="vim ~/.dotfiles/bash/aliases.sh"
+alias pal="vim ~/Dropbox/Trunk/alias.sh"
 alias gr="grep -i"
 alias s="source ~/.bash_profile"
 alias ta="tmux attach || tmux "
@@ -72,6 +76,9 @@ alias gc="git add . --all && git commit -m "
 alias gp="git push"
 alias gd="git diff"
 alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
+alias gmlh="glist | grep Hamrah"
+alias gclean="git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
+alias grclean="git checkout master && git branch -r --merged | grep -v master | sed -e 's/origin\//:/' | xargs git push origin"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

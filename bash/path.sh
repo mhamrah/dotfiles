@@ -8,3 +8,5 @@ export PATH=/usr/local/mysql/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 
 export PATH=~/bin:~/.bin:$PATH
+export PATH=~/mat:$PATH
+export PATH=~/bin/spark-1.0.2-bin-hadoop2/bin:~/bin/spark-1.0.2-bin-hadoop2/sbin:$PATH

@@ -153,16 +153,6 @@ nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 "nnoremap \ :Ag<SPACE>
 
-"Golang support
-filetype off
-filetype plugin indent off
-set runtimepath+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
-autocmd FileType go setlocal noexpandtab|setlocal nolist 
-
 "Ctags, recursively search up
 "Ctrl-], Ctrl-T to go back
 set tags=tags;/
