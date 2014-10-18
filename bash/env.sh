@@ -29,3 +29,5 @@ if [ -f /usr/local/bin/boot2docker ]; then
 fi
 
 #export IP_ADDR=`/sbin/ifconfig en0 | grep 'inet ' | cut -d: -f2 | awk '{ print $2}'`
+
+eval "$(hub alias -s)"

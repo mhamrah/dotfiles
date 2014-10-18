@@ -134,6 +134,24 @@ namespace :install do
     brew_install 'brew-cask'
   end
 
+  desc 'Install HomeBrew Vim'
+  task :vim do
+    step 'vim'
+    brew_install 'vim'
+  end
+
+  desc 'Custom install apps'
+  task :apps do
+    step 'google-chrome'
+    brew_cask_install 'google-chrome'
+    step 'vagrant'
+    brew_cask_install 'vagrant'
+    step 'virtualbox'
+    brew_cask_install 'virtualbox'
+    step 'java'
+    brew_cask_install 'java'
+  end
+
   desc 'Install The Silver Searcher'
   task :the_silver_searcher do
     step 'the_silver_searcher'
