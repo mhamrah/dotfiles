@@ -142,14 +142,10 @@ namespace :install do
 
   desc 'Custom install apps'
   task :apps do
-    step 'google-chrome'
-    brew_cask_install 'google-chrome'
-    step 'vagrant'
-    brew_cask_install 'vagrant'
-    step 'virtualbox'
-    brew_cask_install 'virtualbox'
-    step 'java'
-    brew_cask_install 'java'
+    BREW_CASK_APPS.each do |app|
+      step app
+      brew_cask_install app
+    end
   end
 
   desc 'Install The Silver Searcher'
@@ -228,11 +224,6 @@ def filemap(map)
   end.freeze
 end
 
-COPIED_FILES = filemap(
-  'vimrc.local'         => '~/.vimrc.local',
-  'vimrc.bundles.local' => '~/.vimrc.bundles.local'
-)
-
 LINKED_FILES = filemap(
   'vim'           => '~/.vim',
   'tmux.conf'     => '~/.tmux.conf',
@@ -243,12 +234,24 @@ LINKED_FILES = filemap(
   'vimrc.bundles.local' => '~/.vimrc.bundles.local',
   'bash_profile' => '~/.bash_profile',
   'bash' => '~/.bash',
-  'bin' => '~/.bin',
   'ctags' => '~/.ctags',
   'gitconfig' => '~/.gitconfig',
   'sbtconfig' => '~/.sbtconfig',
   'gemrc' => '~/.gemrc'
 )
+
+BREW_CASK_APPS = [
+  "google-chrome",
+  "dropbox",
+  "google-drive",
+  "alfred",
+  "vagrant",
+  "virtualbox",
+  "java",
+  "packer",
+  "sizeup",
+  "evernote"
+]
 
 desc 'Install these config files.'
 task :install do
