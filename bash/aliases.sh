@@ -18,6 +18,7 @@ alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
 alias dsa="cd ~/dev/gyi/dsa"
+alias dgi="cd ~/dev/gyi"
 alias core="cd ~/dev/gyi/dsa-core"
 alias inf="cd ~/dev/gyi/infrastructure"
 alias rmq="cd ~/dev/gyi/rmqtracker"
