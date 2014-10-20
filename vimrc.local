@@ -112,9 +112,6 @@ silent! autocmd VimEnter * RemoveConflictingAlignMaps
 set wildignore+=*.class,*.swp,*.zip,*/target/*,*/resources/*
 let g:ctrlp_working_path_mode = 'ra'
 
-" bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>
-
 "Ctags, recursively search up
 "Ctrl-], Ctrl-T to go back
 set tags=tags;/
