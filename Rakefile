@@ -119,7 +119,7 @@ namespace :install do
   desc 'Update or Install Brew'
   task :brew do
     step 'Homebrew'
-    unless system('which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"')
+    unless system('which brew > /dev/null || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"')
       raise "Homebrew must be installed before continuing."
     end
   end
@@ -127,17 +127,20 @@ namespace :install do
   desc 'Install Homebrew Cask'
   task :brew_cask do
     step 'Homebrew Cask'
-    unless system('brew tap | grep phinze/cask > /dev/null') || system('brew tap phinze/homebrew-cask')
-      abort "Failed to tap phinze/homebrew-cask in Homebrew."
-    end
 
-    brew_install 'brew-cask'
+    brew_install 'caskroom/cask/brew-cask'
   end
 
   desc 'Install HomeBrew Vim'
   task :vim do
     step 'vim'
     brew_install 'vim'
+  end
+
+  desc 'Install github hub'
+  task :hub do
+    step 'hub'
+    sh "gem install hub"
   end
 
   desc 'Custom install apps'
@@ -273,10 +276,6 @@ task :install do
     link_file orig, link
   end
 
-  COPIED_FILES.each do |orig, copy|
-    cp orig, copy, :verbose => true unless File.exist?(copy)
-  end
-
   # Install Vundle and bundles
   Rake::Task['install:vundle'].invoke
 
@@ -318,11 +317,6 @@ task :uninstall do
   # un-symlink files that still point to the installed locations
   LINKED_FILES.each do |orig, link|
     unlink_file orig, link
-  end
-
-  # delete unchanged copied files
-  COPIED_FILES.each do |orig, copy|
-    rm_f copy, :verbose => true if File.read(orig) == File.read(copy)
   end
 
   step 'homebrew'
