@@ -8,6 +8,7 @@ inoremap jj <ESC>
 nnoremap ; :
 vnoremap ; :
 
+set nospell
 set showmode "show the mode you're in
 
 " Allow backgrounding buffers without writing them, and remember marks/undo

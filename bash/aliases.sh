@@ -17,9 +17,10 @@ alias mlh-cloud="ssh root@michaelhamrah.com"
 alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
-alias dsa="cd ~/dev/gyi/dsa"
+alias per="cd ~/dev/gyi/persistence"
+alias mgmt="cd ~/dev/gyi/management"
 alias dgi="cd ~/dev/gyi"
-alias core="cd ~/dev/gyi/dsa-core"
+alias core="cd ~/dev/gyi/core"
 alias inf="cd ~/dev/gyi/infrastructure"
 alias rmq="cd ~/dev/gyi/rmqtracker"
 alias dgh="cd ~/dev/gh"
