@@ -24,7 +24,7 @@ export METADATA_DB_HOST=dsa-dev
 
 if [ -f /usr/local/bin/boot2docker ]; then
  # export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
- export DOCKER_HOST=tcp://192.168.59.103:2376
+ export DOCKER_HOST=tcp://192.168.59.104:2376
  export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
  export DOCKER_TLS_VERIFY=1
 fi

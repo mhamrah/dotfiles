@@ -127,3 +127,5 @@ au BufEnter *.scala setl equalprg=java\ -jar\ ~/Dropbox/bin/scalariform.jar\ -f\
 
 "reindent file, but stay on line
 inoremap <leader>ri <ESC>gg=G<CR>''i
+
+autocmd filetype go set nolist
