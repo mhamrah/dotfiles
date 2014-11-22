@@ -17,6 +17,7 @@ alias mlh-cloud="ssh root@michaelhamrah.com"
 alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
+alias dsa="cd ~/dev/gyi/docker-fig"
 alias per="cd ~/dev/gyi/persistence"
 alias mgmt="cd ~/dev/gyi/management"
 alias dgi="cd ~/dev/gyi"
