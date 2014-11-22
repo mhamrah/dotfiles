@@ -1,4 +1,4 @@
-" Bundles here are part of the core Maximum Awesome setup
+" bundles here are part of the core Maximum Awesome setup
 " Do NOT add bundles to this list, as they might get removed when you upgrade
 " Maximum Awesome.
 " Please create ~/.vim.bundles.local and add any extra bundles you want there

@@ -76,9 +76,6 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 "disable nerdtree from annoying startup mode
 let g:nerdtree_tabs_open_on_gui_startup=0
 
-"auto save when losing focus
-autocmd FocusLost * :wa
-
 "syntack: Identify WTF is under the cursor
 "adds to statusline
 set statusline+=" hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")
@@ -91,7 +88,8 @@ nmap <Leader>sI :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '>
 
 autocmd FileType c,cpp,java,php,ruby,python,scala,javascript,json autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
 
-autocmd BufLeave,FocusLost,VimResized * silent! wall
+autocmd BufLeave,FocusLost,WinLeave,VimResized * silent! wall
+autocmd BufEnter,CursorMoved,CursorMovedI,CursorHold,CursorHoldI * silent! checktime
 
 " Disambiguate ,a & ,t from the Align plugin, making them fast again.
 "
