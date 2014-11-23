@@ -34,3 +34,4 @@ export DOCKER_HOST=tcp://192.168.33.59:2375
 eval "$(hub alias -s)"
 
 export VAGRANT_DEFAULT_PROVIDER=parallels
+export FLEETCTL_TUNNEL="10.211.55.14:22"
