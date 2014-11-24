@@ -30,8 +30,10 @@ export METADATA_DB_HOST=dsa-dev
 #fi
 
 #export IP_ADDR=`/sbin/ifconfig en0 | grep 'inet ' | cut -d: -f2 | awk '{ print $2}'`
-export DOCKER_HOST=tcp://192.168.33.59:2375
 eval "$(hub alias -s)"
 
 export VAGRANT_DEFAULT_PROVIDER=parallels
-export FLEETCTL_TUNNEL="10.211.55.14:22"
+#export FLEETCTL_TUNNEL="10.211.55.14:22"
+#export FLEETCTL_TUNNEL="10.211.55.19:22"
+#export DOCKER_HOST=tcp://172.17.8.101:2375
+export DOCKER_HOST=tcp://192.168.33.59:2375
