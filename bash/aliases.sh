@@ -17,7 +17,6 @@ alias mlh-cloud="ssh root@michaelhamrah.com"
 alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 
 #Directories
-alias dot="cd ~/.dotfiles"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."

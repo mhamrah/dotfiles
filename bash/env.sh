@@ -22,18 +22,8 @@ export RMQ_HOST=dsa-dev
 export ES_HOST=dsa-dev
 export METADATA_DB_HOST=dsa-dev
 
-#if [ -f /usr/local/bin/boot2docker ]; then
- # export DOCKER_HOST=tcp://$(boot2docker ip 2>/dev/null):2375
-# export DOCKER_HOST=tcp://192.168.59.103:2376
-# export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
-# export DOCKER_TLS_VERIFY=1
-#fi
-
-#export IP_ADDR=`/sbin/ifconfig en0 | grep 'inet ' | cut -d: -f2 | awk '{ print $2}'`
 eval "$(hub alias -s)"
 
 export VAGRANT_DEFAULT_PROVIDER=parallels
-#export FLEETCTL_TUNNEL="10.211.55.14:22"
-#export FLEETCTL_TUNNEL="10.211.55.19:22"
-#export DOCKER_HOST=tcp://172.17.8.101:2375
-export DOCKER_HOST=tcp://192.168.33.59:2375
+export DOCKER_HOST=tcp://10.211.55.61:2375
+export FLEETCTL_TUNNEL=10.211.55.61:22
