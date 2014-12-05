@@ -131,12 +131,6 @@ namespace :install do
     brew_install 'caskroom/cask/brew-cask'
   end
 
-  desc 'Install HomeBrew Vim'
-  task :vim do
-    step 'vim'
-    brew_install 'vim'
-  end
-
   desc 'Install github hub'
   task :hub do
     step 'hub'
@@ -151,12 +145,6 @@ namespace :install do
     end
   end
 
-  desc 'Install The Silver Searcher'
-  task :the_silver_searcher do
-    step 'the_silver_searcher'
-    brew_install 'the_silver_searcher'
-  end
-
   desc 'Install iTerm'
   task :iterm do
     step 'iterm2'
@@ -165,24 +153,12 @@ namespace :install do
     end
   end
 
-  desc 'Install ctags'
-  task :ctags do
-    step 'ctags'
-    brew_install 'ctags'
-  end
-
   desc 'Install brew apps'
-  task :brew do
+  task :brew_apps do
     BREW_APPS.each do |app|
       step app
       brew_install app
     end
-  end
-
-  desc 'Install reattach-to-user-namespace'
-  task :reattach_to_user_namespace do
-    step 'reattach-to-user-namespace'
-    brew_install 'reattach-to-user-namespace'
   end
 
   desc 'Install tmux'
@@ -220,7 +196,8 @@ LINKED_FILES = filemap(
   'ctags' => '~/.ctags',
   'gitconfig' => '~/.gitconfig',
   'sbtconfig' => '~/.sbtconfig',
-  'gemrc' => '~/.gemrc'
+  'gemrc' => '~/.gemrc',
+  '~/gd/Trunk/sbt' => '~/.sbt'
 )
 
 BREW_APPS = [
@@ -228,7 +205,12 @@ BREW_APPS = [
   "docker",
   "fleetctl",
   "etcdctl",
-  "postgres"
+  "postgres",
+  "sbt",
+  "reattach-to-user-namespace",
+  "ctags",
+  "the_silver_searcher",
+  "vim"
 ]
 
 BREW_CASK_APPS = [
@@ -251,10 +233,8 @@ desc 'Install these config files.'
 task :install do
   Rake::Task['install:brew'].invoke
   Rake::Task['install:brew_cask'].invoke
-  Rake::Task['install:the_silver_searcher'].invoke
   Rake::Task['install:iterm'].invoke
-  Rake::Task['install:ctags'].invoke
-  Rake::Task['install:reattach_to_user_namespace'].invoke
+  Rake::Task['install:brew_apps'].invoke
   Rake::Task['install:tmux'].invoke
 
   # TODO install gem ctags?
