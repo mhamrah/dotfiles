@@ -22,8 +22,11 @@ export RMQ_HOST=dsa-dev
 export ES_HOST=dsa-dev
 export METADATA_DB_HOST=dsa-dev
 
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 eval "$(hub alias -s)"
 
 export VAGRANT_DEFAULT_PROVIDER=parallels
-export DOCKER_HOST=tcp://10.211.55.61:2375
-export FLEETCTL_TUNNEL=10.211.55.61:22
+export DOCKER_HOST=tcp://10.211.55.4:2375
+export FLEETCTL_TUNNEL=10.211.55.4:22
+export ETCDCTL_PEERS=http://10.211.55.4:4001
