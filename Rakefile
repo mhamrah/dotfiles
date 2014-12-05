@@ -226,7 +226,8 @@ BREW_CASK_APPS = [
   "java",
   "packer",
   "sizeup",
-  "evernote"
+  "evernote",
+  "cloudup"
 ]
 
 desc 'Install these config files.'
