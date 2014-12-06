@@ -120,8 +120,8 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 let g:scala_sort_across_groups=1
 let g:scala_first_party_namespaces='\(hamrah\|gettyimages\|dsa\)'
-au BufEnter *.scala setl formatprg=java\ -jar\ ~/Dropbox/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
-au BufEnter *.scala setl equalprg=java\ -jar\ ~/Dropbox/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+au BufEnter *.scala setl formatprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+au BufEnter *.scala setl equalprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
 
 "reindent file, but stay on line
 inoremap <leader>ri <ESC>gg=G<CR>''i

@@ -195,7 +195,7 @@ LINKED_FILES = filemap(
   'bash' => '~/.bash',
   'ctags' => '~/.ctags',
   'gitconfig' => '~/.gitconfig',
-  'sbtconfig' => '~/.sbtconfig',
+  'sbtopts' => '/usr/local/etc/sbtopts',
   'gemrc' => '~/.gemrc',
   '~/gd/Trunk/sbt' => '~/.sbt'
 )
