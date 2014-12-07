@@ -30,3 +30,7 @@ export VAGRANT_DEFAULT_PROVIDER=parallels
 export DOCKER_HOST=tcp://10.211.55.4:2375
 export FLEETCTL_TUNNEL=10.211.55.4:22
 export ETCDCTL_PEERS=http://10.211.55.4:4001
+
+if [ -f /usr/libexec/java_home ]; then
+  export JAVA_HOME="$(/usr/libexec/java_home)"
+fi
