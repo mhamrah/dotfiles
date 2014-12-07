@@ -213,7 +213,8 @@ BREW_APPS = [
   "reattach-to-user-namespace",
   "ctags",
   "the_silver_searcher",
-  "vim"
+  "vim",
+  "jq"
 ]
 
 BREW_CASK_APPS = [
