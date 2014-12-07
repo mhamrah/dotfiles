@@ -201,6 +201,9 @@ LINKED_FILES = filemap(
 )
 
 BREW_APPS = [
+  "node",
+  "g8",
+  "rocksdb",
   "go",
   "docker",
   "fleetctl",
