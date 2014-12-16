@@ -1,19 +1,18 @@
--J-Xmx2G
--J-XX:+UseConcMarkSweepGC
 -J-XX:+CMSClassUnloadingEnabled
+-J-XX:+UseConcMarkSweepGC
 
 # ------------------------------------------------ #
 #  The SBT Configuration file.                     #
 # ------------------------------------------------ #
 
-
+-mem 2048
 # Disable ANSI color codes
 #
 #-no-colors
 
 # Starts sbt even if the current directory contains no sbt project.
 #
--sbt-create
+#-sbt-create
 
 # Path to global settings/plugins directory (default: ~/.sbt)
 #
