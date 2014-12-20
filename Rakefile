@@ -232,8 +232,13 @@ BREW_CASK_APPS = [
   "packer",
   "sizeup",
   "evernote",
-  "cloudup"
+  "handbrake",
+  "cloudup",
+  "spotify",
+  "caffeine"
 ]
+
+#cleanmymac, camtasia, grandperspective, macpaw gemini
 
 desc 'Install these config files.'
 task :install do
