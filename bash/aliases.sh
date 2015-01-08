@@ -37,6 +37,7 @@ alias gr="grep -i"
 alias s="source ~/.bash_profile"
 alias ta="tmux attach || tmux "
 alias es="env | grep"
+alias server="serve ."
 
 # Copy my public key to the pasteboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
