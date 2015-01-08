@@ -218,6 +218,7 @@ BREW_APPS = [
 ]
 
 BREW_CASK_APPS = [
+  "github",
   "dash",
   "spotify",
   "parallels-desktop",

@@ -20,6 +20,7 @@ alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
+alias j=jump
 
 #frequent commands
 alias dr="cd ~/gd"
@@ -30,7 +31,6 @@ alias ct="ctags ." #recurse and ignore is set in ctags
 alias v="mvim"
 alias h="history"
 alias hs="h | ag"
-alias j="jobs"
 alias al="vim ~/.dotfiles/bash/aliases.sh"
 alias pal="vim ~/Dropbox/Trunk/alias.sh"
 alias gr="grep -i"
