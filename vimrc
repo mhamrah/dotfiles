@@ -20,7 +20,7 @@ filetype plugin indent on
 
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
-set backspace=2                                              " Fix broken backspace in some setups
+set backspace=indent,eol,start
 set backupcopy=yes                                           " see :help crontab
 set clipboard=unnamed                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
@@ -74,7 +74,7 @@ cmap w!! %!sudo tee > /dev/null %
 " plugin settings
 let g:ctrlp_match_window = 'order:ttb,max:20'
 let g:NERDSpaceDelims=1
-let g:gitgutter_enabled = 1 
+let g:gitgutter_enabled = 1
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -171,9 +171,9 @@ endif
 " gui settings
 if (&t_Co == 256 || has('gui_running'))
   "colorscheme mlh256
-  
-  "colorscheme lucius
-  "LuciusDark
+
+  colorscheme lucius
+  LuciusDark
 
   "colorscheme flatlandia
 endif
@@ -256,3 +256,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_tidy_exec='/usr/local/bin/tidy'
+let g:syntastic_html_tidy_ignore_errors = ['yo', 'mlh', 'proprietary attribute']
