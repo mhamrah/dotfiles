@@ -13,7 +13,6 @@ call vundle#begin()
 " install Vundle bundles
 if filereadable(expand("~/.vimrc.bundles"))
   source ~/.vimrc.bundles
-  source ~/.vimrc.bundles.local
 endif
 call vundle#end()
 
@@ -62,11 +61,12 @@ nmap <leader>d :NERDTreeToggle<CR>
 nmap <leader>f :NERDTreeFind<CR>
 nmap <leader>t :CtrlP<CR>
 nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
-"nmap <leader>] :TagbarToggle<CR>
+nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
 nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>z :ThematicNext<CR>
 
 " in case you forgot to sudo
 cmap w!! %!sudo tee > /dev/null %
@@ -94,14 +94,6 @@ endif
 autocmd BufRead,BufNewFile *.fdoc set filetype=yaml
 " md is markdown
 autocmd BufRead,BufNewFile *.md set filetype=markdown
-autocmd BufRead,BufNewFile *.md set spell
-" extra rails.vim help
-autocmd User Rails silent! Rnavcommand decorator      app/decorators            -glob=**/* -suffix=_decorator.rb
-autocmd User Rails silent! Rnavcommand observer       app/observers             -glob=**/* -suffix=_observer.rb
-autocmd User Rails silent! Rnavcommand feature        features                  -glob=**/* -suffix=.feature
-autocmd User Rails silent! Rnavcommand job            app/jobs                  -glob=**/* -suffix=_job.rb
-autocmd User Rails silent! Rnavcommand mediator       app/mediators             -glob=**/* -suffix=_mediator.rb
-autocmd User Rails silent! Rnavcommand stepdefinition features/step_definitions -glob=**/* -suffix=_steps.rb
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -117,16 +109,150 @@ endif
 " Don't copy the contents of an overwritten selection.
 vnoremap p "_dP
 
-" Go crazy!
-if filereadable(expand("~/.vimrc.local"))
-  " In your .vimrc.local, you might like:
-  "
-  " set autowrite
-  " set nocursorline
-  " set nowritebackup
-  " set whichwrap+=<,>,h,l,[,] " Wrap arrow keys between lines
-  "
-  " autocmd! bufwritepost .vimrc source ~/.vimrc
-  " noremap! jj <ESC>
-  source ~/.vimrc.local
+set nocursorline " don't highlight current line
+set relativenumber
+
+" keyboard shortcuts
+inoremap jj <ESC>
+
+"use ; as the command leader
+nnoremap ; :
+vnoremap ; :
+
+set nospell
+set showmode "show the mode you're in
+
+" Allow backgrounding buffers without writing them, and remember marks/undo
+" for backgrounded buffers
+set hidden
+
+set showmatch
+set hlsearch
+set autoread
+
+set autowrite
+set autowriteall
+set nowritebackup
+
+"disable backup and swaps
+set nobackup
+set noswapfile
+
+"Store temporary files in a central spot
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+if has("gui_running")
+  set noballooneval
+  set go-=T
 endif
+
+set title
+set visualbell
+set noerrorbells
+
+set history=300
+set undolevels=300
+
+"split and move
+nnoremap <leader>v <C-w>v<C-w>l
+nnoremap <leader>s <C-w>s<C-w>j
+
+"close window
+map <leader>qw <C-w>q<cr>
+
+"clear current search
+nnoremap <leader>n :noh<cr>
+
+if !has('gui_running')
+  set term=screen-256color
+endif
+
+" gui settings
+if (&t_Co == 256 || has('gui_running'))
+  "colorscheme mlh256
+  
+  "colorscheme lucius
+  "LuciusDark
+
+  "colorscheme flatlandia
+endif
+
+let g:thematic#themes = {
+      \ 'mlh256': { },
+      \ 'flatlandia': { },
+      \ 'pencil_dark' :{'colorscheme': 'pencil',
+      \                 'background': 'dark',
+      \                 'airline-theme': 'badwolf',
+      \                 'ruler': 1,
+      \                }
+      \ }
+
+autocmd! bufwritepost vimrc source ~/.vimrc
+
+set laststatus=2                  " Show the status line all the time
+
+"disable nerdtree from annoying startup mode
+let g:nerdtree_tabs_open_on_gui_startup=0
+
+" a little more informative version of the above
+nmap <Leader>sI :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
+
+
+"whitespace management
+
+autocmd FileType c,cpp,java,php,ruby,python,scala,javascript,json autocmd BufWritePre <buffer> :call whitespace#strip_trailing()
+
+autocmd BufLeave,FocusLost,WinLeave,VimResized * silent! wall
+autocmd BufEnter,CursorMoved,CursorMovedI,CursorHold,CursorHoldI * silent! checktime
+
+" Disambiguate ,a & ,t from the Align plugin, making them fast again.
+"
+" This section is here to prevent AlignMaps from adding a bunch of mappings
+" that interfere with the very-common ,a and ,t mappings. This will get run
+" at every startup to remove the AlignMaps for the *next* vim startup.
+"
+" If you do want the AlignMaps mappings, remove this section, remove
+" ~/.vim/bundle/Align, and re-run rake in maximum-awesome.
+function! s:RemoveConflictingAlignMaps()
+  if exists("g:loaded_AlignMapsPlugin")
+    AlignMapsClean
+  endif
+endfunction
+command! -nargs=0 RemoveConflictingAlignMaps call s:RemoveConflictingAlignMaps()
+silent! autocmd VimEnter * RemoveConflictingAlignMaps
+
+"ignore for ctrlp, etc
+set wildignore+=*.class,*.swp,*.zip,*/target/*,*/resources/*
+let g:ctrlp_working_path_mode = 'ra'
+
+"Ctags, recursively search up
+"Ctrl-], Ctrl-T to go back
+set tags=tags;/
+
+"Xmllint for xml formatting
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+let g:scala_sort_across_groups=1
+let g:scala_first_party_namespaces='\(hamrah\|gettyimages\|dsa\)'
+au BufEnter *.scala setl formatprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+au BufEnter *.scala setl equalprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
+
+"reindent file, but stay on line
+inoremap <leader>ri <ESC>gg=G<CR>''i
+nnoremap <leader>ri gg=G<CR>''
+
+autocmd filetype go set nolist
+
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd call pencil#init()
+  autocmd FileType text         call pencil#init()
+augroup END
+
+let g:airline#extensions#tabline#enabled = 1
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
