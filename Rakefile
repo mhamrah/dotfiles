@@ -189,14 +189,13 @@ LINKED_FILES = filemap(
   'tmux-osx.conf'     => '~/.tmux-osx.conf',
   'vimrc'         => '~/.vimrc',
   'vimrc.bundles' => '~/.vimrc.bundles',
-  'vimrc.local'         => '~/.vimrc.local',
-  'vimrc.bundles.local' => '~/.vimrc.bundles.local',
   'bash_profile' => '~/.bash_profile',
   'bash' => '~/.bash',
   'ctags' => '~/.ctags',
   'gitconfig' => '~/.gitconfig',
   'sbtopts' => '/usr/local/etc/sbtopts',
   'gemrc' => '~/.gemrc',
+  'zshrc' => '~/.zshrc',
   '~/gd/Trunk/sbt' => '~/.sbt'
 )
 
