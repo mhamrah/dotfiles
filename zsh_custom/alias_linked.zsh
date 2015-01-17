@@ -1,0 +1,1 @@
+/Users/mhamrah/.dotfiles/bash/aliases.sh
