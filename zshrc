@@ -6,6 +6,8 @@ export ZSH=$HOME/.dotfiles/zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
+ZSH_THEME="af-magic"
+ZSH_THEME="hammer"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -45,7 +47,7 @@ ZSH_CUSTOM=$HOME/.dotfiles/zsh_custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git tmux vundle jump bower docker github go postgres sbt scala vagrant node npm bundler rake ruby rvm pip brew osx themes git-extras redis-cli)
+plugins=(git zsh-git-prompt tmux vundle jump bower docker github go postgres sbt scala vagrant node npm bundler rake ruby rvm pip brew osx themes git-extras redis-cli)
 
 # User configuration
 
