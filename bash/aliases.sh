@@ -62,7 +62,7 @@ function del() { sed $@d ~/.ssh/known_hosts > ~/.ssh/known_hosts; }
 #git
 #alias g="git"
 #alias gs="git status "
-#alias gc="git add . --all && git commit -m "
+alias gc="git add . --all && git commit -m "
 #alias gp="git push"
 #alias gd="git diff"
 #alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
