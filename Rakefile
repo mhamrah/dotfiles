@@ -213,7 +213,8 @@ BREW_APPS = [
   "ctags",
   "the_silver_searcher",
   "vim",
-  "jq"
+  "jq",
+  "git-extras"
 ]
 
 BREW_CASK_APPS = [
