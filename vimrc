@@ -107,7 +107,7 @@ else
 endif
 
 " Don't copy the contents of an overwritten selection.
-vnoremap p "_dP
+" vnoremap p "_dP
 
 set nocursorline " don't highlight current line
 set relativenumber
