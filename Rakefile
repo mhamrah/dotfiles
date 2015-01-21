@@ -214,6 +214,7 @@ BREW_APPS = [
   "the_silver_searcher",
   "vim",
   "jq",
+  "ansible",
   "git-extras"
 ]
 
