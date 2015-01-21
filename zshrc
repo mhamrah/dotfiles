@@ -41,3 +41,5 @@ PROMPT='%{$fg[cyan]%}%~${fg[white]%} $(git_super_status) %# '
 source $HOME/.dotfiles/bash/env.sh
 source $HOME/.dotfiles/bash/aliases.sh
 source $HOME/.dotfiles/bash/path.sh
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
