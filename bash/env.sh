@@ -34,3 +34,5 @@ export ETCDCTL_PEERS=http://10.211.55.7:4001
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
 fi
+
+export EDITOR="vim"
