@@ -27,9 +27,14 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 eval "$(hub alias -s)"
 
 export VAGRANT_DEFAULT_PROVIDER=parallels
-export DOCKER_HOST=tcp://10.211.55.7:2375
-export FLEETCTL_TUNNEL=10.211.55.7:22
-export ETCDCTL_PEERS=http://10.211.55.7:4001
+#export DOCKER_HOST=tcp://10.211.55.7:2375
+#export FLEETCTL_TUNNEL=10.211.55.7:22
+#export ETCDCTL_PEERS=http://10.211.55.7:4001
+
+
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"

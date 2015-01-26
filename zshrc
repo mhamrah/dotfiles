@@ -1,13 +1,14 @@
 source $HOME/.dotfiles/antigen/antigen.zsh
 
 
-#antigen use oh-my-zsh
+antigen use oh-my-zsh
 #
-antigen use prezto
+#antigen use prezto
 antigen bundles <<EOBUNDLES
 
-#git
-#zsh-users/zsh-syntax-highlighting
+git
+gitfast
+zsh-users/zsh-syntax-highlighting
 
 #brew
 #brew-cask
@@ -19,14 +20,14 @@ antigen bundles <<EOBUNDLES
 #bower
 #bundler
 #common-aliases
-#docker
+docker
 #git-extras
 #github
-#jump
+jump
 #redis-cli
 #sbt
 #scala
-#tmux
+tmux
 #vagrant
 
 #olivierverdier/zsh-git-prompt
@@ -34,16 +35,23 @@ antigen bundles <<EOBUNDLES
 
 EOBUNDLES
 
-#antigen theme fox
+antigen theme sorin
 antigen apply
 
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}"
+#ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}"
+#ZSH_THEME_GIT_PROMPT_DIRTY=" ⚑"
+#ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
+GIT_PS1_SHOWUPSTREAM="auto verbose"
+#setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+#PROMPT='%{$fg[cyan]%}%~${fg[white]%} $(git_super_status) %# '
 
-PROMPT='%{$fg[cyan]%}%~${fg[white]%} $(git_super_status) %# '
+source $HOME/.dotfiles/bash/env.sh
+source $HOME/.dotfiles/bash/aliases.sh
+source $HOME/.dotfiles/bash/path.sh
 
-#source $HOME/.dotfiles/bash/env.sh
-#source $HOME/.dotfiles/bash/aliases.sh
-#source $HOME/.dotfiles/bash/path.sh
-
+if [ -f ~/Dropbox/Trunk/alias.sh ]; then
+  source ~/Dropbox/Trunk/alias.sh
+fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+
