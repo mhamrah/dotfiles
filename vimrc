@@ -256,3 +256,4 @@ let g:vimshell_force_overwrite_statusline = 0
 
 "let g:airline_theme='zenburn'
 let g:airline_theme='lucius'
+let g:bufferline_echo = 0
