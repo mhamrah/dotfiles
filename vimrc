@@ -254,6 +254,14 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
-"let g:airline_theme='zenburn'
-let g:airline_theme='lucius'
+let g:airline_theme='zenburn'
 let g:bufferline_echo = 0
+
+let g:tmuxline_theme='powerline'
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '}
+
