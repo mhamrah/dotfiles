@@ -41,7 +41,7 @@ antigen apply
 #ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{+%G%}"
 #ZSH_THEME_GIT_PROMPT_DIRTY=" ⚑"
 #ZSH_THEME_GIT_PROMPT_CLEAN=" ✔"
-GIT_PS1_SHOWUPSTREAM="auto verbose"
+GIT_PS1_SHOWUPSTREAM="verbose"
 #setopt PROMPT_SUBST ; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
 #PROMPT='%{$fg[cyan]%}%~${fg[white]%} $(git_super_status) %# '
 
