@@ -1,5 +1,67 @@
 ENV['HOMEBREW_CASK_OPTS'] = "--appdir=/Applications"
 
+LINKED_FILES = filemap(
+  'vim'           => '~/.vim',
+  'tmux.conf'     => '~/.tmux.conf',
+  'tmux-osx.conf'     => '~/.tmux-osx.conf',
+  'vimrc'         => '~/.vimrc',
+  'vimrc.bundles' => '~/.vimrc.bundles',
+  'bash_profile' => '~/.bash_profile',
+  'bash' => '~/.bash',
+  'ctags' => '~/.ctags',
+  'gitconfig' => '~/.gitconfig',
+  'sbtopts' => '/usr/local/etc/sbtopts',
+  'gemrc' => '~/.gemrc',
+  'zshrc' => '~/.zshrc',
+  '~/gd/Trunk/sbt' => '~/.sbt'
+)
+
+BREW_APPS = [
+  "node",
+  "g8",
+  "rocksdb",
+  "go",
+  "docker",
+  "fleetctl",
+  "etcdctl",
+  "postgres",
+  "sbt",
+  "reattach-to-user-namespace",
+  "ctags",
+  "the_silver_searcher",
+  "vim",
+  "jq",
+  "ansible",
+  "git-extras",
+  "zsh"
+]
+
+BREW_CASK_APPS = [
+  "github",
+  "dash",
+  "spotify",
+  "parallels-desktop",
+  "google-cloud-sdk",
+  "google-chrome",
+  "dropbox",
+  "google-drive",
+  "alfred",
+  "vagrant",
+  "virtualbox",
+  "java",
+  "packer",
+  "sizeup",
+  "evernote",
+  "handbrake",
+  "cloudup",
+  "spotify",
+  "caffeine",
+  "sublime-text"
+]
+
+#cleanmymac, camtasia, grandperspective, macpaw gemini
+
+
 def brew_install(package, *args)
   versions = `brew list #{package} --versions`
   options = args.last.is_a?(Hash) ? args.pop : {}
@@ -182,66 +244,6 @@ def filemap(map)
     result
   end.freeze
 end
-
-LINKED_FILES = filemap(
-  'vim'           => '~/.vim',
-  'tmux.conf'     => '~/.tmux.conf',
-  'tmux-osx.conf'     => '~/.tmux-osx.conf',
-  'vimrc'         => '~/.vimrc',
-  'vimrc.bundles' => '~/.vimrc.bundles',
-  'bash_profile' => '~/.bash_profile',
-  'bash' => '~/.bash',
-  'ctags' => '~/.ctags',
-  'gitconfig' => '~/.gitconfig',
-  'sbtopts' => '/usr/local/etc/sbtopts',
-  'gemrc' => '~/.gemrc',
-  'zshrc' => '~/.zshrc',
-  '~/gd/Trunk/sbt' => '~/.sbt'
-)
-
-BREW_APPS = [
-  "node",
-  "g8",
-  "rocksdb",
-  "go",
-  "docker",
-  "fleetctl",
-  "etcdctl",
-  "postgres",
-  "sbt",
-  "reattach-to-user-namespace",
-  "ctags",
-  "the_silver_searcher",
-  "vim",
-  "jq",
-  "ansible",
-  "git-extras"
-]
-
-BREW_CASK_APPS = [
-  "github",
-  "dash",
-  "spotify",
-  "parallels-desktop",
-  "google-cloud-sdk",
-  "google-chrome",
-  "dropbox",
-  "google-drive",
-  "alfred",
-  "vagrant",
-  "virtualbox",
-  "java",
-  "packer",
-  "sizeup",
-  "evernote",
-  "handbrake",
-  "cloudup",
-  "spotify",
-  "caffeine"
-]
-
-#cleanmymac, camtasia, grandperspective, macpaw gemini
-
 desc 'Install these config files.'
 task :install do
   Rake::Task['install:brew'].invoke
