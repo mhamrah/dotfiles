@@ -29,12 +29,12 @@ alias vi="vim"
 alias ct="ctags ." #recurse and ignore is set in ctags
 alias h="history"
 alias hs="h | ag"
-#alias al="vim ~/.dotfiles/bash/aliases.sh"
-#alias pal="vim ~/Dropbox/Trunk/alias.sh"
+alias al="vim ~/.dotfiles/bash/aliases.sh"
+alias pal="vim ~/Dropbox/Trunk/alias.sh"
 #alias gr="grep -i"
 alias s="source ~/.zshrc"
 #alias ta="tmux attach || tmux "
-#alias es="env | grep"
+alias es="env | grep"
 alias server="serve ."
 
 # Copy my public key to the pasteboard
@@ -57,7 +57,7 @@ alias drs="docker run -i -t"
 alias dps="docker ps"
 alias di="docker images"
 alias drsc="docker ps -a -q | xargs docker rm"
-alias drmi="docker images | grep '<none>' | awk '{print $3}' | xargs docker rmi "
+alias drmi="docker images | grep '<none>' | awk '{ print $3 } ' | xargs docker rmi"
 
 #git
 #alias g="git"

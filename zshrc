@@ -55,3 +55,10 @@ fi
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
+# OS X only:
+# "o file.txt" = open file in default app.
+# "o http://example.com" = open URL in default browser.
+# "o" = open pwd in Finder.
+function o {
+  open ${@:-'.'}
+}
