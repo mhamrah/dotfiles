@@ -57,7 +57,7 @@ alias drs="docker run -i -t"
 alias dps="docker ps"
 alias di="docker images"
 alias drsc="docker ps -a -q | xargs docker rm"
-alias drmi="docker images | grep '<none>' | awk '{ print $3 } ' | xargs docker rmi"
+alias drmi="docker images | grep '<none>' | awk '{ print $3 }' | xargs docker rmi"
 
 #git
 #alias g="git"
