@@ -6,9 +6,9 @@ antigen use oh-my-zsh
 #antigen use prezto
 antigen bundles <<EOBUNDLES
 
-git
-gitfast
-zsh-users/zsh-syntax-highlighting
+#git
+#gitfast
+#zsh-users/zsh-syntax-highlighting
 
 #brew
 #brew-cask
@@ -20,7 +20,7 @@ zsh-users/zsh-syntax-highlighting
 #bower
 #bundler
 #common-aliases
-docker
+#docker
 #git-extras
 #github
 jump
@@ -62,3 +62,9 @@ fi
 function o {
   open ${@:-'.'}
 }
+
+function mcd {
+  mkdir -p "$1" && cd "$1"
+}
+
+

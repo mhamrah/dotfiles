@@ -1,7 +1,3 @@
-#ssh
-function beta() { ssh -i ~/.ssh/dsa-beta.pem root@$@ ;}
-function prod() { ssh -i ~/.ssh/dsa-prod.pem root@$@ ;}
-
 alias dcb1="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-01"
 alias dcb2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-beta-dsa-content-02"
 
@@ -60,11 +56,11 @@ alias drsc="docker ps -a -q | xargs docker rm"
 alias drmi="docker images | grep '<none>' | awk '{ print $3 }' | xargs docker rmi"
 
 #git
-#alias g="git"
-#alias gs="git status "
+alias g="git"
+alias gs="git status "
 alias gc="git add . --all && git commit -m "
-#alias gp="git push"
-#alias gd="git diff"
+alias gp="git push"
+alias gd="git diff"
 #alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
 alias gmlh="glist | grep Hamrah"
 alias gclean="git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
@@ -131,3 +127,11 @@ function serve() {
 #also python/twistd: twistd -n web --path .
 #node has a serve npm
 #http://get-serve.com/documentation/usage
+
+#Fleet
+alias flu="fleetctl list-units"
+alias fluf="fleetctl list-unit-files"
+alias fst="fleetctl status"
+alias fj="fleetctl journal -follow -lines 30"
+alias fs="fleetctl start"
+alias fd="fleetctl destroy"

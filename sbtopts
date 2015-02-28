@@ -5,7 +5,8 @@
 #  The SBT Configuration file.                     #
 # ------------------------------------------------ #
 
--mem 2048
+-mem 4096
+#-J-Dsbt.override.build.repos=true
 # Disable ANSI color codes
 #
 #-no-colors
