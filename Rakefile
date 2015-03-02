@@ -33,7 +33,8 @@ BREW_APPS = [
   "jq",
   "ansible",
   "git-extras",
-  "zsh"
+  "zsh",
+  "fasd"
 ]
 
 BREW_CASK_APPS = [

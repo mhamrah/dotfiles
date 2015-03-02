@@ -16,7 +16,7 @@ alias adubs="ssh -i ~/.ssh/dsa-beta.pem ec2-user@adubs.gettyimages.io"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias j=jump
+#alias j=jump
 
 #frequent commands
 alias more="less"
