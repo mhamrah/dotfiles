@@ -98,6 +98,11 @@ def brew_cask_install(package, *options)
   sh "brew cask install #{package} #{options.join ' '}"
 end
 
+def prezto_install
+  sh "git clone --recursive https://github.com/sorin-ionescu/prezto.git \"${ZDOTDIR:-$HOME}/.zprezto\""
+  #todo rm runcoms, symlink to prezto
+end
+
 def step(description)
   description = "-- #{description} "
   description = description.ljust(80, '-')
@@ -236,6 +241,12 @@ namespace :install do
     step 'vundle'
     install_github_bundle 'gmarik','vundle'
     sh 'vim -c "BundleInstall" -c "q" -c "q"'
+  end
+
+  desc 'Intall prezto'
+  task :prezto do
+    step 'prezto'
+    prezto_install
   end
 end
 
