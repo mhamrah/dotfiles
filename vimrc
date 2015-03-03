@@ -172,28 +172,34 @@ endif
 if (&t_Co == 256 || has('gui_running'))
   "colorscheme mlh256
 
-  colorscheme lucius
-  LuciusDark
+  "colorscheme lucius
+  "LuciusDark
 
   "colorscheme flatlandia
 endif
 
+"      \ 'mlh256': { },
+"      \ 'flatlandia': { },
+let g:thematic#defaults = {
+      \'background': 'dark',
+      \'airline-theme': 'tomorrow'
+      \}
 let g:thematic#themes = {
-      \ 'mlh256': { },
-      \ 'flatlandia': { },
-      \ 'pencil_dark' :{'colorscheme': 'pencil',
-      \                 'background': 'dark',
-      \                 'airline-theme': 'badwolf',
-      \                 'ruler': 1,
+      \ 'pencil_dark' :{'colorscheme': 'pencil'
       \                }
       \ }
 
+let g:thematic#theme_name = 'pencil_dark'
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 set laststatus=2                  " Show the status line all the time
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tmuxline#enabled = 0
+let g:tmuxline_theme='powerline'
 
 "disable nerdtree from annoying startup mode
 let g:nerdtree_tabs_open_on_gui_startup=0
+
 
 " a little more informative version of the above
 nmap <Leader>sI :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">" . " FG:" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"fg#")<CR>
@@ -254,14 +260,12 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
-let g:airline_theme='zenburn'
 let g:bufferline_echo = 0
 
-let g:tmuxline_theme='powerline'
-let g:tmuxline_separators = {
-    \ 'left' : '',
-    \ 'left_alt': '>',
-    \ 'right' : '',
-    \ 'right_alt' : '<',
-    \ 'space' : ' '}
+"let g:tmuxline_separators = {
+"    \ 'left' : '',
+"    \ 'left_alt': '>',
+"    \ 'right' : '',
+"    \ 'right_alt' : '<',
+"    \ 'space' : ' '}
 
