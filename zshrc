@@ -14,6 +14,8 @@ if [ -f ~/Dropbox/Trunk/alias.sh ]; then
   source ~/Dropbox/Trunk/alias.sh
 fi
 
+source /usr/local/share/zsh/site-functions/_aws
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 
 # OS X only:

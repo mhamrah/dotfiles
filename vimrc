@@ -172,8 +172,8 @@ endif
 if (&t_Co == 256 || has('gui_running'))
   "colorscheme mlh256
 
-  "colorscheme lucius
-  "LuciusDark
+  colorscheme lucius
+  LuciusDarkHighContrast
 
   "colorscheme flatlandia
 endif
@@ -182,14 +182,13 @@ endif
 "      \ 'flatlandia': { },
 let g:thematic#defaults = {
       \'background': 'dark',
-      \'airline-theme': 'tomorrow'
+      \'airline-theme': 'ubaryd'
       \}
 let g:thematic#themes = {
-      \ 'pencil_dark' :{'colorscheme': 'pencil'
-      \                }
+      \ 'hammer' :{'colorscheme': 'hammer'}
       \ }
 
-let g:thematic#theme_name = 'pencil_dark'
+"let g:thematic#theme_name = 'hammer'
 autocmd! bufwritepost vimrc source ~/.vimrc
 
 set laststatus=2                  " Show the status line all the time
@@ -244,6 +243,7 @@ let g:scala_first_party_namespaces='\(hamrah\|gettyimages\|dsa\)'
 au BufEnter *.scala setl formatprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
 au BufEnter *.scala setl equalprg=java\ -jar\ ~/gd/bin/scalariform.jar\ -f\ -q\ +alignParameters\ +alignSingleLineCaseStatements\ +doubleIndentClassDeclaration\ +preserveDanglingCloseParenthesis\ --stdin\ --stdout
 
+"au BufEnter *.json setl equalprg=python -m json.tool
 "reindent file, but stay on line
 inoremap <leader>ri <ESC>gg=G<CR>''i
 nnoremap <leader>ri gg=G<CR>''
@@ -260,7 +260,10 @@ let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
 
+"let g:airline#extensions#tabline#enabled = 1
 let g:bufferline_echo = 0
+let g:bufferline_rotate = 2
+"let g:airline#extensions#bufferline#enabled = 0
 
 "let g:tmuxline_separators = {
 "    \ 'left' : '',
@@ -268,4 +271,5 @@ let g:bufferline_echo = 0
 "    \ 'right' : '',
 "    \ 'right_alt' : '<',
 "    \ 'space' : ' '}
-
+let g:vim_json_syntax_conceal = 0
+let g:syntastic_ignore_files = ['.sbt']

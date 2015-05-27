@@ -5,3 +5,4 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=~/Library/Python/2.7/bin:$PATH
 
 export PATH=~/Dropbox/bin:$PATH
+export PATH=~/gd/bin:$PATH

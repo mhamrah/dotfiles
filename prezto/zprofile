@@ -19,7 +19,7 @@ fi
 
 export EDITOR='nano'
 export VISUAL='nano'
-export PAGER='less'
+export PAGER='less -rS'
 
 #
 # Language

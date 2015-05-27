@@ -57,7 +57,8 @@ BREW_CASK_APPS = [
   "cloudup",
   "spotify",
   "caffeine",
-  "sublime-text"
+  "sublime-text",
+  "launchrocket"
 ]
 
 #cleanmymac, camtasia, grandperspective, macpaw gemini

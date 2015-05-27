@@ -7,6 +7,7 @@ alias dcc2="ssh -i ~/.ssh/dsa-beta.pem dsauser@sea-stg-dsa-content-02"
 alias dcp1="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-01"
 alias dcp2="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-02"
 alias dcp3="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-03"
+alias dcp4="ssh -i ~/.ssh/dsa-prod.pem dsauser@sea-prod-dsa-content-04"
 
 alias work="ssh mhamrah@nyclm6610"
 alias mlh-cloud="ssh root@michaelhamrah.com"
@@ -19,7 +20,7 @@ alias ....="cd ../../.."
 #alias j=jump
 
 #frequent commands
-alias more="less"
+alias more="less -rS"
 alias mount_tas="sudo mount -t nfs fresutasnas.amer.gettywan.com:/tas/fs2/fadefs /mnt/tas/editorial && sudo mount -t nfs fresutasnas.amer.gettywan.com:/tas/fs2/fadcfs /mnt/tas/creative"
 alias vi="vim"
 alias ct="ctags ." #recurse and ignore is set in ctags
@@ -52,7 +53,7 @@ alias drd="docker run -d"
 alias drs="docker run -i -t"
 alias dps="docker ps"
 alias di="docker images"
-alias drsc="docker ps -f=stauts=exited -q | xargs docker rm"
+alias drsc="docker ps -f=status=exited -q | xargs docker rm"
 alias drmi="docker images | grep '<none>' | awk '{ print $3 }' | xargs docker rmi"
 
 #git
@@ -61,7 +62,7 @@ alias gs="git status "
 alias gc="git add . --all && git commit -m "
 alias gp="git push"
 alias gd="git diff"
-#alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
+alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
 alias gmlh="glist | grep Hamrah"
 alias gclean="git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
 alias grclean="git checkout master && git branch -r --merged | grep -v master | sed -e 's/origin\//:/' | xargs git push origin"
@@ -131,7 +132,11 @@ function serve() {
 #Fleet
 alias flu="fleetctl list-units"
 alias fluf="fleetctl list-unit-files"
-alias fst="fleetctl status"
+alias fstat="fleetctl status"
 alias fj="fleetctl journal -follow -lines 30"
 alias fs="fleetctl start"
 alias fd="fleetctl destroy"
+alias f="fleetctl"
+alias fssh="fleetctl ssh"
+alias flm="fleetctl list-machines"
+
