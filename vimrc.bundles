@@ -34,6 +34,7 @@ Plugin 'vim-scripts/kwbdi.vim'
 "Plugin 'itchyny/lightline.vim'
 Plugin 'edkolev/tmuxline.vim'
 "Plugin 'gregsexton/gitv'
+Plugin 'rizzatti/dash.vim'
 
 "Autocomplete
 Plugin 'ervandew/supertab'
