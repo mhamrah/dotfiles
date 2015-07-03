@@ -1,29 +1,14 @@
 ENV['HOMEBREW_CASK_OPTS'] = "--appdir=/Applications"
 
-LINKED_FILES = filemap(
-  'vim'           => '~/.vim',
-  'tmux.conf'     => '~/.tmux.conf',
-  'tmux-osx.conf'     => '~/.tmux-osx.conf',
-  'vimrc'         => '~/.vimrc',
-  'vimrc.bundles' => '~/.vimrc.bundles',
-  'bash_profile' => '~/.bash_profile',
-  'bash' => '~/.bash',
-  'ctags' => '~/.ctags',
-  'gitconfig' => '~/.gitconfig',
-  'sbtopts' => '/usr/local/etc/sbtopts',
-  'gemrc' => '~/.gemrc',
-  'zshrc' => '~/.zshrc',
-  '~/gd/Trunk/sbt' => '~/.sbt'
-)
-
 BREW_APPS = [
+  "awscli",
+  "hub",
   "node",
-  "g8",
+  "giter8",
   "rocksdb",
   "go",
   "docker",
   "fleetctl",
-  "etcdctl",
   "postgres",
   "sbt",
   "reattach-to-user-namespace",
@@ -39,6 +24,7 @@ BREW_APPS = [
 
 BREW_CASK_APPS = [
   "github",
+  "cyberduck",
   "dash",
   "spotify",
   "parallels-desktop",
@@ -57,8 +43,9 @@ BREW_CASK_APPS = [
   "cloudup",
   "spotify",
   "caffeine",
-  "sublime-text",
-  "launchrocket"
+  "atom",
+  "launchrocket",
+  "1password"
 ]
 
 #cleanmymac, camtasia, grandperspective, macpaw gemini
@@ -248,6 +235,10 @@ namespace :install do
   task :prezto do
     step 'prezto'
     prezto_install
+    sh 'setopt EXTENDED_GLOB;
+        for rcfile in ~/.dotfiles/prezto/^README.md(.N); do
+          ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+        done'
   end
 end
 
@@ -264,6 +255,8 @@ task :install do
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:brew_apps'].invoke
   Rake::Task['install:tmux'].invoke
+  Rake::Task['install:apps'].invoke
+  Rake::Task['install:prezto'].invoke
 
   # TODO install gem ctags?
   # TODO run gem ctags?
@@ -276,13 +269,6 @@ task :install do
 
   # Install Vundle and bundles
   Rake::Task['install:vundle'].invoke
-
-  step 'iterm2 colorschemes'
-  colorschemes = `defaults read com.googlecode.iterm2 'Custom Color Presets'`
-  dark  = colorschemes !~ /Solarized Dark/
-  light = colorschemes !~ /Solarized Light/
-  sh('open', '-a', '/Applications/iTerm.app', File.expand_path('iterm2-colors-solarized/Solarized Dark.itermcolors')) if dark
-  sh('open', '-a', '/Applications/iTerm.app', File.expand_path('iterm2-colors-solarized/Solarized Light.itermcolors')) if light
 
   step 'iterm2 profiles'
   puts
@@ -330,3 +316,21 @@ task :uninstall do
 end
 
 task :default => :install
+
+LINKED_FILES = filemap(
+  'vim'           => '~/.vim',
+  'tmux.conf'     => '~/.tmux.conf',
+  'tmux-osx.conf'     => '~/.tmux-osx.conf',
+  'vimrc'         => '~/.vimrc',
+  'vimrc.bundles' => '~/.vimrc.bundles',
+  'bash_profile' => '~/.bash_profile',
+  'bash' => '~/.bash',
+  'ctags' => '~/.ctags',
+  'gitconfig' => '~/.gitconfig',
+  'sbtopts' => '/usr/local/etc/sbtopts',
+  'gemrc' => '~/.gemrc',
+  'zshrc' => '~/.zshrc',
+  '~/gd/Trunk/sbt' => '~/.sbt'
+)
+
+
