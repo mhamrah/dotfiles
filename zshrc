@@ -32,3 +32,6 @@ function mcd {
 }
 
 unsetopt correct_all
+
+alias curl='noglob curl'
+
