@@ -32,6 +32,7 @@ function mcd {
 }
 
 unsetopt correct_all
-
+unsetopt correct
+#DISABLE_CORRECTION="true" 
 alias curl='noglob curl'
 
