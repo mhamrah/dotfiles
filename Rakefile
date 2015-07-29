@@ -48,6 +48,10 @@ BREW_CASK_APPS = [
   "1password"
 ]
 
+GO_TOOLS = [
+  "go get github.com/onsi/ginkgo/ginkgo",
+  "go get golang.org/x/tools/cover"
+]
 #cleanmymac, camtasia, grandperspective, macpaw gemini
 
 
@@ -239,6 +243,15 @@ namespace :install do
         for rcfile in ~/.dotfiles/prezto/^README.md(.N); do
           ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
         done'
+  end
+
+  desc 'Install go tools'
+  task :gotools do
+    step 'gotools'
+    GO_TOOLS.each do |tool|
+      step tool
+      sh tool
+    end
   end
 end
 
