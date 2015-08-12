@@ -55,6 +55,7 @@ alias dps="docker ps"
 alias di="docker images"
 alias drsc="docker ps -f=status=exited -q | xargs docker rm"
 alias drmi="docker images | grep '<none>' | awk '{ print $3 }' | xargs docker rmi"
+alias dm="docker-machine"
 
 #git
 alias g="git"

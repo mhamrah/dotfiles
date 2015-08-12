@@ -33,9 +33,11 @@ export FLEETCTL_STRICT_HOST_KEY_CHECKING=false
 #export ETCDCTL_PEERS=http://10.211.55.7:4001
 
 
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
-export DOCKER_TLS_VERIFY=1
+#export DOCKER_HOST=tcp://192.168.59.103:2376
+#export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
+#export DOCKER_TLS_VERIFY=1
+
+eval "$(docker-machine env dev)"
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"
