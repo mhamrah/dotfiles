@@ -141,3 +141,7 @@ alias f="fleetctl"
 alias fssh="fleetctl ssh"
 alias flm="fleetctl list-machines"
 
+#Directories
+alias jg="cd $GOPATH/src"
+alias jm="cd $GOPATH/src/github.com/mhamrah"
+

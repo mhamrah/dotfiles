@@ -273,3 +273,5 @@ let g:bufferline_rotate = 2
 "    \ 'space' : ' '}
 let g:vim_json_syntax_conceal = 0
 let g:syntastic_ignore_files = ['.sbt']
+
+let g:go_fmt_command = "goimports"
