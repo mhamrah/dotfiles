@@ -36,3 +36,25 @@ unsetopt correct
 #DISABLE_CORRECTION="true" 
 alias curl='noglob curl'
 
+
+# added by newengsetup
+export EDITOR=vim
+export UBER_HOME="$HOME/Uber"
+export UBER_OWNER="mlh@uber.com"
+export VAGRANT_DEFAULT_PROVIDER=aws
+[ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+[ -s "$HOME/.nvm/nvm.sh" ] && . $HOME/.nvm/nvm.sh
+if which rbenv > /dev/null; then
+  eval "$(rbenv init -)"
+fi
+
+cdsync () {
+    cd $(boxer sync_dir $@)
+}
+editsync () {
+    $EDITOR $(boxer sync_dir $@)
+}
+opensync () {
+    open $(boxer sync_dir $@)
+}
+

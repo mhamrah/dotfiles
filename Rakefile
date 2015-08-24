@@ -269,7 +269,7 @@ task :install do
   Rake::Task['install:brew_apps'].invoke
   Rake::Task['install:tmux'].invoke
   Rake::Task['install:apps'].invoke
-  Rake::Task['install:prezto'].invoke
+  #Rake::Task['install:prezto'].invoke
 
   # TODO install gem ctags?
   # TODO run gem ctags?
