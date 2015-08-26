@@ -2,7 +2,8 @@ export TM_RUBY=/usr/local/bin/ruby
 export PGDATABASE=postgres
 
 export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
+#export GOROOT=/usr/local/opt/go/libexec
+export PATH="$PATH:/Users/mhamrah/dev/go/bin:$GOROOT/bin:$GOPATH/bin"
 
 # Colors in Vim.
 export TERM='xterm-256color'

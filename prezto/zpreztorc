@@ -115,7 +115,7 @@ zstyle ':prezto:module:prompt' theme 'pure'
 #
 
 # Set the SSH identities to load into the agent.
-zstyle ':prezto:module:ssh:load' identities 'id_rsa' 'dsa-beta.pem' 'dsa-prod.pem'
+zstyle ':prezto:module:ssh:load' identities 'id_rsa' 
 
 #
 # Syntax Highlighting
