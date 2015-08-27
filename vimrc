@@ -272,6 +272,10 @@ let g:bufferline_rotate = 2
 "    \ 'right_alt' : '<',
 "    \ 'space' : ' '}
 let g:vim_json_syntax_conceal = 0
-let g:syntastic_ignore_files = ['.sbt']
+let g:syntastic_ignore_files = ['.sbt', '.go']
 
 let g:go_fmt_command = "goimports"
+
+au BufRead,BufNewFile *.thrift set filetype=thrift
+au! Syntax thrift source ~/.vim/syntax/thrift.vim
+

@@ -1,9 +1,9 @@
 export TM_RUBY=/usr/local/bin/ruby
 export PGDATABASE=postgres
 
-export GOPATH=~/go
-#export GOROOT=/usr/local/opt/go/libexec
-export PATH="$PATH:/Users/mhamrah/dev/go/bin:$GOROOT/bin:$GOPATH/bin"
+export GOPATH=~/go2
+export GOROOT=/Users/mhamrah/dev/go
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
 
 # Colors in Vim.
 export TERM='xterm-256color'
@@ -38,7 +38,7 @@ export FLEETCTL_STRICT_HOST_KEY_CHECKING=false
 #export DOCKER_CERT_PATH=/Users/mhamrah/.boot2docker/certs/boot2docker-vm
 #export DOCKER_TLS_VERIFY=1
 
-eval "$(docker-machine env dev)"
+#eval "$(docker-machine env dev)"
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME="$(/usr/libexec/java_home)"

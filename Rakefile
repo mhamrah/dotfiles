@@ -8,6 +8,7 @@ BREW_APPS = [
   "rocksdb",
   "go",
   "docker",
+  "thrift",
   "fleetctl",
   "postgres",
   "sbt",
