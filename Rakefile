@@ -344,7 +344,8 @@ LINKED_FILES = filemap(
   'sbtopts' => '/usr/local/etc/sbtopts',
   'gemrc' => '~/.gemrc',
   'zshrc' => '~/.zshrc',
-  '~/gd/Trunk/sbt' => '~/.sbt'
+  '~/gd/Trunk/sbt' => '~/.sbt',
+  'agignore' => '~/.agignore'
 )
 
 

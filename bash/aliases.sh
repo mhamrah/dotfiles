@@ -56,6 +56,8 @@ alias di="docker images"
 alias drsc="docker ps -f=status=exited -q | xargs docker rm"
 alias drmi="docker images | grep '<none>' | awk '{ print $3 }' | xargs docker rmi"
 alias dm="docker-machine"
+alias dc="docker-compose"
+#alias m3d="eval $(dm env m3)"
 
 #git
 alias g="git"
@@ -145,3 +147,6 @@ alias flm="fleetctl list-machines"
 alias jg="cd $GOPATH/src"
 alias jm="cd $GOPATH/src/github.com/mhamrah"
 
+function denv() {
+  eval $(dm env $1)
+}
