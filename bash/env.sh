@@ -3,7 +3,7 @@ export PGDATABASE=postgres
 
 export GOPATH=~/go2
 #export GOROOT=/Users/mhamrah/dev/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$GOPATH/bin:$PATH
 
 # Colors in Vim.
 export TERM='xterm-256color'

@@ -150,3 +150,13 @@ alias jm="cd $GOPATH/src/github.com/mhamrah"
 function denv() {
   eval $(dm env $1)
 }
+
+function gt() {
+ fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v --cover ./..."
+}
+function gts() {
+ fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v --cover code.uber.internal/infra/statsdex/$1"
+}
+
+#fswatch sh -c "GOPATH=$(pwd)/../Godeps/_workspace:$GOPATH go test -v --cover --tags cassandra  ./..."
+
