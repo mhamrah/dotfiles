@@ -2,8 +2,8 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-GIT_PS1_SHOWUPSTREAM="verbose"
-
+#GIT_PS1_SHOWUPSTREAM="verbose"
+#PURE_GIT_PULL=0
 export EDITOR='vim'
 export VISUAL='vim'
 source $HOME/.dotfiles/bash/env.sh

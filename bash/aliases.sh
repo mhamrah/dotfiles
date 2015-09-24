@@ -152,11 +152,13 @@ function denv() {
 }
 
 function gt() {
- fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v --cover ./..."
+ fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v $1 ./..."
 }
-function gts() {
- fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v --cover code.uber.internal/infra/statsdex/$1"
+function gtp() {
+ fswatch sh -c "GOPATH=/Users/mhamrah/go2/src/code.uber.internal/infra/statsdex/Godeps/_workspace:$GOPATH go test -v --coverprofile=cover.out code.uber.internal/infra/statsdex/$1"
 }
-
+function gtc {
+  go tool cover -html=cover.out
+}
 #fswatch sh -c "GOPATH=$(pwd)/../Godeps/_workspace:$GOPATH go test -v --cover --tags cassandra  ./..."
 

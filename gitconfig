@@ -64,7 +64,7 @@
   le = log --oneline --decorate
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
   ls1 = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-  lds = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph
+  lds = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph --abbrev-commit
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
   lc  = "!f() { git ll "$1"^.."$1"; }; f"
   lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
@@ -144,3 +144,7 @@ rem="!git config -l | grep remote.*url | tail -n +2"
   insteadOf = git://code.uber.internal/
 [url "ssh://git@github.com/uber/"]
   insteadOf = https://github.com/uber/
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
