@@ -45,3 +45,5 @@ Plugin 'ervandew/supertab'
 Plugin 'jonathanfilip/vim-lucius'
 Plugin 'jordwalke/flatlandia'
 "Plugin 'mhamrah/vim-colors-pencil'
+
+Plugin 'spolu/dwm'
