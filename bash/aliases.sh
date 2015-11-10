@@ -61,12 +61,12 @@ alias dc="docker-compose"
 
 #git
 alias g="git"
-alias gs="git status "
-alias gc="git add . --all && git commit -m "
-alias gp="git push"
-alias gd="git diff"
-alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
-alias gmlh="glist | grep Hamrah"
+#alias gs="git status "
+#alias gc="git add . --all && git commit -m "
+#alias gp="git push"
+#alias gd="git diff"
+#alias glist='for ref in $(git for-each-ref --sort=-committerdate --format="%(refname)" refs/heads/ refs/remotes ); do git log -n1 $ref --pretty=format:"%Cgreen%cr%Creset %C(yellow)%d%Creset %C(bold blue)<%an>%Creset%n" | cat ; done | awk '"'! a["'$0'"]++'"
+#alias gmlh="glist | grep Hamrah"
 alias gclean="git branch --merged | grep -v '^* master$' | grep -v '^  master$' | xargs git branch -d"
 alias grclean="git checkout master && git branch -r --merged | grep -v master | sed -e 's/origin\//:/' | xargs git push origin"
 

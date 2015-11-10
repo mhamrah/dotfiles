@@ -46,4 +46,5 @@ Plugin 'jonathanfilip/vim-lucius'
 Plugin 'jordwalke/flatlandia'
 "Plugin 'mhamrah/vim-colors-pencil'
 
-Plugin 'spolu/dwm'
+"Plugin 'spolu/dwm'
+Plugin 'tpope/vim-commentary'

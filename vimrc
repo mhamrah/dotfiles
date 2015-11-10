@@ -64,7 +64,7 @@ nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
-nmap <leader>c <Plug>Kwbd
+nmap <leader>c<CR> <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>z :ThematicNext<CR>
 
@@ -78,7 +78,7 @@ let g:gitgutter_enabled = 1
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
-  let g:agprg="ag --column --smart-case"
+  let g:ag_prg="ag --column --smart-case"
 
   " Use Ag over Grep
   set grepprg=ag\ --nogroup\ --nocolor

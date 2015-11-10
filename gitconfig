@@ -47,6 +47,8 @@
   ci = commit
   cm = commit -m
   cma = commit -a -m
+  cam = commit -a -m
+  c = commit -a -m
   ca = commit --amend
   amend = commit --amend
   caa = commit -a --amend -C HEAD
@@ -66,8 +68,6 @@
   ls1 = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
   lds = log --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph --abbrev-commit
   ls = log --pretty=format:"%C(green)%h\\ %C(yellow)[%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
-  lc  = "!f() { git ll "$1"^.."$1"; }; f"
-  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
 #list all aliases
   la = "log --oneline --all --graph --oneline --decorate"
   lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -96,6 +96,8 @@
   sa = stash apply
   ss = stash save
 
+  rb = rebase -i master
+  p = push
   cp = cherry-pick
   grep = grep -Ii
   gr = grep -Ii
@@ -123,8 +125,10 @@
   ours = "!f() { git co --ours $@ && git add $@; }; f"
   theirs = "!f() { git co --theirs $@ && git add $@; }; f"
 
+#submodules
+  su = submodule update --init --recursive
 #list remotes
-rem="!git config -l | grep remote.*url | tail -n +2"
+  rem="!git config -l | grep remote.*url | tail -n +2"
 
 #apply patch from other local repo
   lap = "!f() { git --git-dir=$1 format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
