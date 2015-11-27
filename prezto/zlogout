@@ -6,8 +6,8 @@
 #
 
 # Print the message.
-cat <<-EOF
+# cat <<-EOF
 
-Thank you. Come again!
-  -- Dr. Apu Nahasapeemapetilon
-EOF
+# Thank you. Come again!
+#   -- Dr. Apu Nahasapeemapetilon
+# EOF

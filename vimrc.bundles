@@ -48,3 +48,4 @@ Plugin 'jordwalke/flatlandia'
 
 "Plugin 'spolu/dwm'
 Plugin 'tpope/vim-commentary'
+Plugin 'easymotion/vim-easymotion'
