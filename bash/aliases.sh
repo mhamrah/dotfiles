@@ -155,3 +155,11 @@ function gt() {
  fswatch sh -c "godep go test -v $1 ./..."
 }
 
+alias tw="tmuxa -s work"
+alias tp="tmuxa -s p"
+alias ts="tmuxa -s ssh"
+
+function has-session {
+    tmux has-session -t $1 2>/dev/null
+}
+

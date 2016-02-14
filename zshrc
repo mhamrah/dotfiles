@@ -58,4 +58,4 @@ editsync () {
 opensync () {
     open $(boxer sync_dir $@)
 }
-
+export PURE_GIT_PULL=0

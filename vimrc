@@ -64,7 +64,7 @@ nmap <leader>T :CtrlPClearCache<CR>:CtrlP<CR>
 nmap <leader>] :TagbarToggle<CR>
 nmap <leader><space> :call whitespace#strip_trailing()<CR>
 nmap <leader>g :GitGutterToggle<CR>
-nmap <leader>c<CR> <Plug>Kwbd
+nmap <leader>c <Plug>Kwbd
 map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 map <leader>z :ThematicNext<CR>
 
@@ -279,3 +279,5 @@ let g:go_fmt_command = "goimports"
 au BufRead,BufNewFile *.thrift set filetype=thrift
 au! Syntax thrift source ~/.vim/syntax/thrift.vim
 
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'

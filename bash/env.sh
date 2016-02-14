@@ -3,6 +3,7 @@ export PGDATABASE=postgres
 
 export GOPATH=~/go2
 #export GOROOT=/Users/mhamrah/dev/go
+export GO15VENDOREXPERIMENT=1
 export PATH=$GOPATH/bin:$PATH
 
 # Colors in Vim.
@@ -45,3 +46,4 @@ if [ -f /usr/libexec/java_home ]; then
 fi
 
 export EDITOR="vim"
+export UBER_LDAP_UID="mlh"
