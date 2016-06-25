@@ -5,7 +5,7 @@
 [core]
   autocrlf = input
   editor = vim
-  excludesfile = /Users/mhamrah/.gitignore_global
+	excludesfile = /Users/mhamrah/.gitignore_global
 
 [push]
   default = current
@@ -154,3 +154,11 @@
 	required = true
 [remote "origin"]
 	prune = true
+[url "ssh://gitolite@code.uber.internal:2222/"]
+	insteadOf = https://code.uber.internal/
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /opt/homebrew-cask/Caskroom/sourcetree/2.3/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true

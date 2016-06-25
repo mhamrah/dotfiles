@@ -59,3 +59,6 @@ opensync () {
     open $(boxer sync_dir $@)
 }
 export PURE_GIT_PULL=0
+alias china="ssh mgmt-master -t -o ForwardAgent=yes -- ssh -t -o ForwardAgent=yes 10.23.0.33"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
