@@ -44,7 +44,9 @@ export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="mlh@uber.com"
 export VAGRANT_DEFAULT_PROVIDER=aws
 [ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+
 [ -s "$HOME/.nvm/nvm.sh" ] && . $HOME/.nvm/nvm.sh
+
 if which rbenv > /dev/null; then
   eval "$(rbenv init -)"
 fi

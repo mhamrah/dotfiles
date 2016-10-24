@@ -8,3 +8,4 @@ export PATH=~/Dropbox/bin:$PATH
 export PATH=~/gd/bin:$PATH
 export PATH=${HOME}/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
+export PATH=/Users/mhamrah/bin/go_appengine:$PATH
