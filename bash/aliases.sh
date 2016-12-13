@@ -49,7 +49,7 @@ alias dc="docker-compose"
 #alias m3d="eval $(dm env m3)"
 
 #git
-alias g="git"
+##alias g="git"
 #alias gs="git status "
 #alias gc="git add . --all && git commit -m "
 #alias gp="git push"
