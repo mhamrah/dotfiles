@@ -1,65 +1,57 @@
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
-
-#GIT_PS1_SHOWUPSTREAM="verbose"
-#PURE_GIT_PULL=0
-export EDITOR='vim'
-export VISUAL='vim'
-source $HOME/.dotfiles/bash/env.sh
-source $HOME/.dotfiles/bash/aliases.sh
-source $HOME/.dotfiles/bash/path.sh
-
-if [ -f ~/Dropbox/Trunk/alias.sh ]; then
-  source ~/Dropbox/Trunk/alias.sh
-fi
-
-source /usr/local/share/zsh/site-functions/_aws
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
-
-# OS X only:
-# "o file.txt" = open file in default app.
-# "o http://example.com" = open URL in default browser.
-# "o" = open pwd in Finder.
-function ox {
-  open ${@:-'.'}
-}
-alias o=ox
-
-function mcd {
-  mkdir -p "$1" && cd "$1"
-}
-
-unsetopt correct_all
-unsetopt correct
-setopt clobber
-#DISABLE_CORRECTION="true" 
-alias curl='noglob curl'
-
-
-# added by newengsetup
-export EDITOR=vim
+################################
+# Exported Environment Variables
 export UBER_HOME="$HOME/Uber"
 export UBER_OWNER="mlh@uber.com"
-export VAGRANT_DEFAULT_PROVIDER=aws
-[ -s "/usr/local/bin/virtualenvwrapper.sh" ] && . /usr/local/bin/virtualenvwrapper.sh
+export UBER_LDAP_UID="mlh"
+export GOPATH=~/go2
 
-[ -s "$HOME/.nvm/nvm.sh" ] && . $HOME/.nvm/nvm.sh
-
-if which rbenv > /dev/null; then
-  eval "$(rbenv init -)"
-fi
-
-cdsync () {
-    cd $(boxer sync_dir $@)
-}
-editsync () {
-    $EDITOR $(boxer sync_dir $@)
-}
-opensync () {
-    open $(boxer sync_dir $@)
-}
-export PURE_GIT_PULL=0
-
+################################
+# Startup Scripts
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+#_ANTIGEN_CACHE_ENABLED=true
+source ~/.antigen.zsh
+antigen init .antigenrc
+#antigen bundle zsh-users/zsh-syntax-highlighting
+
+################################
+# Options
+setopt INC_APPEND_HISTORY
+setopt AUTO_CD
+setopt SHARE_HISTORY
+
+export HISTFILE=~/.zhistory
+
+
+################################
+# Config
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+################################
+# Aliases
+alias vim="nvim"
+alias s="source ~/.zshrc"
+alias startup="/usr/bin/time /usr/local/bin/zsh -i -c exit"
+alias cfg="vim ~/.zshrc"
+
+################################
+# Prompt
+PROMPT="%F{117}%~%f %F{104}$%f "
+RPROMPT="%F{187}%*%f %F{110}%m"
+
+################################
+# Functions
+function colors() {
+	for COLOR in {0..255} 
+	do
+	    for STYLE in "38;5"
+	    do 
+		TAG="\033[${STYLE};${COLOR}m"
+		STR="${STYLE};${COLOR}"
+		echo -ne "${TAG}${STR}${NONE}  "
+	    done
+	    echo
+	done
+}
+
