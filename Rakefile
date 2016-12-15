@@ -1,51 +1,44 @@
 ENV['HOMEBREW_CASK_OPTS'] = "--appdir=/Applications"
 
+LINKED_FILES = filemap(
+  'tmux.conf'     => '~/.tmux.conf',
+  'bash_profile' => '~/.bash_profile',
+  'ctags' => '~/.ctags',
+  'gitconfig' => '~/.gitconfig',
+  'gemrc' => '~/.gemrc',
+  'zshrc' => '~/.zshrc',
+  'agignore' => '~/.agignore'
+  'nvim/init.vm' => '~/.config/nvim/init.vim',
+  'nvim/nvimrc.local' => '~/.config/nvimrc.local',
+  'nvim/nvimrc.local.bindles' => '~/.config/nvimrc.local.bundles'
+)
+
+
 BREW_APPS = [
-  "awscli",
   "hub",
-  "node",
-  "giter8",
   "rocksdb",
   "go",
   "docker",
-  "thrift",
-  "fleetctl",
-  "postgres",
-  "sbt",
   "reattach-to-user-namespace",
   "ctags",
   "the_silver_searcher",
-  "vim",
   "jq",
-  "ansible",
-  "git-extras",
   "zsh",
   "fasd"
+  "autojump",
+  "nvim"
 ]
 
 BREW_CASK_APPS = [
-  "github",
-  "cyberduck",
   "dash",
-  "spotify",
-  "parallels-desktop",
-  "google-cloud-sdk",
-  "google-chrome",
   "dropbox",
   "google-drive",
   "alfred",
-  "vagrant",
-  "virtualbox",
-  "java",
-  "packer",
   "sizeup",
   "evernote",
   "handbrake",
-  "cloudup",
   "spotify",
   "caffeine",
-  "atom",
-  "launchrocket",
   "1password"
 ]
 
@@ -89,11 +82,6 @@ def brew_cask_install(package, *options)
   return unless output.include?('Not installed')
 
   sh "brew cask install #{package} #{options.join ' '}"
-end
-
-def prezto_install
-  sh "git clone --recursive https://github.com/sorin-ionescu/prezto.git \"${ZDOTDIR:-$HOME}/.zprezto\""
-  #todo rm runcoms, symlink to prezto
 end
 
 def step(description)
@@ -185,19 +173,6 @@ namespace :install do
     end
   end
 
-  desc 'Install Homebrew Cask'
-  task :brew_cask do
-    step 'Homebrew Cask'
-
-    brew_install 'caskroom/cask/brew-cask'
-  end
-
-  desc 'Install github hub'
-  task :hub do
-    step 'hub'
-    sh "gem install hub"
-  end
-
   desc 'Custom install apps'
   task :apps do
     BREW_CASK_APPS.each do |app|
@@ -222,30 +197,6 @@ namespace :install do
     end
   end
 
-  desc 'Install tmux'
-  task :tmux do
-    step 'tmux'
-    # tmux copy-pipe function needs tmux >= 1.8
-    brew_install 'tmux', :requires => '>= 1.8'
-  end
-
-  desc 'Install Vundle'
-  task :vundle do
-    step 'vundle'
-    install_github_bundle 'gmarik','vundle'
-    sh 'vim -c "BundleInstall" -c "q" -c "q"'
-  end
-
-  desc 'Intall prezto'
-  task :prezto do
-    step 'prezto'
-    prezto_install
-    sh 'setopt EXTENDED_GLOB;
-        for rcfile in ~/.dotfiles/prezto/^README.md(.N); do
-          ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-        done'
-  end
-
   desc 'Install go tools'
   task :gotools do
     step 'gotools'
@@ -268,12 +219,7 @@ task :install do
   Rake::Task['install:brew_cask'].invoke
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:brew_apps'].invoke
-  Rake::Task['install:tmux'].invoke
   Rake::Task['install:apps'].invoke
-  #Rake::Task['install:prezto'].invoke
-
-  # TODO install gem ctags?
-  # TODO run gem ctags?
 
   step 'symlink'
 
@@ -281,31 +227,6 @@ task :install do
     link_file orig, link
   end
 
-  # Install Vundle and bundles
-  Rake::Task['install:vundle'].invoke
-
-  step 'iterm2 profiles'
-  puts
-  puts "  Your turn!"
-  puts
-  puts "  Go and manually set up Solarized Light and Dark profiles in iTerm2."
-  puts "  (You can do this in 'Preferences' -> 'Profiles' by adding a new profile,"
-  puts "  then clicking the 'Colors' tab, 'Load Presets...' and choosing a Solarized option.)"
-  puts "  Also be sure to set Terminal Type to 'xterm-256color' in the 'Terminal' tab."
-  puts
-  puts "  Enjoy!"
-  puts
-end
-
-namespace :install do
-  desc "install on a linux machine"
-  task :linux do
-   LINKED_FILES.each do |orig, link|
-    link_file orig, link
-   end
-
-   Rake::Task['install:vundle'].invoke
-  end
 end
 
 desc 'Uninstall these config files.'
@@ -317,35 +238,8 @@ task :uninstall do
     unlink_file orig, link
   end
 
-  step 'homebrew'
-  puts
-  puts 'Manually uninstall homebrew if you wish: https://gist.github.com/mxcl/1173223.'
-
-  step 'iterm2'
-  puts
-  puts 'Run this to uninstall iTerm:'
-  puts
-  puts '  rm -rf /Applications/iTerm.app'
-
 end
 
 task :default => :install
-
-LINKED_FILES = filemap(
-  'vim'           => '~/.vim',
-  'tmux.conf'     => '~/.tmux.conf',
-  'tmux-osx.conf'     => '~/.tmux-osx.conf',
-  'vimrc'         => '~/.vimrc',
-  'vimrc.bundles' => '~/.vimrc.bundles',
-  'bash_profile' => '~/.bash_profile',
-  'bash' => '~/.bash',
-  'ctags' => '~/.ctags',
-  'gitconfig' => '~/.gitconfig',
-  'sbtopts' => '/usr/local/etc/sbtopts',
-  'gemrc' => '~/.gemrc',
-  'zshrc' => '~/.zshrc',
-  '~/gd/Trunk/sbt' => '~/.sbt',
-  'agignore' => '~/.agignore'
-)
 
 
