@@ -8,7 +8,7 @@ export GOPATH=~/go2
 ################################
 # Path
 PATH=$PATH:/usr/local/bin
-
+PATH=$PATH:$GOPATH/bin
 ################################
 # Startup Scripts
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -17,21 +17,22 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 
-#_ANTIGEN_CACHE_ENABLED=true
+export _ANTIGEN_CACHE_ENABLED=true
 source ~/dotfiles/antigen/antigen.zsh
-antigen init ~/dotfiles/antigen/antigenrc
+antigen init ~/dotfiles/antigen/antigen.rc
 
 
 ################################
 # Options
-setopt INC_APPEND_HISTORY
 setopt AUTO_CD
 setopt SHARE_HISTORY
-setopt prompt_subst
+setopt PROMPT_SUBST
 
 export SAVEHIST=5000
 export HISTSIZE=10000
 export HISTFILE=~/.zhistory
+export EDITOR=nvim
+
 
 ################################
 # Config
@@ -75,3 +76,17 @@ function colors() {
 	    echo
 	done
 }
+
+function mcd() {
+  command mkdir $1 && cd $1
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /Users/mhamrah/bin/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/mhamrah/bin/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /Users/mhamrah/bin/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/mhamrah/bin/google-cloud-sdk/completion.zsh.inc'
+fi
