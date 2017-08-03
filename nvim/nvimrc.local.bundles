@@ -1,1 +1,2 @@
 Plug 'mhartington/oceanic-next'
+Plug 'edkolev/promptline.vim'

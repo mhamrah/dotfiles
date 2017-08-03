@@ -7,8 +7,10 @@ export GOPATH=~/go2
 
 ################################
 # Path
-PATH=$PATH:/usr/local/bin
+PATH=/usr/local/bin:$PATH
+PATH=/usr/local/sbin:$PATH
 PATH=$PATH:$GOPATH/bin
+PATH=$PATH:$HOME/bin
 ################################
 # Startup Scripts
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -18,7 +20,7 @@ autoload -Uz compinit && compinit
 autoload -Uz vcs_info
 
 export _ANTIGEN_CACHE_ENABLED=true
-source ~/dotfiles/antigen/antigen.zsh
+source ~/antigen/antigen.zsh
 antigen init ~/dotfiles/antigen/antigen.rc
 
 
@@ -50,7 +52,7 @@ alias gc="git add . && git commit -am"
 
 ################################
 # Git prompt
-zstyle ':vcs_info:*' enable git  
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats "%F{218}%b%f %m%F{228}%u%f%F{128}%c%f "
 zstyle ':vcs_info:*' actionformats "%b (%a) %m%u%c "
 zstyle ':vcs_info:*' patch-format '%10>...>%p%<< (%n applied)'
@@ -65,10 +67,10 @@ RPROMPT='${vcs_info_msg_0_}%F{187}%*%f %F{110}%m'
 ################################
 # Functions
 function colors() {
-	for COLOR in {0..255} 
+	for COLOR in {0..255}
 	do
 	    for STYLE in "38;5"
-	    do 
+	    do
 		TAG="\033[${STYLE};${COLOR}m"
 		STR="${STYLE};${COLOR}"
 		echo -ne "${TAG}${STR}${NONE}  "
@@ -90,3 +92,10 @@ fi
 if [ -f /Users/mhamrah/bin/google-cloud-sdk/completion.zsh.inc ]; then
   source '/Users/mhamrah/bin/google-cloud-sdk/completion.zsh.inc'
 fi
+
+lox() {
+ sudo ifconfig lo0 alias 127.0.0.3 up && sudo ifconfig lo0 alias 127.0.0.2 up
+}
+
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
