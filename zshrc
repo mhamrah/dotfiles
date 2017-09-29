@@ -1,8 +1,4 @@
 ################################
-# Exported Environment Variables
-export UBER_HOME="$HOME/Uber"
-export UBER_OWNER="mlh@uber.com"
-export UBER_LDAP_UID="mlh"
 export GOPATH=~/go2
 
 ################################
@@ -11,30 +7,36 @@ PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/bin
+
 ################################
 # Startup Scripts
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-autoload -Uz compinit && compinit
-autoload -Uz vcs_info
+source <(antibody init)
 
-export _ANTIGEN_CACHE_ENABLED=true
-source ~/antigen/antigen.zsh
-antigen init ~/dotfiles/antigen/antigen.rc
-
+antibody bundle whjvenyl/fasd
+antibody bundle mafredri/zsh-async
+antibody bundle sindresorhus/pure
+antibody bundle Tarrasch/zsh-colors
+antibody bundle zsh-users/zsh-completions
+antibody bundle caarlos0/ports
+antibody bundle junegunn/fzf
+antibody bundle zsh-users/zsh-syntax-highlighting
+antibody bundle zsh-users/zsh-autosuggestions
+antibody bundle zsh-users/zsh-history-substring-search
 
 ################################
 # Options
 setopt AUTO_CD
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY_TIME
 setopt PROMPT_SUBST
 
 export SAVEHIST=5000
-export HISTSIZE=10000
+export HISTSIZE=5000
 export HISTFILE=~/.zhistory
 export EDITOR=nvim
-
 
 ################################
 # Config
@@ -52,17 +54,18 @@ alias gc="git add . && git commit -am"
 
 ################################
 # Git prompt
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:*' formats "%F{218}%b%f %m%F{228}%u%f%F{128}%c%f "
-zstyle ':vcs_info:*' actionformats "%b (%a) %m%u%c "
-zstyle ':vcs_info:*' patch-format '%10>...>%p%<< (%n applied)'
-zstyle ':vcs_info:*' check-for-changes true
+# zstyle ':vcs_info:*' enable git
+# zstyle ':vcs_info:*' formats "%F{218}%b%f %m%F{228}%u%f%F{128}%c%f "
+# zstyle ':vcs_info:*' actionformats "%b (%a) %m%u%c "
+# zstyle ':vcs_info:*' patch-format '%10>...>%p%<< (%n applied)'
+# zstyle ':vcs_info:*' check-for-changes true
 
-precmd() { vcs_info }
+# precmd() { vcs_info }
+
 ################################
 # Prompt
-PROMPT="%F{117}%~%f %F{104}$%f "
-RPROMPT='${vcs_info_msg_0_}%F{187}%*%f %F{110}%m'
+# PROMPT="%F{117}%~%f %F{104}$%f "
+# RPROMPT='${vcs_info_msg_0_}%F{187}%*%f %F{110}%m'
 
 ################################
 # Functions

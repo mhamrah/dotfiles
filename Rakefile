@@ -25,12 +25,10 @@ BREW_APPS = [
   "jq",
   "zsh",
   "fasd"
-  "autojump",
   "nvim"
 ]
 
 BREW_CASK_APPS = [
-  "dash",
   "dropbox",
   "google-drive",
   "alfred",
