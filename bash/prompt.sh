@@ -45,7 +45,7 @@ bash_prompt() {
   # reset
   local RESET="\[\033[0;37m\]"
 
-  #PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
+  PS1="$M\u@\h $C\w$Y\$(__git_prompt)$M \$ \[\e[m\]\[\e[0m\]"
   
   PS1=""
   if [ $TMUX ]

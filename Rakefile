@@ -1,17 +1,25 @@
 ENV['HOMEBREW_CASK_OPTS'] = "--appdir=/Applications"
 
+def filemap(map)
+  map.inject({}) do |result, (key, value)|
+    result[File.expand_path(key)] = File.expand_path(value)
+    result
+  end.freeze
+end
+
 LINKED_FILES = filemap(
-  'tmux.conf'     => '~/.tmux.conf',
-  'bash_profile' => '~/.bash_profile',
-  'ctags' => '~/.ctags',
-  'gitconfig' => '~/.gitconfig',
-  'gemrc' => '~/.gemrc',
-  'zshrc' => '~/.zshrc',
-  'agignore' => '~/.agignore'
-  'nvim/init.vm' => '~/.config/nvim/init.vim',
-  'nvim/nvimrc.local' => '~/.config/nvimrc.local',
-  'nvim/nvimrc.local.bindles' => '~/.config/nvimrc.local.bundles'
+  'zshrc' => '~/.zshrc'
 )
+  #'tmux.conf'     => '~/.tmux.conf',
+  #'bash_profile' => '~/.bash_profile',
+  #'ctags' => '~/.ctags',
+  #'gitconfig' => '~/.gitconfig',
+  #'gemrc' => '~/.gemrc',
+  #'agignore' => '~/.agignore'
+  #'nvim/init.vm' => '~/.config/nvim/init.vim',
+  #'nvim/nvimrc.local' => '~/.config/nvimrc.local',
+  #'nvim/nvimrc.local.bindles' => '~/.config/nvimrc.local.bundles'
+#)
 
 
 BREW_APPS = [
@@ -24,7 +32,7 @@ BREW_APPS = [
   "the_silver_searcher",
   "jq",
   "zsh",
-  "fasd"
+  "fasd",
   "nvim"
 ]
 
@@ -205,12 +213,6 @@ namespace :install do
   end
 end
 
-def filemap(map)
-  map.inject({}) do |result, (key, value)|
-    result[File.expand_path(key)] = File.expand_path(value)
-    result
-  end.freeze
-end
 desc 'Install these config files.'
 task :install do
   Rake::Task['install:brew'].invoke
@@ -218,13 +220,17 @@ task :install do
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:brew_apps'].invoke
   Rake::Task['install:apps'].invoke
+  Rake::Task['link'].invoke
 
+end
+
+desc 'Link Files'
+task :link do
   step 'symlink'
-
-  LINKED_FILES.each do |orig, link|
-    link_file orig, link
-  end
-
+  
+    LINKED_FILES.each do |orig, link|
+      link_file orig, link
+    end
 end
 
 desc 'Uninstall these config files.'
