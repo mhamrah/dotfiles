@@ -5,6 +5,8 @@
 
 # 17:39:15 henrik@Nyx project_dir ree-1.8.7@project master*$ 
 
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+
 function __rvm_prompt {
   if hash rvm-prompt 2>&- ; then
     echo " `rvm-prompt i v g s`"

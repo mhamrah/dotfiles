@@ -8,18 +8,17 @@ def filemap(map)
 end
 
 LINKED_FILES = filemap(
-  'zshrc' => '~/.zshrc'
+  'zshrc' => '~/.zshrc',
+  'gitconfig' => '~/.gitconfig',
+  'gemrc' => '~/.gemrc',
+  'nvim/init.vm' => '~/.config/nvim/init.vim',
+  'nvim/nvimrc.local' => '~/.config/nvimrc.local',
+  'nvim/nvimrc.local.bindles' => '~/.config/nvimrc.local.bundles',
+  'bash_profile' => '~/.bash_profile',
+  'ctags' => '~/.ctags',
+  'agignore' => '~/.agignore',
+  'tmux.conf'     => '~/.tmux.conf'
 )
-  #'tmux.conf'     => '~/.tmux.conf',
-  #'bash_profile' => '~/.bash_profile',
-  #'ctags' => '~/.ctags',
-  #'gitconfig' => '~/.gitconfig',
-  #'gemrc' => '~/.gemrc',
-  #'agignore' => '~/.agignore'
-  #'nvim/init.vm' => '~/.config/nvim/init.vim',
-  #'nvim/nvimrc.local' => '~/.config/nvimrc.local',
-  #'nvim/nvimrc.local.bindles' => '~/.config/nvimrc.local.bundles'
-#)
 
 
 BREW_APPS = [
@@ -37,15 +36,12 @@ BREW_APPS = [
 ]
 
 BREW_CASK_APPS = [
-  "dropbox",
-  "google-drive",
   "alfred",
   "sizeup",
-  "evernote",
-  "handbrake",
-  "spotify",
   "caffeine",
-  "1password"
+  "1password",
+  "visual-studio-code",
+  "getantibody/tap/antibody"
 ]
 
 GO_TOOLS = [
@@ -171,6 +167,14 @@ def unlink_file(original_filename, symlink_filename)
 end
 
 namespace :install do
+  desc 'Make common folders'
+  task :init do
+    sh 'mkdir -p ~/.config/nvim'
+    sh 'mkdir -p ~/dev/go'
+    sh 'touch ~/.hushlogin'
+    sh 'ln -s ~/Dropbox/ssh ~/.ssh'
+  end
+
   desc 'Update or Install Brew'
   task :brew do
     step 'Homebrew'
@@ -215,6 +219,7 @@ end
 
 desc 'Install these config files.'
 task :install do
+  Rake::Task['install:init'].invoke
   Rake::Task['install:brew'].invoke
   Rake::Task['install:brew_cask'].invoke
   Rake::Task['install:iterm'].invoke
