@@ -105,6 +105,6 @@ bindkey "^[^[[D" backward-word
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=yellow'
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=cyan'
-ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=cyan'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
