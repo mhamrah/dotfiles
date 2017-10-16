@@ -32,7 +32,7 @@ BREW_APPS = [
   "jq",
   "zsh",
   "fasd",
-  "nvim"
+  "neovim"
 ]
 
 BREW_CASK_APPS = [
@@ -221,7 +221,6 @@ desc 'Install these config files.'
 task :install do
   Rake::Task['install:init'].invoke
   Rake::Task['install:brew'].invoke
-  Rake::Task['install:brew_cask'].invoke
   Rake::Task['install:iterm'].invoke
   Rake::Task['install:brew_apps'].invoke
   Rake::Task['install:apps'].invoke
