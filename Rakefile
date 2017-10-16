@@ -32,7 +32,8 @@ BREW_APPS = [
   "jq",
   "zsh",
   "fasd",
-  "neovim"
+  "neovim",
+  "getantibody/tap/antibody"
 ]
 
 BREW_CASK_APPS = [
@@ -40,8 +41,7 @@ BREW_CASK_APPS = [
   "sizeup",
   "caffeine",
   "1password",
-  "visual-studio-code",
-  "getantibody/tap/antibody"
+  "visual-studio-code"
 ]
 
 GO_TOOLS = [
