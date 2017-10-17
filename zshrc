@@ -13,9 +13,10 @@ PATH=$PATH:$HOME/bin
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
+eval "$(fasd --init auto)"
+
 source <(antibody init)
 
-antibody bundle whjvenyl/fasd
 antibody bundle mafredri/zsh-async
 antibody bundle sindresorhus/pure
 antibody bundle Tarrasch/zsh-colors
