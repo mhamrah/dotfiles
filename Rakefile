@@ -41,7 +41,8 @@ BREW_CASK_APPS = [
   "sizeup",
   "caffeine",
   "1password",
-  "visual-studio-code"
+  "visual-studio-code",
+  "virtualbox"
 ]
 
 GO_TOOLS = [
