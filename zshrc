@@ -52,6 +52,9 @@ alias startup="/usr/bin/time /usr/local/bin/zsh -i -c exit"
 alias cfg="vim ~/.zshrc"
 alias g="git"
 alias gc="git add . && git commit -am"
+alias dm="docker-machine"
+alias dc="docker-compose"
+alias git="hub"
 
 ################################
 # Git prompt
