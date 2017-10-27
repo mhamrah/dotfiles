@@ -25,7 +25,6 @@ BREW_APPS = [
   "hub",
   "rocksdb",
   "go",
-  "docker",
   "reattach-to-user-namespace",
   "ctags",
   "the_silver_searcher",
@@ -173,7 +172,6 @@ namespace :install do
     sh 'mkdir -p ~/.config/nvim'
     sh 'mkdir -p ~/dev/go'
     sh 'touch ~/.hushlogin'
-    sh 'ln -s ~/Dropbox/ssh ~/.ssh'
   end
 
   desc 'Update or Install Brew'
