@@ -23,6 +23,7 @@ LINKED_FILES = filemap(
 
 BREW_APPS = [
   "hub",
+  "fswatch",
   "rocksdb",
   "go",
   "reattach-to-user-namespace",
