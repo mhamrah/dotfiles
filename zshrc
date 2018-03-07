@@ -14,6 +14,7 @@ PATH=/usr/local/sbin:$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/bin
 PATH=$PATH:~/Library/Python/3.6/bin
+PATH=$PATH:/Users/mhamrah/personal-scratch/istio-0.5.1/bin
 
 ################################
 # Startup Scripts
@@ -112,16 +113,6 @@ function mcd() {
   command mkdir $1 && cd $1
 }
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f /Users/mhamrah/google-cloud-sdk/path.zsh.inc ]; then
-  source '/Users/mhamrah/google-cloud-sdk/path.zsh.inc'
-fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f /Users/mhamrah/google-cloud-sdk/completion.zsh.inc ]; then
-  source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'
-fi
-
 lox() {
  sudo ifconfig lo0 alias 127.0.0.3 up && sudo ifconfig lo0 alias 127.0.0.2 up
 }
@@ -146,3 +137,9 @@ export NVM_DIR="$HOME/.nvm"
 # tabtab source for sls package
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/mhamrah/.nvm/versions/node/v6.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/mhamrah/.nvm/versions/node/v6.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
