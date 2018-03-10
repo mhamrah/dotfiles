@@ -1,4 +1,7 @@
 #!/bin/bash
+set -m
+
+WIDTH=${1}
 
 # Internal IP
 IP=$(ipconfig getifaddr en0)
@@ -14,22 +17,22 @@ if [[ $? -eq 0 ]]
 fi
 
 # Speedtest
-TEMP=$(speedtest-cli --simple)
-DL=`awk 'NR==2{print $2}' <<< """$TEMP"""`
-UP=`awk 'NR==3{print $2}' <<< """$TEMP"""`
+TEMP=$(speedtest-cli --json)
+DL=`jq -r .download <<< """$TEMP"""`
+UP=`jq -r .upload <<< """$TEMP"""`
+DL=$(echo "$DL/1000/1000" | bc -l)
+UP=$(echo "$UP/1000/1000" | bc -l)
+DL=`printf '%.2f' $DL`
+UP=`printf '%.2f' $UP`
 
 # Public IP
-PUB_IP=$(speedtest-cli --json | jq -r .client.ip)
+PUB_IP=`jq -r .client.ip <<< """$TEMP"""`
 
 if [[ "$PUB_IP" = ";; connection timed out; no servers could be reached" ]]; then
     PUB_IP="Not Available"
 elif [[ "$PUB_IP" = "" ]]; then
     PUB_IP="No external access"
-else
-    PUB_IP=$(speedtest-cli --json | jq -r .client.ip)
 fi
-
-# #INTERNET='📶'
 
 internet_info=`airport -I | grep agrCtlRSSI | awk '{print $2}' | sed 's/-//g'`
 
@@ -45,4 +48,14 @@ else
     echo -n '#[fg=colour120]'
 fi
 
-echo -n "-[$internet_info]db | #[fg=colour81]$PL #[fg=colour86]$DL Mbit/s $UP Mbit/s #[fg=colour197]$IP | $PUB_IP"
+SPEED="#[fg=colour86]${DL}↓ ${UP}↑"
+SHORT_IP="#[fg=colour197]$IP "
+LONG_IP="#[fg=colour197]$IP | $PUB_IP "
+
+if [[ $WIDTH -ge 160 ]]; then
+    echo -n " -[$internet_info]db | #[fg=colour81]$PL $SPEED $LONG_IP"
+elif [[ $WIDTH -ge 140 ]]; then
+    echo -n " -[$internet_info]db | #[fg=colour81]$PL $SPEED $SHORT_IP"
+elif [[ $WIDTH -ge 120 ]]; then
+    echo -n " -[$internet_info]db | #[fg=colour81]$PL"
+fi
