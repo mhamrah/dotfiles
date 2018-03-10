@@ -1,3 +1,6 @@
+#export ZSH_TMUX_AUTOSTART='true'
+#export ZSH_TMUX_ITERM2='false'
+
 ################################
 autoload -U compinit && compinit
 zmodload -i zsh/complist
@@ -21,19 +24,9 @@ PATH=$PATH:/Users/mhamrah/personal-scratch/istio-0.5.1/bin
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 # [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-eval "$(fasd --init auto)"
+#eval "$(fasd --init auto)"
 
-source <(antibody init)
-
-antibody bundle mafredri/zsh-async
-antibody bundle sindresorhus/pure
-antibody bundle Tarrasch/zsh-colors
-antibody bundle zsh-users/zsh-completions
-antibody bundle caarlos0/ports
-antibody bundle junegunn/fzf
-antibody bundle zsh-users/zsh-syntax-highlighting
-antibody bundle zsh-users/zsh-autosuggestions
-antibody bundle zsh-users/zsh-history-substring-search
+source ~/dotfiles/zsh_plugins.sh
 
 ################################
 # Options
@@ -51,8 +44,8 @@ export EDITOR=nvim
 # Config
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey "^[^[[C" forward-word
-bindkey "^[^[[D" backward-word
+bindkey "^[f" forward-word
+bindkey "^[b" backward-word
 
 ################################
 # Aliases
@@ -129,7 +122,7 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+. "/usr/local/opt/nvm/nvm.sh" --no-use
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
