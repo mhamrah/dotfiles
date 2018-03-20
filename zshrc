@@ -1,6 +1,3 @@
-#export ZSH_TMUX_AUTOSTART='true'
-#export ZSH_TMUX_ITERM2='false'
-
 ################################
 autoload -U compinit && compinit
 zmodload -i zsh/complist
@@ -8,6 +5,8 @@ zmodload -i zsh/complist
 ################################
 export GOPATH=~/go
 export TILLER_NAMESPACE=default
+
+test -e "$HOME/.zshrc_win" && source "$HOME/.zshrc_win"
 
 ################################
 # Path
@@ -43,7 +42,7 @@ bindkey '^[[1;5D' backward-word
 
 ################################
 # Aliases
-#alias vim="nvim"
+alias vim="nvim"
 alias s="source ~/.zshrc"
 alias startup="/usr/bin/time /usr/local/bin/zsh -i -c exit"
 alias cfg="vim ~/.zshrc"
