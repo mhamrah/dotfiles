@@ -51,7 +51,7 @@ alias g="git"
 alias gc="git add . && git commit -am"
 alias dm="docker-machine"
 alias dc="docker-compose"
-alias git="hub"
+#alias git="hub"
 alias kubectl="noglob kubectl"
 alias kc="noglob kubectl"
 alias cleanup='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
@@ -103,7 +103,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #export NVM_DIR="$HOME/.nvm"
 #. "/usr/local/opt/nvm/nvm.sh" --no-use
 
-# tabtab source for serverless package
+# tabtab source fo#r serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
 [[ -f /Users/mhamrah/.nvm/versions/node/v6.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/mhamrah/.nvm/versions/node/v6.11.2/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
 # tabtab source for sls package
@@ -115,3 +115,5 @@ if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mh
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
+
+test -e "$HOME/.zshrc_win" && source "$HOME/.zshrc_win"
