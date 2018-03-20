@@ -6,9 +6,8 @@ autoload -U compinit && compinit
 zmodload -i zsh/complist
 
 ################################
-export GOPATH=~/dev/go
+export GOPATH=~/go
 export TILLER_NAMESPACE=default
-export PLATFORM=~/dev/platform
 
 ################################
 # Path
@@ -16,40 +15,35 @@ PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
 PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/bin
-PATH=$PATH:~/Library/Python/3.6/bin
-PATH=$PATH:/Users/mhamrah/personal-scratch/istio-0.5.1/bin
 
 ################################
 # Startup Scripts
 # test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-# [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-#eval "$(fasd --init auto)"
 
 source ~/dotfiles/zsh_plugins.sh
 
 ################################
 # Options
 setopt AUTO_CD
-#setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY_TIME
 setopt PROMPT_SUBST
+unsetopt BG_NICE
 
 export SAVEHIST=5000
 export HISTSIZE=5000
 export HISTFILE=~/.zhistory
-export EDITOR=nvim
+export EDITOR=vim
 
 ################################
 # Config
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-bindkey "^[f" forward-word
-bindkey "^[b" backward-word
+bindkey '^[[1;5A' history-substring-search-up
+bindkey '^[[1;5B' history-substring-search-down
+bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5D' backward-word
 
 ################################
 # Aliases
-alias vim="nvim"
+#alias vim="nvim"
 alias s="source ~/.zshrc"
 alias startup="/usr/bin/time /usr/local/bin/zsh -i -c exit"
 alias cfg="vim ~/.zshrc"
@@ -71,21 +65,6 @@ alias knprod="KUBECONFIG=~/.namely-k8s/new-kube-aws-prod/kubeconfig kubectl"
 alias kops="KUBECONFIG=~/.namely-k8s/kube-aws-ops/kubeconfig kubectl"
 alias kctx="kubectl config current-context"
 alias tf="noglob terraform"
-
-################################
-# Git prompt
-# zstyle ':vcs_info:*' enable git
-# zstyle ':vcs_info:*' formats "%F{218}%b%f %m%F{228}%u%f%F{128}%c%f "
-# zstyle ':vcs_info:*' actionformats "%b (%a) %m%u%c "
-# zstyle ':vcs_info:*' patch-format '%10>...>%p%<< (%n applied)'
-# zstyle ':vcs_info:*' check-for-changes true
-
-# precmd() { vcs_info }
-
-################################
-# Prompt
-# PROMPT="%F{117}%~%f %F{104}$%f "
-# RPROMPT='${vcs_info_msg_0_}%F{187}%*%f %F{110}%m'
 
 ################################
 # Functions
@@ -121,8 +100,8 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh" --no-use
+#export NVM_DIR="$HOME/.nvm"
+#. "/usr/local/opt/nvm/nvm.sh" --no-use
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -136,5 +115,3 @@ if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mh
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
-
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
