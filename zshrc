@@ -1,4 +1,12 @@
 ################################
+autoload -Uz compinit
+if [[ $(expr  $(date '+%s') - $(stat -c '%Z' ~/.zcompdump)) -gt 86400 ]]
+then 
+  rm ~/.zcompdump
+  compinit -C
+else 
+  compinit -u -d ~/.zcompdump 
+fi
 
 source ~/dotfiles/zsh_plugins.sh
 test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
@@ -9,11 +17,12 @@ test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
 # zstyle ':completion:*' group-name ''
 # zstyle ':completion:*' menu select=2
 # eval "$(dircolors -b)"
+
  zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
  zstyle ':completion:*' list-colors ''
  zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
- zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*
-# '
+ zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+ 
 # zstyle ':completion:*' menu select=long
 # zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 # zstyle ':completion:*' use-compctl false

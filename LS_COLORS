@@ -38,7 +38,7 @@ CAPABILITY             0
 CHR                    0
 DIR                    92
 #DOOR                  0
-EXEC                   96
+EXEC                   0
 FIFO                   0
 FILE                   0 
 LINK                   94

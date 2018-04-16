@@ -1,6 +1,6 @@
 
 ################################
-export GOPATH=~/go
+export GOPATH=/c/Users/MikeHamrah/wslgo
 export TILLER_NAMESPACE=default
 
 source ~/dotfiles/aliases.sh
