@@ -1,7 +1,6 @@
 
 ################################
 # Aliases
-alias ls="ls --color=auto"
 alias la="ls -lahF"
 alias lf="ls -lhF"
 alias t="tail -f"
@@ -32,5 +31,3 @@ alias knprod="KUBECONFIG=~/.namely-k8s/new-kube-aws-prod/kubeconfig kubectl"
 alias kops="KUBECONFIG=~/.namely-k8s/kube-aws-ops/kubeconfig kubectl"
 alias kctx="kubectl config current-context"
 alias tf="noglob terraform"
-
-

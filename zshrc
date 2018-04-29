@@ -1,14 +1,30 @@
+
+
+if [[ `which gexpr` ]]; then
+  alias stat="gstat"
+  alias expr="gexpr"
+fi
+
 ################################
 autoload -Uz compinit
 if [[ $(expr  $(date '+%s') - $(stat -c '%Z' ~/.zcompdump)) -gt 86400 ]]
-then 
+then
   rm ~/.zcompdump
   compinit -C
-else 
-  compinit -u -d ~/.zcompdump 
+else
+  compinit -u -d ~/.zcompdump
 fi
 
-source ~/dotfiles/zsh_plugins.sh
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+   source ~/dotfiles/zsh_plugins.sh
+   alias ls="ls --color=auto"
+   eval $( dircolors -b ~/dotfiles/LS_COLORS )
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   source ~/dotfiles/zsh_plugins_osx.sh
+   alias ls="ls -G"
+fi
+
 test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
 
 # zstyle ':completion:*' auto-description 'specify: %d'
@@ -22,7 +38,7 @@ test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
  zstyle ':completion:*' list-colors ''
  zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
  zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
- 
+
 # zstyle ':completion:*' menu select=long
 # zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 # zstyle ':completion:*' use-compctl false

@@ -4,7 +4,6 @@ export GOPATH=/c/Users/MikeHamrah/wslgo
 export TILLER_NAMESPACE=default
 
 source ~/dotfiles/aliases.sh
-eval $( dircolors -b ~/dotfiles/LS_COLORS )
 
 #
 # Opts
@@ -63,4 +62,3 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
 
 test -e "$HOME/.zshrc_win" && source "$HOME/.zshrc_win"
-
