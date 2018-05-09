@@ -13,3 +13,4 @@ robbyrussell/oh-my-zsh folder:plugins/docker
 robbyrussell/oh-my-zsh folder:plugins/docker-compose
 #robbyrussell/oh-my-zsh folder:plugins/kubectl
 #sei40kr/zsh-tmux-rename
+robbyrussell/oh-my-zsh folder:plugins/ssh-agent
