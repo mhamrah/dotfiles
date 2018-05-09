@@ -4,14 +4,7 @@
 add-apt-repository ppa:git-core/ppa
 
 # java ppa
-add-apt-repository ppa:webupd8team/java
-
-# docker
-apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
+add-apt-repository ppa:linuxuprising/java
 
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
@@ -21,4 +14,16 @@ add-apt-repository \
    stable"
 
 apt-get update
-apt-get install git docker-ce
+
+# docker
+apt-get install \
+    build-essential \ 
+    zsh \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common \
+    oracle-java10-installer \
+    git \
+    docker-ce \
+    oracle-java10-set-default

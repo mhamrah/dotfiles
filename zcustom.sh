@@ -1,6 +1,5 @@
 
 ################################
-export GOPATH=/c/Users/MikeHamrah/wslgo
 export TILLER_NAMESPACE=default
 
 source ~/dotfiles/aliases.sh
@@ -22,7 +21,6 @@ export EDITOR=vim
 # Path
 PATH=/usr/local/bin:$PATH
 PATH=/usr/local/sbin:$PATH
-PATH=$PATH:$GOPATH/bin
 PATH=$PATH:$HOME/bin
 
 ################################
@@ -62,3 +60,4 @@ ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=red'
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
 
 test -e "$HOME/.zshrc_win" && source "$HOME/.zshrc_win"
+PATH=$PATH:$GOPATH/bin
