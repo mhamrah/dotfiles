@@ -24,6 +24,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    source ~/dotfiles/zsh_plugins_osx.sh
    alias ls="ls -G"
    PATH=$PATH:/Users/mhamrah/Library/Python/2.7/bin
+   export GOPATH=~/go
 fi
 
 test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
