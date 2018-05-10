@@ -1,6 +1,6 @@
 
-
-if [[ `which gexpr` ]]; then
+which gexpr &> /dev/null
+if [[ $? -eq 0 ]]; then
   alias stat="gstat"
   alias expr="gexpr"
 fi
@@ -24,6 +24,7 @@ elif [[ "$unamestr" == 'Darwin' ]]; then
    source ~/dotfiles/zsh_plugins_osx.sh
    alias ls="ls -G"
    PATH=$PATH:/Users/mhamrah/Library/Python/2.7/bin
+   export GOPATH=~/go
 fi
 
 test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
@@ -49,7 +50,7 @@ test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
 # zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH="$N_PREFIX/bin:$PATH"  # Added by n-install (see http://git.io/n-install-repo).
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
