@@ -26,4 +26,5 @@ apt-get install \
     oracle-java10-installer \
     git \
     docker-ce \
-    oracle-java10-set-default
+    oracle-java10-set-default \
+    autojump
