@@ -1,6 +1,7 @@
 export DOCKER_HOST=tcp://0.0.0.0:2375
 export GOPATH=/c/Users/MikeHamrah/wsl/go
 export PATH=$PATH:/usr/local/go/bin
+export PLATFORM=/c/Users/MikeHamrah/source/repos/platform
 
 #sudo mount --bind /mnt/c /c
 
@@ -8,9 +9,10 @@ export JAVA_HOME=/usr/lib/jvm/java-10-oracle
 
 alias s="cd /c/Users/MikeHamrah/source/repos"
 alias h="cd /c/Users/MikeHamrah"
-alias pbcopy="xclip -sel clip"
+alias pbcopy="clip.exe"
 alias code="cmd.exe /c code.cmd"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mhamrah/.sdkman"
 [[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"
+

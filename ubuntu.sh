@@ -13,6 +13,16 @@ add-apt-repository \
    $(lsb_release -cs) \
    stable"
 
+add-apt-repository \
+   "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt/ \
+   $(lsb_release -cs)-pgdg \
+   main"
+
+add-apt-repository "deb [arch=amd64] https://packages.confluent.io/deb/4.1 stable main"
+
+wget -qO - https://packages.confluent.io/deb/4.1/archive.key | sudo apt-key add -
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
 apt-get update
 
 # docker
@@ -27,4 +37,5 @@ apt-get install \
     git \
     docker-ce \
     oracle-java10-set-default \
-    autojump
+    autojump \
+
