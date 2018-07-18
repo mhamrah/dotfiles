@@ -3,9 +3,8 @@ export GOPATH=/c/Users/MikeHamrah/wsl/go
 export PATH=$PATH:/usr/local/go/bin
 export PLATFORM=/c/Users/MikeHamrah/source/repos/platform
 
-#sudo mount --bind /mnt/c /c
-
 export JAVA_HOME=/usr/lib/jvm/java-10-oracle
+
 
 alias s="cd /c/Users/MikeHamrah/source/repos"
 alias h="cd /c/Users/MikeHamrah"
