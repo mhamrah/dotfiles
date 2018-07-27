@@ -1,4 +1,5 @@
 .netrwhist
+.DS_Store
 tags
 vim/.netrwhist
 nvim/plugged/*
