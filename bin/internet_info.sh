@@ -1,6 +1,12 @@
 #!/bin/bash
 set -m
 
+UNAME=$(uname -s)
+if [[ $UNAME -ne 'Darwin' ]]
+then
+    return
+fi
+
 WIDTH=${1}
 
 # Internal IP
