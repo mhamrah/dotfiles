@@ -50,7 +50,6 @@ test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
 # zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH="$N_PREFIX/bin:$PATH"  # Added by n-install (see http://git.io/n-install-repo).
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -68,3 +67,5 @@ if [ -f '/home/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/hom
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mhamrah/.sdkman"
 [[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
