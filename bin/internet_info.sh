@@ -2,9 +2,9 @@
 set -m
 
 UNAME=$(uname -s)
-if [[ $UNAME -ne 'Darwin' ]]
+if [[ "$UNAME" != "Darwin" ]]
 then
-    return
+    exit
 fi
 
 WIDTH=${1}

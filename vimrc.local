@@ -3,5 +3,7 @@ if has('python3')
 endif
 
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'powerlineish'
 
-colorscheme hammer
+"colorscheme hammer
+colorscheme elflord
