@@ -1,5 +1,5 @@
 export DOCKER_HOST=tcp://0.0.0.0:2375
-export GOPATH=/c/Users/MikeHamrah/wsl/go
+export GOPATH=/c/Users/MikeHamrah/go
 export PATH=$PATH:/usr/local/go/bin
 export PLATFORM=/c/Users/MikeHamrah/source/repos/platform
 

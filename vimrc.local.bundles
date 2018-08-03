@@ -1,4 +1,5 @@
 
-Plug 'sts10/vim-pink-moon'
-Plug 'nightsense/snow'
+"Plug 'sts10/vim-pink-moon'
+"Plug 'nightsense/snow'
+Plug 'AlessandroYorba/Alduin'
 
