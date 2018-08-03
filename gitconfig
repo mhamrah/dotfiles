@@ -6,7 +6,7 @@
   autocrlf = input
   editor = vim
   excludesfile = /Users/mhamrah/.gitignore_global
-	sshCommand = C:\\Windows\\System32\\OpenSSH\\ssh.exe
+	sshCommand =  \"C:/Windows/System32/OpenSSH/ssh.exe\"
 
 [push]
   default = current
@@ -60,7 +60,7 @@
 
   co = checkout
   cob = checkout -b
-  br = branch 
+  br = branch
 #"!git branch -ra | grep -v done"
   bra = branch -ra
 #list commands
@@ -89,7 +89,7 @@
   rh1 = reset HEAD^ --hard
   rh2 = reset HEAD^^ --hard
   ec = config --global -e
-  up = git pull --rebase --prune 
+  up = git pull --rebase --prune
 #prune
   po = remote prune origin
 #stash
@@ -135,7 +135,7 @@
   lap = "!f() { git --git-dir=$1 format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
 
 #subtree add
-  sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f" 
+  sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
   alias = ! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /
 # }}}
 
