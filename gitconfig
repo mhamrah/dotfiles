@@ -6,6 +6,7 @@
   autocrlf = input
   editor = vim
   excludesfile = /Users/mhamrah/.gitignore_global
+	sshCommand = C:\\Windows\\System32\\OpenSSH\\ssh.exe
 
 [push]
   default = current
