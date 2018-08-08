@@ -2,4 +2,4 @@
 "Plug 'sts10/vim-pink-moon'
 "Plug 'nightsense/snow'
 Plug 'AlessandroYorba/Alduin'
-
+Plug 'christoomey/vim-tmux-navigator'

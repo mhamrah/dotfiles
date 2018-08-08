@@ -4,3 +4,4 @@ Set-Alias dc docker-compose
 Set-Alias g git
 Set-PSReadlineOption -TokenKind Parameter -Foregroundcolor Cyan
 Set-PSReadlineOption -TokenKind Operator -Foregroundcolor White
+Set-PSReadlineOption -BellStyle None

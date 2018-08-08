@@ -6,6 +6,17 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'alduin'
 
+nmap <leader>d :NERDTreeToggle<CR>
+nmap <leader>f :NERDTreeFind<CR>
+
 "colorscheme hammer
 colorscheme elflord
 colorscheme alduin 
+
+map <leader>qw <C-w>q<cr>
+
+set autowrite
+set autowriteall
+set nowritebackup
+
+inoremap jj <ESC>
