@@ -6,8 +6,8 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'alduin'
 
-nmap <leader>d :NERDTreeToggle<CR>
-nmap <leader>f :NERDTreeFind<CR>
+nmap <leader>nd :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 
 "colorscheme hammer
 colorscheme elflord
@@ -20,3 +20,13 @@ set autowriteall
 set nowritebackup
 
 inoremap jj <ESC>
+
+"use ; as the command leader
+nnoremap ; :
+vnoremap ; :
+set mouse=a
+
+set omnifunc=syntaxcomplete#Complete
+
+set relativenumber
+:au FocusLost * silent! wa

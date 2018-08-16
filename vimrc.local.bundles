@@ -3,3 +3,9 @@
 "Plug 'nightsense/snow'
 Plug 'AlessandroYorba/Alduin'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'uarun/vim-protobuf'
+Plug 'tpope/vim-surround'
+Plug 'Shougo/neocomplete.vim'
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' }
+Plug 'hashivim/vim-terraform'
+Plug 'wincent/terminus'

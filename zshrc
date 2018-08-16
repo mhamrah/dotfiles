@@ -20,6 +20,7 @@ if [[ "$unamestr" == 'Linux' ]]; then
    source ~/dotfiles/zsh_plugins.sh
    alias ls="ls --color=auto"
    eval $( dircolors -b ~/dotfiles/LS_COLORS )
+   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 elif [[ "$unamestr" == 'Darwin' ]]; then
    source ~/dotfiles/zsh_plugins_osx.sh
    alias ls="ls -G"
@@ -69,3 +70,7 @@ export SDKMAN_DIR="/home/mhamrah/.sdkman"
 [[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+export LIBGL_ALWAYS_INDIRECT=1
+export DISPLAY=:0.0
+

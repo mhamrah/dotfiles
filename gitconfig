@@ -16,7 +16,6 @@
   autosetupmerge = true
 
 [credential]
-  helper = osxkeychain
 
 [color]
   ui = true

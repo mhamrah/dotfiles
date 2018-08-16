@@ -61,3 +61,8 @@ ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
 
 test -e "$HOME/.zshrc_win" && source "$HOME/.zshrc_win"
 PATH=$PATH:$GOPATH/bin
+PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
+
+if [ $commands[kubectl] ]; then
+      source <(kubectl completion zsh)
+  fi

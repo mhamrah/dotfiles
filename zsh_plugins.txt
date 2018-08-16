@@ -1,8 +1,6 @@
 mafredri/zsh-async
-#sindresorhus/pure
 mhamrah/pure
 zsh-users/zsh-completions
-#caarlos0/ports
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
@@ -11,6 +9,8 @@ robbyrussell/oh-my-zsh folder:plugins/tmux
 robbyrussell/oh-my-zsh folder:plugins/autojump
 robbyrussell/oh-my-zsh folder:plugins/docker
 robbyrussell/oh-my-zsh folder:plugins/docker-compose
-#robbyrussell/oh-my-zsh folder:plugins/kubectl
-#sei40kr/zsh-tmux-rename
 robbyrussell/oh-my-zsh folder:plugins/ssh-agent
+
+#sindresorhus/pure
+#sei40kr/zsh-tmux-rename
+#caarlos0/ports
