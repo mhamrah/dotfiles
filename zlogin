@@ -1,1 +1,1 @@
-# zprof | head -n 10
+zprof | head -n 10

@@ -6,15 +6,15 @@ let g:airline_powerline_fonts = 1
 let g:airline_theme = 'powerlineish'
 let g:airline_theme = 'alduin'
 
-nmap <leader>nd :NERDTreeToggle<CR>
-nmap <leader>nf :NERDTreeFind<CR>
+nmap <leader>n :NERDTreeToggle<cr>
+"nmap <leader>n :NERDTreeFind<cr>
 
 "colorscheme hammer
-colorscheme elflord
-colorscheme alduin 
+"colorscheme elflord
+colorscheme alduin
 
 map <leader>qw <C-w>q<cr>
-
+map <leader>bd :BD<cr>
 set autowrite
 set autowriteall
 set nowritebackup

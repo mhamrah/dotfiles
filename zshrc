@@ -73,4 +73,3 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=:0.0
-

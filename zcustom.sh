@@ -64,5 +64,5 @@ PATH=$PATH:$GOPATH/bin
 PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 if [ $commands[kubectl] ]; then
-      source <(kubectl completion zsh)
+      #source <(kubectl completion zsh)
   fi

@@ -10,15 +10,15 @@ elif [[ $(uname) == "Linux" ]]; then
 fi
 
 if [[ $current_charge -lt 30 ]]; then
-    echo -n '#[fg=colour41]'
+    echo -n '#[fg=colour154]'
 elif [[ $current_charge -lt 50 ]]; then
-    echo -n '#[fg=colour42]'
+    echo -n '#[fg=colour155]'
 elif [[ $current_charge -lt 70 ]]; then
-    echo -n '#[fg=colour43]'
+    echo -n '#[fg=colour156]'
 elif [[ $current_charge -lt 90 ]]; then
-    echo -n '#[fg=colour44]'
+    echo -n '#[fg=colour157]'
 else
-    echo -n '#[fg=colour45]'
+    echo -n '#[fg=colour158]'
 fi
 
 echo -n "$HEART $current_charge%"
