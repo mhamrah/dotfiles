@@ -10,3 +10,5 @@ Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh' 
 Plug 'hashivim/vim-terraform'
 Plug 'wincent/terminus'
 Plug 'qpkorr/vim-bufkill'
+Plug 'w0rp/ale'
+Plug 'uber/prototool', { 'rtp':'vim/prototool' }
