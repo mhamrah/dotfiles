@@ -15,6 +15,7 @@ colorscheme alduin
 
 map <leader>qw <C-w>q<cr>
 map <leader>bd :BD<cr>
+map <leader>g<cr> :FixWhitespace<cr>
 set autowrite
 set autowriteall
 set nowritebackup
@@ -30,3 +31,5 @@ set omnifunc=syntaxcomplete#Complete
 
 set relativenumber
 :au FocusLost * silent! wa
+
+autocmd FileType yaml setlocal expandtab
