@@ -59,12 +59,6 @@ test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
 # uninstall by removing these lines or running `tabtab uninstall sls`
 [[ -f /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/home/mhamrah/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mhamrah/.sdkman"
 [[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"
@@ -73,3 +67,9 @@ export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PR
 
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=:0.0
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi

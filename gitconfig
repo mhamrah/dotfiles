@@ -156,3 +156,5 @@
 	autosquash = true
 [http "https://gopkg.in"]
 	followRedirects = true
+[credential "https://source.developers.google.com"]
+	helper = gcloud.sh
