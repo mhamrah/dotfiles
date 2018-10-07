@@ -6,7 +6,7 @@
   autocrlf = input
   editor = vim
   excludesfile = /Users/mhamrah/.gitignore_global
-  #sshCommand =  \"C:/Windows/System32/OpenSSH/ssh.exe\"
+  # sshCommand = "C:/Windows/System32/OpenSSH/ssh.exe"
 
 [push]
   default = current
@@ -159,3 +159,6 @@
 	followRedirects = true
 [credential "https://source.developers.google.com"]
 	helper = gcloud.sh
+
+[url "ssh://git@github.com/namely/"]
+    insteadOf = https://github.com/namely/
