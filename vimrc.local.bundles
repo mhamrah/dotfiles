@@ -12,3 +12,4 @@ Plug 'wincent/terminus'
 Plug 'qpkorr/vim-bufkill'
 Plug 'w0rp/ale'
 Plug 'uber/prototool', { 'rtp':'vim/prototool' }
+Plug 'morhetz/gruvbox'

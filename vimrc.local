@@ -1,3 +1,6 @@
+
+set termguicolors
+
 if has('python3')
   silent! python3 1
 endif
@@ -9,9 +12,9 @@ let g:airline_theme = 'alduin'
 nmap <leader>n :NERDTreeToggle<cr>
 "nmap <leader>n :NERDTreeFind<cr>
 
-"colorscheme hammer
+colorscheme hammer
 "colorscheme elflord
-colorscheme alduin
+"colorscheme alduin
 
 map <leader>qw <C-w>q<cr>
 map <leader>bd :BD<cr>
