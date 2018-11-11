@@ -1,0 +1,25 @@
+{
+  "name": "Hamrah",
+  "comment": "Ported for Terminix Colour Scheme",
+  "use-theme-colors": false,
+  "foreground-color": "#dcdfe4",
+  "background-color": "#282c34",
+  "palette": [
+    "#282c34",
+    "#e06c75",
+    "#98c379",
+    "#e5c07b",
+    "#61afef",
+    "#c678dd",
+    "#56b6c2",
+    "#dcdfe4",
+    "#282c34",
+    "#e06c75",
+    "#98c379",
+    "#e5c07b",
+    "#61afef",
+    "#c678dd",
+    "#56b6c2",
+    "#dcdfe4"
+  ]
+}
