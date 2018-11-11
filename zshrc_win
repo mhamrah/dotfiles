@@ -11,6 +11,9 @@ alias h="cd /c/Users/MikeHamrah"
 alias pbcopy="clip.exe"
 alias code="cmd.exe /c code.cmd"
 
+#export GDK_SCALE=2
+export DISPLAY=127.0.0.1:0.0;
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/mhamrah/.sdkman"
 [[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"

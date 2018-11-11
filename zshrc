@@ -73,8 +73,12 @@ if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mh
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
+<<<<<<< HEAD
 
 # Keychain
 eval `/usr/bin/keychain -q --eval --agents ssh id_rsa `
 #source $HOME/.keychain/$HOST-sh
 
+=======
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
+>>>>>>> 4e31914c257cf8421938569518d404e3e188c2ac

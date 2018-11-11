@@ -67,4 +67,10 @@ if [ $commands[kubectl] ]; then
       #source <(kubectl completion zsh)
 fi
 
-export KUBECONFIG=$( ls -1 ~/.namely-k8s/**/kubeconfig | awk 'ORS=":"' ) 
+export KUBECONFIG=$( ls -1 ~/.namely-k8s/**/kubeconfig | awk 'ORS=":"' )
+
+namelyconfig() {
+     k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml
+     k8s-configurator generate manifests/config.yml stage > manifests/cm-stage.yml
+     k8s-configurator generate manifests/config.yml int > manifests/cm-int.yml
+}
