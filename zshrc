@@ -65,11 +65,12 @@ export SDKMAN_DIR="/home/mhamrah/.sdkman"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-export LIBGL_ALWAYS_INDIRECT=1
-export DISPLAY=:0.0
+#export LIBGL_ALWAYS_INDIRECT=1
+#export DISPLAY=:0.0
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"

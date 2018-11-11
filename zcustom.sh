@@ -65,4 +65,10 @@ PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 if [ $commands[kubectl] ]; then
       #source <(kubectl completion zsh)
-  fi
+fi
+
+namelyconfig() {
+     k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml
+     k8s-configurator generate manifests/config.yml stage > manifests/cm-stage.yml
+     k8s-configurator generate manifests/config.yml int > manifests/cm-int.yml
+}
