@@ -12,12 +12,3 @@ source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-
 fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-zsh-users-SLASH-zsh-history-substring-search )
 source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-chrissicool-SLASH-zsh-256color/zsh-256color.plugin.zsh
 fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-chrissicool-SLASH-zsh-256color )
-source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux/tmux.plugin.zsh
-fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/tmux )
-source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/autojump/autojump.plugin.zsh
-fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/autojump )
-
-source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose/docker-compose.plugin.zsh
-fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/docker-compose )
-source /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/ssh-agent/ssh-agent.plugin.zsh
-fpath+=( /home/mhamrah/.cache/antibody/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh/plugins/ssh-agent )

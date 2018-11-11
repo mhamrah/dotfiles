@@ -5,11 +5,11 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 chrissicool/zsh-256color
-robbyrussell/oh-my-zsh folder:plugins/tmux
-robbyrussell/oh-my-zsh folder:plugins/autojump
-robbyrussell/oh-my-zsh folder:plugins/docker
-robbyrussell/oh-my-zsh folder:plugins/docker-compose
-robbyrussell/oh-my-zsh folder:plugins/ssh-agent
+#robbyrussell/oh-my-zsh folder:plugins/tmux
+#robbyrussell/oh-my-zsh folder:plugins/autojump
+#robbyrussell/oh-my-zsh folder:plugins/docker
+#robbyrussell/oh-my-zsh folder:plugins/docker-compose
+#robbyrussell/oh-my-zsh folder:plugins/ssh-agent
 
 #sindresorhus/pure
 #sei40kr/zsh-tmux-rename

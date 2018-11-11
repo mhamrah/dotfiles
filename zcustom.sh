@@ -65,4 +65,6 @@ PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 
 if [ $commands[kubectl] ]; then
       #source <(kubectl completion zsh)
-  fi
+fi
+
+export KUBECONFIG=$( ls -1 ~/.namely-k8s/**/kubeconfig | awk 'ORS=":"' ) 
