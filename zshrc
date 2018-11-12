@@ -1,4 +1,4 @@
-if [[ -z "$TMUX" ]]; then
+if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
     tmux new-session -A -s "$USER"
 fi
 
@@ -82,4 +82,3 @@ eval `/usr/bin/keychain -q --eval --agents ssh id_rsa `
 #source $HOME/.keychain/$HOST-sh
 
 export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"
-
