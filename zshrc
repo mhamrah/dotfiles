@@ -1,3 +1,4 @@
+
 if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
     tmux new-session -A -s "$USER"
 fi
