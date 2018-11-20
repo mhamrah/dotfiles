@@ -6,8 +6,24 @@ if has('python3')
 endif
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'powerlineish'
-let g:airline_theme = 'alduin'
+let g:airline_theme = 'hammer'
+let g:tmuxline_preset = {
+      \'a'    : '#S',
+      \'win'  : '#I:#W',
+      \'cwin' : '#I:#W',
+      \'x'    : '#(~/dotfiles/bin/kubectx.sh)',
+      \'y'    : '#(~/dotfiles/bin/battery.sh)',
+      \'z'    : '#H',
+      \'options': {
+      \'status-justify': 'left'}
+   \}
+
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '',
+    \ 'space' : ' '}
 
 nmap <leader>n :NERDTreeToggle<cr>
 "nmap <leader>n :NERDTreeFind<cr>

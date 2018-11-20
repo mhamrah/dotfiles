@@ -131,8 +131,8 @@ Plug 'rust-lang/rust.vim'
 "*****************************************************************************
 
 "" Include user's extra bundle
-if filereadable(expand("~/.vimrc.local.bundles"))
-  source ~/.vimrc.local.bundles
+if filereadable(expand("~/dotfiles/vimrc.local.bundles"))
+  source ~/dotfiles/vimrc.local.bundles
 endif
 
 call plug#end()
@@ -265,7 +265,7 @@ if exists("*fugitive#statusline")
 endif
 
 " vim-airline
-let g:airline_theme = 'powerlineish'
+let g:airline_theme = 'deus'
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -638,8 +638,8 @@ au FileType rust nmap <leader>gd <Plug>(rust-doc)
 "*****************************************************************************
 
 "" Include user's local vim config
-if filereadable(expand("~/.vimrc.local"))
-  source ~/.vimrc.local
+if filereadable(expand("~/dotfiles/vimrc.local"))
+  source ~/dotfiles/vimrc.local
 endif
 
 "*****************************************************************************
