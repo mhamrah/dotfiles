@@ -1,86 +1,158 @@
-setxkbmap -layout us -option ctrl:nocaps
-
 if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
     tmux new-session -A -s "$USER"
 fi
 
-which gexpr &> /dev/null
-if [[ $? -eq 0 ]]; then
-  alias stat="gstat"
-  alias expr="gexpr"
-fi
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-################################
-autoload -Uz compinit
-if [[ $(expr  $(date '+%s') - $(stat -c '%Z' ~/.zcompdump)) -gt 86400 ]]
-then
-  rm ~/.zcompdump
-  compinit -C
-else
-  compinit -u -d ~/.zcompdump
-fi
+# Path to your oh-my-zsh installation.
+export ZSH="/home/mhamrah/.oh-my-zsh"
 
-unamestr=`uname`
-if [[ "$unamestr" == 'Linux' ]]; then
-   source ~/dotfiles/zsh_plugins.sh
-   alias ls="ls --color=auto"
-   eval $( dircolors -b ~/dotfiles/LS_COLORS )
-   ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
-elif [[ "$unamestr" == 'Darwin' ]]; then
-   source ~/dotfiles/zsh_plugins_osx.sh
-   alias ls="ls -G"
-   PATH=$PATH:/Users/mhamrah/Library/Python/2.7/bin
-   export GOPATH=~/go
-fi
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="refined-mlh"
 
-test -e "$HOME/dotfiles/zcustom.sh" && source "$HOME/dotfiles/zcustom.sh"
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
-# zstyle ':completion:*' auto-description 'specify: %d'
-# zstyle ':completion:*' completer _expand _complete _correct _approximate
-# zstyle ':completion:*' format 'Completing %d'
-# zstyle ':completion:*' group-name ''
-# zstyle ':completion:*' menu select=2
-# eval "$(dircolors -b)"
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
 
- zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
- zstyle ':completion:*' list-colors ''
- zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
- zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
-# zstyle ':completion:*' menu select=long
-# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-# zstyle ':completion:*' use-compctl false
-# zstyle ':completion:*' verbose true
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
 
-# zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-# zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(
+  git
+  autojump
+  catimg
+  common-aliases
+  docker
+  encode64
+  history
+  sudo
+  tmux
+  debian
+  kubectl
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+  history-substring-search
+  golang
+  terraform
+)
+
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[arg0]='fg=yellow'
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=red'
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=red'
+
+source $ZSH/oh-my-zsh.sh
+
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=248'
+bindkey '^[[1;5A' history-substring-search-up
+bindkey '^[[1;5B' history-substring-search-down
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/id_rsa"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias tf="terraform"
+alias mk="microk8s.kubectl"
+alias mi="microk8s.kubectl"
+
+export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' )
+
+namelyconfig() {
+     k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml
+     k8s-configurator generate manifests/config.yml stage > manifests/cm-stage.yml
+     k8s-configurator generate manifests/config.yml int > manifests/cm-int.yml
+}
+
+colors() {
+	for COLOR in {0..255}
+	do
+	    for STYLE in "38;5"
+	    do
+		TAG="\033[${STYLE};${COLOR}m"
+		STR="${STYLE};${COLOR}"
+		echo -ne "${TAG}${STR}${NONE}  "
+	    done
+	    echo
+	done
+}
+
+mcd() {
+  command mkdir $1 && cd $1
+}
 
 
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/mhamrah/n/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/mhamrah/.sdkman"
-[[ -s "/home/mhamrah/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mhamrah/.sdkman/bin/sdkman-init.sh"
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
-#export LIBGL_ALWAYS_INDIRECT=1
-#export DISPLAY=:0.0
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mhamrah/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/mhamrah/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Keychain
-eval `/usr/bin/keychain -q --eval --agents ssh id_rsa `
-#source $HOME/.keychain/$HOST-sh
-
-export PATH="/home/linuxbrew/.linuxbrew/sbin:$PATH"

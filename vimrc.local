@@ -20,7 +20,7 @@ let g:tmuxline_preset = {
 
 let g:tmuxline_separators = {
     \ 'left' : '',
-    \ 'left_alt': '>',
+    \ 'left_alt': '',
     \ 'right' : '',
     \ 'right_alt' : '',
     \ 'space' : ' '}
@@ -56,3 +56,6 @@ autocmd FileType yaml setlocal expandtab
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
+
+set term=rxvt-256color

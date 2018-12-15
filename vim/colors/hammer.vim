@@ -74,7 +74,7 @@ highlight SpellCap          guifg=#87afff guibg=NONE gui=undercurl ctermfg=111 c
 highlight SpellRare         guifg=#d75f00 guibg=NONE gui=undercurl ctermfg=166 ctermbg=NONE cterm=undercurl
 
 "COLORS
-highlight Normal            guifg=#d8d0c4 guibg=#272c33 gui=NONE ctermfg=187 ctermbg=234 cterm=NONE
+highlight Normal            guifg=#d8d0c4 guibg=#2A2E36 gui=NONE ctermfg=187 ctermbg=8 cterm=NONE
 "highlight Normal            guifg=#cbd6d5 guibg=#272c33 gui=NONE ctermfg=187 ctermbg=234 cterm=NONE
 highlight String            guifg=#c79797 guibg=NONE gui=NONE ctermfg=222 ctermbg=235 cterm=NONE
 
@@ -95,7 +95,7 @@ highlight CursorColumn      guifg=NONE guibg=#141414 gui=NONE ctermfg=NONE cterm
 highlight ColorColumn       guifg=NONE guibg=#141414 gui=NONE ctermfg=NONE ctermbg=235 cterm=NONE
 highlight Folded            guifg=#4a4a4a guibg=#141414 gui=NONE ctermfg=238 ctermbg=233 cterm=NONE
 highlight VertSplit         guifg=#4a4a4a guibg=#141414 gui=NONE ctermfg=238 ctermbg=234 cterm=NONE
-highlight LineNr            guifg=#4a4a4a guibg=#141414 gui=NONE ctermfg=238 ctermbg=233 cterm=NONE
+highlight LineNr            guifg=#4a4a4a guibg=#25252E gui=NONE ctermfg=238 ctermbg=233 cterm=NONE
 highlight FoldColumn        guifg=#4a4a4a guibg=#232323 gui=NONE ctermfg=109 ctermbg=234 cterm=NONE
 highlight SignColumn        guifg=#4a4a4a guibg=#080808 gui=NONE ctermfg=101 ctermbg=233 cterm=NONE
 highlight NonText           guifg=#4a4a4a guibg=NONE gui=NONE ctermfg=236 ctermbg=NONE cterm=NONE

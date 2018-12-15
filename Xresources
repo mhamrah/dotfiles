@@ -1,34 +1,19 @@
-#Xft.dpi: 200
-
-#if __has_include(".extend.Xresources")
-#include ".extend.Xresources"
-#endif
-
-! ^ The above lines are no comments!
-! Leave them as they are if a file ~/.extend.Xresources is being used on your system.
-! config can be added there or also here below.
-! For comments use "!"
-
-Xft.dpi: 220
+Xft.dpi: 192
 Xft.antialias: true
 Xft.hinting: true
 Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
+Xcursor.size: 64
 
-XTerm*background: #1b1b1b
-XTerm*foreground: #e7e7e7
-XTerm*pointerColor: #16A085
-XTerm*faceName: Fixed
-XTerm*faceSize: 11
-
-!-------------------------------------------------------------------------------
-! URxvt settings
-! Colours lifted from Solarized (http://ethanschoonover.com/solarized)
-! More info at:
-! http://pod.tst.eu/http://cvs.schmorp.de/rxvt-unicode/doc/rxvt.1.pod
-!-------------------------------------------------------------------------------
+!XTerm*background: #1b1b1b
+!XTerm*background: #292c34
+!XTerm*foreground: #e7e7e7
+!XTerm*foreground: #dcdfe4
+!XTerm*pointerColor: #16A085
+!XTerm*faceName: Fixed
+!XTerm*faceSize: 11
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
@@ -40,13 +25,15 @@ URxvt.loginShell:           true
 URxvt.saveLines:            12000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
-urxvt*background: rgba:0000/0000/0200/c800
+URxvt*background:			[94]#282c34
+!rgba:4000/4400/5200/dddd
+!URxvt*background: rgba:40/44/52/c900
 
 ! Fonts
 URxvt.allow_bold:           false
 /* URxvt.font:                 -*-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-1 */
-URxvt*font: xft:Monospace:pixelsize=28
-URxvt*boldFont: xft:Monospace:pixelsize=28
+URxvt*font: xft:DejaVuSansMono Nerd Font:pixelsize=32
+URxvt*boldFont: xft:DejaVuSansMono Nerd Font:pixelsize=32
 
 ! Fix font space
 URxvt*letterSpace: -1
@@ -70,40 +57,41 @@ URxvt.pointerBlank:         true
 
 
 ! special
-*.foreground:   #cfcfc2
-*.background:   #232629
+!*.foreground:   #cfcfc2
+*.foreground:   #dcdfe4
+!*.background:   #282c34
 *.cursorColor:  #cfcfc2
 
 ! black
-*.color0:       #2a2e32
+*.color0:       #2a2c34
 *.color8:       #31363b
 
 ! red
-*.color1:       #c0392b
+*.color1:       #e06c75
 *.color9:       #f44f4f
 
 ! green
-*.color2:       #218058
+*.color2:       #98c379
 *.color10:      #27ae60
 
 ! yellow
-*.color3:       #fdbc4b
+*.color3:       #e5c07b
 *.color11:      #fdbc4b
 
 ! blue
-*.color4:       #2980b9
+*.color4:       #61afef
 *.color12:      #0099ff
 
 ! magenta
-*.color5:       #8e44ad
+*.color5:       #c678dd
 *.color13:      #af81ff
 
 ! cyan
-*.color6:       #27aeae
+*.color6:       #56b6c2
 *.color14:      #31dddd
 
 ! white
-*.color7:       #acada1
+*.color7:       #dcdfe4
 *.color15:      #cfd0c2
 
 ! ------------------------------------------------------------------------------
@@ -114,4 +102,4 @@ rofi.color-window: #273238, #273238, #1e2529
 rofi.color-normal: #273238, #c1c1c1, #273238, #394249, #ffffff
 rofi.color-active: #273238, #80cbc4, #273238, #394249, #80cbc4
 rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
-
+rofi.font: M+ 2p, Regular, 30

@@ -201,7 +201,7 @@ set number
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
  colorscheme molokai
-endif
+ endif
 
 set mousemodel=popup
 set t_Co=256
@@ -226,10 +226,10 @@ else
     set term=gnome-256color
   else
     if $TERM == 'xterm'
-      set term=xterm-256color
+      set term=rxvt-xpm "xterm-256color
     endif
   endif
-  
+
 endif
 
 
