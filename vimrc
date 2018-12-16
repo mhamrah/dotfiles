@@ -226,7 +226,7 @@ else
     set term=gnome-256color
   else
     if $TERM == 'xterm'
-      set term=rxvt-xpm "xterm-256color
+      set term=xterm-256color
     endif
   endif
 
