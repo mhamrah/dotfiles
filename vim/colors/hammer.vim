@@ -70,11 +70,11 @@ highlight DiffDelete        guifg=#bfb5b2 guibg=NONE gui=reverse ctermfg=131 cte
 "SPELLING
 highlight SpellBad          guifg=#ff0000 guibg=NONE gui=undercurl ctermfg=196 ctermbg=NONE cterm=undercurl
 highlight SpellLocal        guifg=#5f875f guibg=NONE gui=undercurl ctermfg=65 ctermbg=NONE cterm=undercurl
-highlight SpellCap          guifg=#87afff guibg=NONE gui=undercurl ctermfg=111 ctermbg=NONE cterm=undercurl
+highlight SpellCap          guifg=#87afff guibg=NONE gui=undercurl ctermfg=112 ctermbg=NONE cterm=undercurl
 highlight SpellRare         guifg=#d75f00 guibg=NONE gui=undercurl ctermfg=166 ctermbg=NONE cterm=undercurl
 
 "COLORS
-highlight Normal            guifg=#d8d0c4 guibg=#2A2E36 gui=NONE ctermfg=187 ctermbg=8 cterm=NONE
+highlight Normal            guifg=#d8d0c4 guibg=#2A2E36 gui=NONE ctermfg=187 ctermbg=234 cterm=NONE
 "highlight Normal            guifg=#cbd6d5 guibg=#272c33 gui=NONE ctermfg=187 ctermbg=234 cterm=NONE
 highlight String            guifg=#c79797 guibg=NONE gui=NONE ctermfg=222 ctermbg=235 cterm=NONE
 

@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec rxvt
+bindsym $mod+Return exec tilix # gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -211,6 +211,11 @@ mode "$mode_gaps_outer" {
     bindsym Escape mode "default"
 }
 
+bar {
+    status_command ~/gh/bumblebee-status/bumblebee-status -m cpu memory battery disk weather date -p interval=1 -t iceberg-powerline
+
+}
+
 # Startup
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id compton -b -f
@@ -218,7 +223,7 @@ exec --no-startup-id compton -b -f
 exec --no-startup-id redshift
 exec --no-startup-id variety
 exec_always --no-startup-id albert
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id xinput --set-prop "DELL07E6:00 06CB:76AF Touchpad" "libinput Natural Scrolling Enabled" 1
 exec --no-startup-id nm-applet
 exec --no-startup-id dropbox start

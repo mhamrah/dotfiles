@@ -1,6 +1,6 @@
-if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-    tmux new-session -A -s "$USER"
-fi
+ if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
+     tmux new-session -A -s "$USER"
+ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -84,6 +84,11 @@ plugins=(
   golang
   terraform
 )
+
+# TMUX Settings
+#ZSH_TMUX_AUTOSTART=true
+ZSH_TMUX_FIXTERM=true
+
 
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=yellow'
