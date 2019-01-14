@@ -1,18 +1,29 @@
- if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-     tmux new-session -A -s "$USER"
- fi
+ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+        source /etc/profile.d/vte.sh
+fi
+
+# if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
+#      tmux new-session -A -s "$USER"
+#  fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/mhamrah/.oh-my-zsh"
-
+export PATH=$HOME/go/bin:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="refined-mlh"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+# POWERLEVEL9K_MODE="nerdfont-complete"
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -83,6 +94,7 @@ plugins=(
   history-substring-search
   golang
   terraform
+  ssh-agent
 )
 
 # TMUX Settings
@@ -143,21 +155,21 @@ namelyconfig() {
      k8s-configurator generate manifests/config.yml int > manifests/cm-int.yml
 }
 
-colors() {
-	for COLOR in {0..255}
-	do
-	    for STYLE in "38;5"
-	    do
-		TAG="\033[${STYLE};${COLOR}m"
-		STR="${STYLE};${COLOR}"
-		echo -ne "${TAG}${STR}${NONE}  "
-	    done
-	    echo
-	done
-}
+# colors() {
+#	for COLOR in {0..255}
+# 	do
+# 	    for STYLE in "38;5"
+# 	    do
+# 		TAG="\033[${STYLE};${COLOR}m"
+# 		STR="${STYLE};${COLOR}"
+# 		echo -ne "${TAG}${STR}${NONE}  "
+# 	    done
+# 	    echo
+# 	done
+# }
 
 mcd() {
   command mkdir $1 && cd $1
 }
 
-
+source ~/Dropbox/env
