@@ -2,9 +2,9 @@
         source /etc/profile.d/vte.sh
 fi
 
-if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
-    tmux new-session -A -s "$USER"
-fi
+# if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
+#     tmux new-session -A -s "$USER"
+# fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -16,15 +16,14 @@ export PATH=$HOME/go/bin:$PATH
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="refined-mlh"
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# POWERLEVEL9K_MODE="nerdfont-complete"
-# POWERLEVEL9K_DISABLE_RPROMPT=true
-# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
-# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs)
-
+#ZSH_THEME="refined-mlh"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_MODE="nerdfont-complete"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs command_execution_time )
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext ssh battery)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -146,6 +145,7 @@ export SSH_KEY_PATH="~/.ssh/id_rsa"
 alias tf="terraform"
 alias mk="microk8s.kubectl"
 alias mi="microk8s.kubectl"
+alias kctx="kubectx"
 
 export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' )
 
@@ -173,3 +173,8 @@ mcd() {
 }
 
 source ~/Dropbox/env
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
