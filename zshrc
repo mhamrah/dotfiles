@@ -22,7 +22,7 @@ POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs command_execution_time )
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext ssh battery)
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
