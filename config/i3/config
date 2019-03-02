@@ -221,9 +221,9 @@ exec --no-startup-id kcminit kcm_touchpad
 # exec --no-startup-id nm-applet
 
 # Workspace placement
-assign [class="code"] $ws3
-assign [class="slack"] $ws4
-assign [class="google play music desktop player"] $ws5
+assign [class="Code"] $ws3
+assign [class="Slack"] $ws4
+assign [class="Google Play Music Desktop Player"] $ws5
 focus_on_window_activation focus
 
 # Pulse Audio controls
