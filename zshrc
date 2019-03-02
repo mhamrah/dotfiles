@@ -24,6 +24,8 @@ POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
 POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext ssh battery)
+POWERLEVEL9K_KUBECONTEXT_FOREGROUND='234'
+POWERLEVEL9K_KUBECONTEXT_BACKGROUND='168'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -174,7 +176,11 @@ mcd() {
 
 source ~/Dropbox/env
 
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+#if [ -n "$DESKTOP_SESSION" ];then
+#    eval $(gnome-keyring-daemon --start)
+#    export SSH_AUTH_SOCK
+# fi
+
+function nlog() {
+    kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"
+}
