@@ -95,7 +95,6 @@ plugins=(
   history-substring-search
   golang
   terraform
-  ssh-agent
 )
 
 # TMUX Settings
@@ -176,10 +175,10 @@ mcd() {
 
 source ~/Dropbox/env
 
-#if [ -n "$DESKTOP_SESSION" ];then
-#    eval $(gnome-keyring-daemon --start)
-#    export SSH_AUTH_SOCK
-# fi
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 function nlog() {
     kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"

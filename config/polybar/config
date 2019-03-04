@@ -77,11 +77,11 @@ animation-charging-framerate = 750
 [module/i3]
 type = internal/i3
 
-ws-icon-0 = term;
-ws-icon-1 = web;
-ws-icon-2 = code;
-ws-icon-3 = slack;
-ws-icon-4 = music;
+ws-icon-0 = 1:term;
+ws-icon-1 = 2:web;
+ws-icon-2 = 3:code;
+ws-icon-3 = 4:slack;
+ws-icon-4 = 5:music;
 ws-icon-default = 
 
 format = <label-state> <label-mode>
