@@ -50,4 +50,6 @@ color21 = #b6bdca
 
 [options]
 font = Droid Sans Mono Slashed For Powerline 13
+#font = DroidSansMono Nerd Font 13
+#font = Inconsolata Nerd Font 13
 decorated = false

@@ -1,6 +1,6 @@
- if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
-        source /etc/profile.d/vte.sh
-fi
+export QT_QPA_PLATFORMTHEME="qt5ct"
+# export GDK_SCALE=2
+# export GDK_DPI_SCALE=0.5
 
 # if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
 #     tmux new-session -A -s "$USER"
