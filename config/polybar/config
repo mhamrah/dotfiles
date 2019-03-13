@@ -21,7 +21,7 @@ font-1 = Material Icons:size=24;7
 modules-left = i3
 modules-center = weather
 ;mpd
-modules-right = memory caffeine volume battery date powermenu
+modules-right = caffeine backlight volume battery date
 ;backlight cpu
 ;wireless-network wired-network
 ;
@@ -86,55 +86,23 @@ ws-icon-3 = 4:slack;
 ws-icon-4 = 5:music;
 ws-icon-default = 
 
+strip-wsnumbers = true
+
 format = <label-state> <label-mode>
 index-sort = true
 
 label-dimmed-underline = ${bar/top.background}
 
-label-active = %icon%
-label-active-foreground = #fff
-label-active-background = #773f3f3f
-label-active-underline = #c9665e
-;label-active-font = 4
-label-active-padding = 4
+label-focused-foreground = #fff
+label-focused-background = #22e2e2e2
+label-focused-padding = 2
 
-label-occupied = %icon%
-label-occupied-foreground = #dd
-label-occupied-underline = #666
-;label-occupied-font = 4
-label-occupied-padding = 4
+label-unfocused-padding = 2
 
-label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-underline = #9b0a20
-;label-urgent-font = 4
-label-urgent-padding = 4
-
-label-empty = %icon%
-label-empty-foreground = #55
-;label-empty-font = 4
-label-empty-padding = 4
-
-label-monocle = 
-label-monocle-underline = ${module/i3.label-active-underline}
-label-monocle-background = #33ffffff
-label-monocle-padding = 2
-
-label-locked = 
-label-locked-foreground = #bd2c40
-label-locked-underline = ${module/i3.label-monocle-underline}
-label-locked-padding = ${module/i3.label-monocle-padding}
-
-label-sticky = 
-label-sticky-foreground = #fba922
-label-sticky-underline = ${module/i3.label-monocle-underline}
-label-sticky-padding = ${module/i3.label-monocle-padding}
-
-label-private = 
-label-private-foreground = #bd2c40
-label-private-underline = ${module/i3.label-monocle-underline}
-label-private-padding = ${module/i3.label-monocle-padding}
+label-urgent-padding = 2
 
 label-separator = " "
 label-separator-padding = 1
@@ -252,36 +220,3 @@ ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
-
-[module/powermenu]
-type = custom/menu
-
-format-padding = 1
-
-label-open = 
-label-close = 
-
-menu-0-0 = Terminate WM
-menu-0-0-foreground = #fba922
-menu-0-0-exec = bspc quit -1
-menu-0-1 = Reboot
-menu-0-1-foreground = #fba922
-menu-0-1-exec = menu_open-1
-menu-0-2 = Power off
-menu-0-2-foreground = #fba922
-menu-0-2-exec = menu_open-2
-
-menu-1-0 = Cancel
-menu-1-0-foreground = #fba922
-menu-1-0-exec = menu_open-0
-menu-1-1 = Reboot
-menu-1-1-foreground = #fba922
-menu-1-1-exec = sudo reboot
-
-menu-2-0 = Power off
-menu-2-0-foreground = #fba922
-menu-2-0-exec = sudo poweroff
-menu-2-1 = Cancel
-menu-2-1-foreground = #fba922
-menu-2-1-exec = menu_open-0
-
