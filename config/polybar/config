@@ -94,7 +94,7 @@ index-sort = true
 label-dimmed-underline = ${bar/top.background}
 
 label-focused-foreground = #fff
-label-focused-background = #22e2e2e2
+label-focused-background = #aa555555
 label-focused-padding = 2
 
 label-unfocused-padding = 2

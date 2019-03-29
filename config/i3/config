@@ -243,7 +243,6 @@ bindsym $mod+r mode "resize"
 
 exec --no-startup-id compton -b -f
 exec --no-startup-id dropbox
-exec --no-startup-id clight # redshift-gtk -t 6500:4000
 exec --no-startup-id variety
 exec --no-startup-id albert
 exec --no-startup-id dunst
@@ -253,6 +252,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id xss-lock -- dm-tool switch-to-greeter
 exec --no-startup-id conky -c ~/dotfiles/config/conkyrc
 exec --no-startup-id xsettingsd
+#exec --no-startup-id clight # redshift-gtk -t 6500:4000
 
 gaps inner 5
 gaps outer 5
