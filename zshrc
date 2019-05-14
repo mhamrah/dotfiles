@@ -146,6 +146,7 @@ alias tf="terraform"
 alias mk="microk8s.kubectl"
 alias mi="microk8s.kubectl"
 alias kctx="kubectx"
+alias k="kubectl"
 
 export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' )
 
