@@ -10,7 +10,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/mhamrah/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -147,6 +147,9 @@ alias mk="microk8s.kubectl"
 alias mi="microk8s.kubectl"
 alias kctx="kubectx"
 alias k="kubectl"
+alias kns="kubens"
+
+export LESS="-F -X $LESS"
 
 export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' )
 
@@ -174,6 +177,7 @@ mcd() {
 }
 
 source ~/Dropbox/env
+source ~/Dropbox/aliases.sh
 
 if [ -n "$DESKTOP_SESSION" ];then
     eval $(gnome-keyring-daemon --start)
@@ -183,8 +187,6 @@ fi
 function nlog() {
     kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"
 }
-source /usr/share/nvm/init-nvm.sh
-
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
@@ -195,3 +197,8 @@ source /usr/share/nvm/init-nvm.sh
 # tabtab source for slss package
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/share/nvm/init-nvm.sh" ] && . "/usr/share/nvm/init-nvm.sh"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion

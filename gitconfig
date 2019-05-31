@@ -41,14 +41,14 @@
   untracked = cyan
 
 [alias]
-  st = status -s
+#  st = status -s
 
   cl = clone
 
   ci = commit
-  cm = commit -m
-  cma = commit -a -m
-  cam = commit -a -m
+#  cm = commit -m
+#  cma = commit -a -m
+#  cam = commit -a -m
   c = commit -a -m
   ca = commit --amend
   amend = commit --amend
@@ -58,9 +58,9 @@
 
   ai = add --interactive
 
-  co = checkout
-  cob = checkout -b
-  br = branch
+#  co = checkout
+#  cob = checkout -b
+#  br = branch
 #"!git branch -ra | grep -v done"
   bra = branch -ra
 #list commands
