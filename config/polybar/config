@@ -3,7 +3,7 @@ monitor = eDP-1
 width = 100%
 height = 60
 
-background = #00000000
+background = #33040404
 foreground = #ccffffff
 
 line-color = ${bar/top.background}
@@ -41,9 +41,9 @@ label-font = 1
 type = internal/xbacklight
 format = <ramp>
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 
 [module/battery]
 type = internal/battery
@@ -141,7 +141,7 @@ ramp-coreload-7-foreground = #ff5555
 
 [module/date]
 type = internal/date
-date =   %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%I:%M%p%%{F-}
+date = %%{F#99}%Y-%m-%d%%{F-}  %%{F#fff}%I:%M%p%%{F-}
 date-alt = %%{F#fff}%A, %d %B %Y  %%{F#fff}%I:%M%p%%{F#666}:%%{F#fba922}%S%%{F-}
 
 [module/memory]
@@ -187,11 +187,11 @@ label-connected = %essid%
 label-disconnected =    not connected
 label-disconnected-foreground = #66
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
 
 animation-packetloss-0 = 
 animation-packetloss-0-foreground = #ffa64c
@@ -217,7 +217,7 @@ format-volume = <ramp-volume> <label-volume>
 label-muted =   muted
 label-muted-foreground = #66
 
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 墳
+ramp-volume-3 = 
