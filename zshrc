@@ -16,8 +16,8 @@ export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="refined-mlh"
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="ys"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
@@ -151,7 +151,7 @@ alias kns="kubens"
 
 export LESS="-F -X $LESS"
 
-export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' )
+export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
 
 namelyconfig() {
      k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml
@@ -202,3 +202,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/share/nvm/init-nvm.sh" ] && . "/usr/share/nvm/init-nvm.sh"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+
+eval "$(rbenv init -)"
