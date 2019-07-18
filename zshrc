@@ -2,6 +2,11 @@
 # export GDK_SCALE=2
 # export GDK_DPI_SCALE=0.5
 
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
+
 # if [[ -z "$TMUX" ]] && [[ $TERM_PROGRAM != "vscode" ]]; then
 #     tmux new-session -A -s "$USER"
 # fi
@@ -84,6 +89,7 @@ plugins=(
   catimg
   common-aliases
   docker
+  docker-compose
   encode64
   history
   sudo
@@ -152,6 +158,7 @@ alias kns="kubens"
 export LESS="-F -X $LESS"
 
 export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
+export PLATFORM=~/dev/platform
 
 namelyconfig() {
      k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml

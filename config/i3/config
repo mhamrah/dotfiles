@@ -229,6 +229,7 @@ exec --no-startup-id light-locker
 #exec --no-startup-id conky -c ~/dotfiles/config/conkyrc
 exec --no-startup-id xsettingsd
 #exec --no-startup-id clight # redshift-gtk -t 6500:4000
+exec --no-startup-id gcsf mount ~/gd -s mhamrah
 
 gaps inner 5
 gaps outer 5
