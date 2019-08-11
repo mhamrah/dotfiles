@@ -27,3 +27,7 @@ Xft.rgba: rgb
 *.color13: #c678dd
 *.color14: #56b6c2
 *.color15: #dcdfe4
+
+! rofi
+rofi.dpi: 192
+rofi.font: DroidSansMono Nerd Font 13
