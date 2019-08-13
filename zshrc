@@ -154,6 +154,7 @@ alias mi="microk8s.kubectl"
 alias kctx="kubectx"
 alias k="kubectl"
 alias kns="kubens"
+alias yi="yay -Syu --noconfirm"
 
 export LESS="-F -X $LESS"
 
