@@ -158,14 +158,8 @@ alias yi="yay -Syu --noconfirm"
 
 export LESS="-F -X $LESS"
 
-export KUBECONFIG=$( ls -1 ~/.k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
+export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
 export PLATFORM=~/dev/platform
-
-namelyconfig() {
-     k8s-configurator generate manifests/config.yml production > manifests/cm-production.yml
-     k8s-configurator generate manifests/config.yml stage > manifests/cm-stage.yml
-     k8s-configurator generate manifests/config.yml int > manifests/cm-int.yml
-}
 
 # colors() {
 #	for COLOR in {0..255}
@@ -196,20 +190,6 @@ function nlog() {
     kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"
 }
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /home/mhamrah/.nvm/versions/node/v10.15.3/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
-
 export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/share/nvm/init-nvm.sh" ] && . "/usr/share/nvm/init-nvm.sh"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
-
-
-eval "$(rbenv init -)"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
