@@ -22,15 +22,7 @@ export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_MODE="nerdfont-complete"
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%(?.%F{magenta}.%F{red})❯%f "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext ssh battery)
-POWERLEVEL9K_KUBECONTEXT_FOREGROUND='234'
-POWERLEVEL9K_KUBECONTEXT_BACKGROUND='168'
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -99,6 +91,7 @@ plugins=(
   zsh-syntax-highlighting
   history-substring-search
   golang
+  gcloud
   terraform
 )
 
