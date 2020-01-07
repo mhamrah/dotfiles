@@ -69,6 +69,8 @@ plugins=(
   zsh-syntax-highlighting
   history-substring-search
   golang
+  gcloud
+  terraform
 )
 
 # TMUX Settings
