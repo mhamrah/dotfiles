@@ -151,7 +151,7 @@ alias yi="yay -Syu --noconfirm"
 
 export LESS="-F -X $LESS"
 
-export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
+#export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
 export PLATFORM=~/dev/platform
 
 # colors() {
@@ -174,10 +174,10 @@ mcd() {
 source ~/Dropbox/env
 source ~/Dropbox/aliases.sh
 
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
-fi
+#if [ -n "$DESKTOP_SESSION" ];then
+#    eval $(gnome-keyring-daemon --start)
+#    export SSH_AUTH_SOCK
+#fi
 
 function nlog() {
     kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"
@@ -186,3 +186,5 @@ function nlog() {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -s "$HOME/.zshrc-local" ] && source ~/.zshrc-local 
