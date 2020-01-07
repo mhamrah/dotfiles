@@ -1,52 +1,43 @@
 [colors]
-# Base16 OneDark
-# Author: Lalit Magant (http://github.com/tilal6991)
 
-foreground          = #ABB2BF
-foreground_bold     = #b6bdca
-cursor              = #b6bdca
-cursor_foreground   = #282c34
-background          = rgba(40, 44, 52, 0.85)
+[colors]
+# special
+foreground      = #f8f8f2
+foreground_bold = #f8f8f2
+cursor          = #f8f8f2
+background      = #282a36
 
-# 16 color space
+# black
+color0  = #000000
+color8  = #4d4d4d
 
-# Black, Gray, Silver, White
-color0  = #282c34
-color8  = #545862
-color7  = #abb2bf
-color15 = #c8ccd4
+# red
+color1  = #ff5555
+color9  = #ff6e67
 
-# Red
-color1  = #e06c75
-color9  = #e06c75
+# green
+color2  = #50fa7b
+color10 = #5af78e
 
-# Green
-color2  = #98c379
-color10 = #98c379
+# yellow
+color3  = #f1fa8c
+color11 = #f4f99d
 
-# Yellow
-color3  = #e5c07b
-color11 = #e5c07b
+# blue
+color4  = #bd93f9
+color12 = #caa9fa
 
-# Blue
-color4  = #61AFEF
-color12 = #61afef
+# magenta
+color5  = #ff79c6
+color13 = #ff92d0
 
-# Purple
-color5  = #c678dd
-color13 = #c678dd
+# cyan
+color6  = #8be9fd
+color14 = #9aedfe
 
-# Teal
-color6  = #56b6c2
-color14 = #56b6c2
-
-# Extra colors
-color16 = #d19a66
-color17 = #be5046
-color18 = #353b45
-color19 = #3e4451
-color20 = #565c64
-color21 = #b6bdca
+# white
+color7  = #bfbfbf
+color15 = #e6e6e6
 
 [options]
 #font = Droid Sans Mono Slashed For Powerline 13
