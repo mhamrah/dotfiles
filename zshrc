@@ -3,6 +3,14 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 ZSH_THEME="robbyrussell"
+POWERLEVEL9K_CONTEXT_TEMPLATE="foo"
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
+  host
+  battery
+)
+POWERLEVEL9K_HOST_TEMPLATE="%2m"
+ZSH_THEME=powerlevel10k/powerlevel10k
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -170,3 +178,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
