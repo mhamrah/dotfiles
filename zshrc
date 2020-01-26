@@ -3,12 +3,6 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 ZSH_THEME="robbyrussell"
-POWERLEVEL9K_CONTEXT_TEMPLATE="foo"
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(
-  host
-  battery
-)
-POWERLEVEL9K_HOST_TEMPLATE="%2m"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set list of themes to pick from when loading at random
@@ -132,12 +126,10 @@ alias mi="microk8s.kubectl"
 alias kctx="kubectx"
 alias k="kubectl"
 alias kns="kubens"
-alias yi="yay -Syu --noconfirm"
-
+alias vim="TERM=xterm-256color vim"
 export LESS="-F -X $LESS"
 
 #export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
-export PLATFORM=~/dev/platform
 
 # colors() {
 #	for COLOR in {0..255}
