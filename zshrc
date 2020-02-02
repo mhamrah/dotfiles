@@ -73,6 +73,7 @@ plugins=(
   golang
   gcloud
   terraform
+  #ssh-agent
 )
 
 # TMUX Settings
