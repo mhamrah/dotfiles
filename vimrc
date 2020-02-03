@@ -69,8 +69,7 @@ if v:version >= 703
 endif
 
 if v:version >= 704
-  "" Snippets
-  Plug 'SirVer/ultisnips'
+  "" Snippets Plug 'SirVer/ultisnips'
 endif
 
 Plug 'honza/vim-snippets'
