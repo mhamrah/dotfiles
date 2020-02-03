@@ -3,6 +3,8 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
 
 ZSH_THEME="robbyrussell"
+ZSH_THEME=powerlevel10k/powerlevel10k
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
@@ -124,12 +126,10 @@ alias mi="microk8s.kubectl"
 alias kctx="kubectx"
 alias k="kubectl"
 alias kns="kubens"
-alias yi="yay -Syu --noconfirm"
-
+alias vim="TERM=xterm-256color vim"
 export LESS="-F -X $LESS"
 
 #export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
-export PLATFORM=~/dev/platform
 
 # colors() {
 #	for COLOR in {0..255}
@@ -170,3 +170,6 @@ export NVM_DIR="$HOME/.nvm"
 if [ -f '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc'; fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
