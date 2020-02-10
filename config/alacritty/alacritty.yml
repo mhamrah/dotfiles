@@ -28,9 +28,9 @@ colors:
     white:   '0xe6e6e6'
 font:
   normal:
-    family: DroidSansMono Nerd Font Mono
+    family: DroidSansMonoSlashed Nerd Font Mono 
   bold:
-    family: DroidSansMono Nerd Font Mono
+    family: DroidSansMonoSlashed Nerd Font Mono 
     style: bold
   size: 13.0
 
