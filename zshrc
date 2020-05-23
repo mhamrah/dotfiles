@@ -130,6 +130,12 @@ alias kctx="kubectx"
 alias k="kubectl"
 alias kns="kubens"
 alias vim="TERM=xterm-256color vim"
+alias gcca="gcloud config configurations activate"
+alias gccs="gcloud config configurations create"
+alias gc="gcloud"
+alias gccl="gcloud container clusters list"
+alias gcgc="gcloud container clusters get-credentials --region us-central1"
+
 export LESS="-F -X $LESS"
 
 #export KUBECONFIG=$( ls -1 ~/Dropbox/k8s/**/kubeconfig | awk 'ORS=":"' ):~/.kube/config
@@ -167,7 +173,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -s "$HOME/.zshrc-local" ] && source ~/.zshrc-local 
+[ -s "$HOME/.zshrc-local" ] && source ~/.zshrc-local
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/home/mhamrah/.gcloud-sdk/google-cloud-sdk/path.zsh.inc'; fi
