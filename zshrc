@@ -130,9 +130,10 @@ alias kns="kubens"
 alias vim="TERM=xterm-256color vim"
 alias gcca="gcloud config configurations activate"
 alias gccs="gcloud config configurations create"
+alias gccl="gcloud config configurations list"
 alias gc="gcloud"
-alias gccl="gcloud container clusters list"
-alias gcgc="gcloud container clusters get-credentials --region us-central1"
+alias gk8sl="gcloud container clusters list"
+alias gk8sgc="gcloud container clusters get-credentials --region us-central1"
 
 export LESS="-F -X $LESS"
 
