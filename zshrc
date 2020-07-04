@@ -1,3 +1,5 @@
+#zmodload zsh/zprof
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH=$HOME/go/bin:$HOME/.local/bin:$PATH
@@ -66,7 +68,7 @@ plugins=(
   encode64
   history
   sudo
-  kubectl
+  #kubectl
   zsh-autosuggestions
   zsh-syntax-highlighting
   history-substring-search
@@ -181,3 +183,5 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#zprof
