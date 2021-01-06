@@ -29,7 +29,7 @@ nmap <leader>n :NERDTreeToggle<cr>
 "nmap <leader>n :NERDTreeFind<cr>
 
 colorscheme hammer
-"colorscheme elflord
+colorscheme elflord
 "colorscheme alduin
 
 map <leader>qw <C-w>q<cr>

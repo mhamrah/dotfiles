@@ -68,7 +68,7 @@ plugins=(
   encode64
   history
   sudo
-  #kubectl
+  kubectl
   zsh-autosuggestions
   zsh-syntax-highlighting
   history-substring-search
@@ -76,6 +76,7 @@ plugins=(
   gcloud
   terraform
   fzf
+  alias-tips
 )
 
 # TMUX Settings
@@ -131,7 +132,7 @@ alias k="kubectl"
 alias kns="kubens"
 alias vim="TERM=xterm-256color vim"
 alias gcca="gcloud config configurations activate"
-alias gccs="gcloud config configurations create"
+alias gccc="gcloud config configurations create"
 alias gccl="gcloud config configurations list"
 alias gc="gcloud"
 alias gk8sl="gcloud container clusters list"
@@ -158,21 +159,18 @@ mcd() {
   command mkdir $1 && cd $1
 }
 
-source ~/Dropbox/env
-source ~/Dropbox/aliases.sh
+#source ~/Dropbox/env
+#source ~/Dropbox/aliases.sh
 
 #if [ -n "$DESKTOP_SESSION" ];then
 #    eval $(gnome-keyring-daemon --start)
+
 #    export SSH_AUTH_SOCK
 #fi
 
 function nlog() {
     kubectl -n applications get po -l app=$1 -o name | xargs -I {} sh -c "kubectl -n applications log {} -c $1;"
 }
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -s "$HOME/.zshrc-local" ] && source ~/.zshrc-local
 
@@ -184,4 +182,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+export N_PREFIX=$HOME/.n
+export PATH=$N_PREFIX/bin:$PATH
 #zprof
