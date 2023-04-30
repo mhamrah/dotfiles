@@ -12,13 +12,12 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
- 
-lspconfig.rust_analyzer.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-  filetypes = {"rust"},   
-  root_dir = lspconfig.util.root_pattern("Cargo.toml"),
 
-})
--- 
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern "Cargo.toml",
+}
+--
 -- lspconfig.pyright.setup { blabla}
