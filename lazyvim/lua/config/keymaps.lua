@@ -26,3 +26,6 @@ km.set("n", "<C-n>", "<C-w>h", { desc = "Go to left window" })
 km.set("n", "<C-e>", "<C-w>j", { desc = "Go to lower window" })
 km.set("n", "<C-i>", "<C-w>k", { desc = "Go to upper window" })
 km.set("n", "<C-o>", "<C-w>l", { desc = "Go to right window" })
+
+km.set("i", "<C-h>", "<cmd>BufferLineCyclePrev<cr>", { desc = "Prev Buffer" })
+km.set("i", "<C-l>", "<cmd>BufferLineCycleNext<cr>", { desc = "Next Buffer" })
