@@ -7,18 +7,17 @@ local opts = { silent = true }
 
 km.set("", ";", ":")
 
-km.set("", "n", "h", opts)
-km.set("", "e", "j", opts)
-km.set("", "i", "k", opts)
-km.set("", "o", "l", opts)
+km.set("n", "n", "h", opts)
+km.set("n", "e", "j", opts)
+km.set("n", "i", "k", opts)
+km.set("n", "o", "l", opts)
 
-km.set("", "h", "i", opts)
-km.set("", "l", "n", opts)
-km.set("", "k", "o", opts)
-km.set("", "j", "e", opts)
+km.set("n", "h", "n", opts)
+km.set("n", "l", "e", opts)
+km.set("n", "k", "o", opts)
+--km.set("n", "j", "e", opts)
 
-km.set("i", "jj", "<Esc>", opts)
-
+km.set("", "r", "i", opts)
 km.set("n", "<C-p>", "<C-o>", { desc = "Go back" })
 
 -- Move to window using the <ctrl> hjkl keys

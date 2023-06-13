@@ -3,13 +3,13 @@ return {
     "rose-pine/neovim",
   },
   {
-    "gbprod/nord.nvim",
-    opts = {
-      transparent = true,
-    },
-  },
-  {
     "LazyVim/LazyVim",
+    dependencies = {
+      "gbprod/nord.nvim",
+      opts = {
+        transparent = true,
+      },
+    },
     opts = {
       colorscheme = "nord",
     },

@@ -6,7 +6,6 @@ return {
       "astro-language-server",
       "buf",
       "zls",
-      "html-lsp",
       "svelte-language-server",
     },
   },

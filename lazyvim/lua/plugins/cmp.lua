@@ -48,11 +48,8 @@ return {
       }
 
       return {
-        window = {
-          completion = {
-            -- border = border_opts("CmpBorder"),
-          }, --cmp.config.window.bordered(border_opts),
-          --   documentation = cmp.config.window.bordered(border_opts),
+        completion = {
+          autocomplete = false,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
