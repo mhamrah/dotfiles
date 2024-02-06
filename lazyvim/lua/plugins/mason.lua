@@ -7,6 +7,7 @@ return {
       "buf",
       "zls",
       "svelte-language-server",
+      "terraform-ls",
     },
   },
 }

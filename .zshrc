@@ -105,9 +105,9 @@ export NVM_DIR="$HOME/.nvm"
 
 PATH=$PATH:~/.local/bin
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
 
 source ~/.secrets.sh
 
@@ -134,3 +134,4 @@ typeset -A ZSH_HIGHLIGHT_STYLES
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 }
  export BAT_THEME="base16"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"

@@ -26,6 +26,7 @@ return {
         "yaml",
         "rust",
         "go",
+        "terraform",
       }
     end,
   },
