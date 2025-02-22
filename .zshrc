@@ -1,137 +1,107 @@
-#eval "$(starship init zsh)"
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
- source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+### Added by Zinit's installer
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+        print -P "%F{33} %F{34}Installation successful.%f%b" || \
+        print -P "%F{160} The clone has failed.%f%b"
 fi
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+### End of Zinit's installer chunk
 
-export EDITOR="nvim"
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Optimize compinit and zcompile for faster startup
+zinit wait'0' lucid for \
+    zdharma-continuum/fast-syntax-highlighting \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions \
+    zsh-users/zsh-history-substring-search
 
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+# Docker
+zinit ice wait'0' lucid
+zinit light zsh-users/zsh-docker
 
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# Node.js and npm enhancements
+zinit ice wait'0' lucid
+zinit light lukechilds/zsh-nvm
 
-# Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+#fzf 
+zinit light junegunn/fzf
+zinit light Aloxaf/fzf-tab
 
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
+# Load completions
+autoload -Uz compinit && compinit
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+# History
+HISTSIZE=5000
+HISTFILE=~/.zsh_history
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
+setopt appendhistory
+setopt sharehistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+# Shell integrations
+eval "$(fzf --zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+# ====== Aliases ======
+alias ll='ls -lah --color=auto'
+alias la='ls -la'
+alias l='ls -l'
+alias g='git'
+alias gs='git status'
+alias gc='git commit'
+alias gco='git checkout'
+alias gcam='git commit -am'
+alias ga='git add .'
+alias gp='git push'
+alias gl='git pull'
+alias gst='git status'
 
-plugins=(
-  git
-  ag
-  fzf
-  kubectl
-  zoxide
-  docker-compose
-  docker
-  rust
-  direnv
-  zsh-autosuggestions
-  zsh-history-substring-search
-  zsh-syntax-highlighting
-  alias-tips
-  git-auto-fetch
-  colemak)
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias dcu='docker compose up -d'
+alias dcd='docker compose down'
+alias dps='docker ps'
+alias dpsa='docker ps -a'
 
-
-source $ZSH/oh-my-zsh.sh
-
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-alias vim="nvim"
-alias nv="nvim"
-alias lv="lvim"
-alias l='exa'
-alias la='exa -a'
-alias ll='exa -lah'
-alias ls='exa --color=auto'
-alias fp="fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'"
-alias cat="bat"
-
-mcd () {
-   mkdir -p "$1" 
-   cd "$1"
+# Functions
+# --------
+# Create directory and cd into it
+mcd() {
+  mkdir -p "$1" && cd "$1"
 }
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Load direnv if installed
+if command -v direnv &> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
-
-
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" 
-
-PATH=$PATH:~/.local/bin
-
-#export PYENV_ROOT="$HOME/.pyenv"
-#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init -)"
-
-source ~/.secrets.sh
-
-export PATH="/Users/mikehamrah/go/bin:$PATH"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/mikehamrah/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/mikehamrah/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/mikehamrah/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mikehamrah/google-cloud-sdk/completion.zsh.inc'; fi
-
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-bindkey '\eOA' history-substring-search-up # or ^[OA
-bindkey '\eOB' history-substring-search-down # or ^[OB
-
-bindkey -v
-
-typeset -A ZSH_HIGHLIGHT_STYLES
- ZSH_HIGHLIGHT_STYLES[arg0]='fg=cyan'
-
- colors() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
- export BAT_THEME="base16"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# Starship
+zinit ice lucid wait'!0'
+zinit load starship/starship
+eval "$(starship init zsh)"
