@@ -69,8 +69,8 @@ eval "$(zoxide init --cmd cd zsh)"
 
 # ====== Aliases ======
 alias ll='ls -lah --color=auto'
-alias la='ls -la'
-alias l='ls -l'
+alias la='ls -la --color=auto'
+alias l='ls -l --color=auto'
 alias g='git'
 alias gs='git status'
 alias gc='git commit'
