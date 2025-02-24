@@ -89,6 +89,8 @@ alias dcd='docker compose down'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 
+alias grep='rg'
+
 # Functions
 # --------
 # Create directory and cd into it
