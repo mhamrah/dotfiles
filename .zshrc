@@ -89,7 +89,10 @@ alias dcd='docker compose down'
 alias dps='docker ps'
 alias dpsa='docker ps -a'
 
+# App defaults
 alias grep='rg'
+alias vim='nvim'
+alias nv='nvim'
 
 # Functions
 # --------
