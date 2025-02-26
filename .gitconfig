@@ -1,0 +1,20 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Mike Hamrah
+	email = m@hamrah.com
+	signingkey = 022ACC3C17C985C0
+[init]
+	defaultBranch = main
+[push]
+	default = current
+	autosetupremote = true
+[pull]
+	default = current
+[core]
+	editor = nvim
+	
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
