@@ -113,3 +113,9 @@ fi
 zinit ice lucid wait'!0'
 zinit load starship/starship
 eval "$(starship init zsh)"
+
+export PATH="/opt/homebrew/opt/python@3.12/bin:$PATH"
+alias python3=/opt/homebrew/opt/python@3.12/bin/python3.12
+alias pip3=/opt/homebrew/opt/python@3.12/bin/pip3.12
+
+
