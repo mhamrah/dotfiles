@@ -1,5 +1,5 @@
 export GPG_TTY=$(tty)
-gpgconf --launch gpg-agent
+#gpgconf --launch gpg-agent
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -119,3 +119,4 @@ alias python3=/opt/homebrew/opt/python@3.12/bin/python3.12
 alias pip3=/opt/homebrew/opt/python@3.12/bin/pip3.12
 
 
+eval "$(uv generate-shell-completion zsh)"
