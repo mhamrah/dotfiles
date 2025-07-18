@@ -2,3 +2,4 @@ font-family=CommitMono Nerd Font
 background-opacity=.75
 background-blur=true
 font-size=15
+keybind = shift+enter=text:\n

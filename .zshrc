@@ -1,5 +1,4 @@
 export GPG_TTY=$(tty)
-#gpgconf --launch gpg-agent
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
