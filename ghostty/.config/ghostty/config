@@ -3,3 +3,4 @@ background-opacity=.75
 background-blur=true
 font-size=15
 keybind = shift+enter=text:\n
+theme=xcodedarkhc
