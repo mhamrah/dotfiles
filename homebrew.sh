@@ -19,6 +19,8 @@ PACKAGES=(
     ripgrep
     fzf
     neovim
+    exa
+    bat
 )
 
 echo "Installing packages..."
