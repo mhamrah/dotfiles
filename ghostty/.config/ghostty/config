@@ -4,3 +4,8 @@ background-blur=true
 font-size=15
 keybind = shift+enter=text:\n
 theme=xcodedarkhc
+theme=blazer
+theme=jellybeans
+theme=gitlab-dark
+theme=spacegray bright
+theme=subliminal
