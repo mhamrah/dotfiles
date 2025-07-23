@@ -255,6 +255,7 @@ if command -v zoxide >/dev/null 2>&1; then
     alias zz='z -'              # Go to previous directory
     alias zi='z -i'             # Interactive selection
     alias zq='z -'              # Query mode
+    alias cd='z'
 fi
 
 
