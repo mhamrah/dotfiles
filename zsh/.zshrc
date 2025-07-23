@@ -63,7 +63,7 @@ unsetopt flowcontrol        # Disable start/stop characters in shell editor
 
 
 # Other useful options
-setopt correct              # Try to correct the spelling of commands
+#setopt correct              # Try to correct the spelling of commands
 setopt interactivecomments  # Allow comments in interactive shells
 
 
