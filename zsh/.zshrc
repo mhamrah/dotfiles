@@ -361,7 +361,7 @@ alias gcm="git checkout main"
 # =============================================================================
 
 # Create directory and cd into it
-mkcd() {
+mcd() {
     mkdir -p "$1" && cd "$1"
 }
 
