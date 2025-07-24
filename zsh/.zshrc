@@ -163,27 +163,9 @@ if command -v rbenv >/dev/null 2>&1; then
     rbenv() { lazy_load_rbenv; rbenv "$@"; }
 fi
 
-
-# nvm initialization (lazy loading for performance)
-lazy_load_nvm() {
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-    # Remove the lazy loading functions after first use
-    unset -f node npm npx nvm yarn pnpm
-}
-
-
-if [[ -d "$HOME/.nvm" ]]; then
-    # Create wrapper functions for lazy loading
-    node() { lazy_load_nvm; node "$@"; }
-    npm() { lazy_load_nvm; npm "$@"; }
-    npx() { lazy_load_nvm; npx "$@"; }
-    nvm() { lazy_load_nvm; nvm "$@"; }
-    yarn() { lazy_load_nvm; yarn "$@"; }
-    pnpm() { lazy_load_nvm; pnpm "$@"; }
-fi
-
+#load nvm lazily via zinit
+zinit ice wait lucid
+zinit load lukechilds/zsh-nvm
 
 # =============================================================================
 # FZF CONFIGURATION
@@ -265,11 +247,10 @@ fi
 
 
 # ZSH Autosuggestions configuration
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#878787"
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a9a9a9"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_USE_ASYNC=1
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 
 
 # History substring search configuration
@@ -371,7 +352,8 @@ alias gco="git checkout"
 alias gcam="git add . && git commit -am"
 alias gl="git pull"
 alias gp="git push"
-
+alias grhh="git reset HEAD --hard"
+alias gcm="git checkout main"
 
 
 # =============================================================================
@@ -396,10 +378,6 @@ export VISUAL='vim'
 # Pager
 export PAGER='less'
 export LESS='-R'
-
-
-# Configuration for node to trust the PayPal Proxy Certificates
-export NODE_EXTRA_CA_CERTS='/usr/local/etc/openssl/certs/paypal_proxy_cacerts.pem'
 
 # =============================================================================
 # FINAL SETUP
