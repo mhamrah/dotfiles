@@ -21,6 +21,7 @@ PACKAGES=(
     neovim
     exa
     bat
+    procs
 )
 
 echo "Installing packages..."

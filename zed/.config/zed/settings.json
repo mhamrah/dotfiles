@@ -13,13 +13,14 @@
       "model": "claude-sonnet-4-latest"
     }
   },
+  "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "CommitMono Nerd Font",
   "ui_font_size": 16,
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Nord",
+    "light": "Rosé Pine",
     "dark": "One Dark"
   }
 }
