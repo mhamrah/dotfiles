@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-latest"
+    }
+  },
   "base_keymap": "VSCode",
   "buffer_font_family": "CommitMono Nerd Font",
   "ui_font_size": 16,

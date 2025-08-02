@@ -99,9 +99,9 @@ zinit load wfxr/forgit    # Interactive git commands with fzf
 
 # Tool-specific aliases and configurations
 zinit has"eza" for \
-  atinit"alias ls='eza --icons --group-directories-first'; 
-         alias ll='eza -l --icons --group-directories-first --git'; 
-         alias la='eza -la --icons --group-directories-first --git'; 
+  atinit"alias ls='eza --icons --group-directories-first';
+         alias ll='eza -l --icons --group-directories-first --git';
+         alias la='eza -la --icons --group-directories-first --git';
          alias tree='eza --tree --icons'
          alias lt='eza --tree --level=2 --icons'" \
   zdharma-continuum/null
@@ -237,7 +237,6 @@ if command -v zoxide >/dev/null 2>&1; then
     alias zz='z -'              # Go to previous directory
     alias zi='z -i'             # Interactive selection
     alias zq='z -'              # Query mode
-    alias cd='z'
 fi
 
 
