@@ -7,12 +7,17 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
   "agent": {
+    "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet"
     }
   },
+  "format_on_save": "prettier",
   "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "CommitMono Nerd Font",
@@ -21,6 +26,6 @@
   "theme": {
     "mode": "system",
     "light": "Rosé Pine",
-    "dark": "One Dark"
+    "dark": "Rosé Pine"
   }
 }

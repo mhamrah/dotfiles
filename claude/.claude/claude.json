@@ -3,5 +3,16 @@
   "autoUpdaterStatus": "enabled",
   "globalSettings": {
     "dangerouslySkipPermissions": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(rg:*)",
+      "Bash(fd:*)",
+      "Bash(git:*)",
+      "Bash(ls:*)",
+      "Read",
+      "Write",
+      "Edit"
+    ]
   }
 }

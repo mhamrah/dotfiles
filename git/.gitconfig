@@ -20,3 +20,21 @@
 	gpgSign = true
 [gpg]
 	program = /opt/homebrew/bin/gpg
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	br = branch
+	df = diff
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[color]
+	ui = true
+[color "branch"]
+	remote = yellow
+[color "diff"]
+	meta = yellow
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
