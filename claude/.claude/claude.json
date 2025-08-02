@@ -1,0 +1,7 @@
+{
+  "hasCompletedOnboarding": true,
+  "autoUpdaterStatus": "enabled",
+  "globalSettings": {
+    "dangerouslySkipPermissions": true
+  }
+}
