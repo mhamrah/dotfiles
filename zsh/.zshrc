@@ -346,7 +346,7 @@ bindkey '^X^E' edit-command-line
 alias ..="cd .."
 alias ...="cd ../.."
 alias g="git"
-alias gs="git status"
+alias gst="git status"
 alias gco="git checkout"
 alias gcam="git add . && git commit -am"
 alias gl="git pull"
