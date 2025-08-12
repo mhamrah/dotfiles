@@ -12,7 +12,9 @@
       "Bash(ls:*)",
       "Read",
       "Write",
-      "Edit"
+      "Edit",
+      "Bash(npm:*)",
+      "Bash(pnpm:*)"
     ]
   }
 }
