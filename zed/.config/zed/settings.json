@@ -17,7 +17,7 @@
       "model": "claude-3-7-sonnet"
     }
   },
-  "format_on_save": "prettier",
+  "format_on_save": "language_server",
   "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "CommitMono Nerd Font",
@@ -27,5 +27,19 @@
     "mode": "system",
     "light": "Rosé Pine",
     "dark": "Rosé Pine"
+  },
+  "context_servers": {
+    "mcp-server-github": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {}
+    },
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
   }
 }

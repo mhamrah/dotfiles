@@ -1,0 +1,1 @@
+- use context7 when looking up documentation before a general web search
