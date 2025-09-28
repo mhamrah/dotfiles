@@ -11,6 +11,7 @@
 	autosetupremote = true
 [pull]
 	default = current
+	rebase = true
 [core]
 	editor = nvim
 	
@@ -38,3 +39,10 @@
 	added = green
 	changed = yellow
 	untracked = red
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[credential "https://github.com"]
+	provider = github

@@ -1,1 +1,2 @@
 - use context7 when looking up documentation before a general web search
+- use rg instead of grep to find files
