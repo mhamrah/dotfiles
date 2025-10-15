@@ -11,13 +11,15 @@
     "edit_prediction_provider": "copilot"
   },
   "agent": {
+    "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-4.1"
     }
   },
-  "format_on_save": "language_server",
+  "format_on_save": "on",
+  "formatter": "language_server",
   "autosave": "on_focus_change",
   "base_keymap": "VSCode",
   "buffer_font_family": "CommitMono Nerd Font",
@@ -33,43 +35,32 @@
       "source": "custom",
       "enabled": true,
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://browser.mcp.cloudflare.com/sse"
-      ]
+      "args": ["mcp-remote", "https://browser.mcp.cloudflare.com/sse"]
     },
     "cloudflare-builds": {
       "source": "custom",
       "enabled": true,
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://builds.mcp.cloudflare.com/sse"
-      ]
+      "args": ["mcp-remote", "https://builds.mcp.cloudflare.com/sse"]
     },
     "cloudflare-docs": {
       "source": "custom",
       "enabled": true,
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://docs.mcp.cloudflare.com/sse"
-      ]
+      "args": ["mcp-remote", "https://docs.mcp.cloudflare.com/sse"]
     },
     "cloudflare-workers": {
       "source": "custom",
       "enabled": true,
       "command": "npx",
-      "args": [
-        "mcp-remote",
-        "https://bindings.mcp.cloudflare.com/sse"
-      ]
+      "args": ["-y", "mcp-remote", "https://bindings.mcp.cloudflare.com/sse"],
+      "env": {}
     },
     "mcp-server-context7": {
       "source": "extension",
       "enabled": true,
       "settings": {
-        "default_minimum_tokens": "10000"
+        "context7_api_key": "ctx7sk-61dbb452-2ce7-4a0a-b258-397b81126ffd"
       }
     }
   }
