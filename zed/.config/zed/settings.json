@@ -59,7 +59,8 @@
         "-y",
         "mcp-remote",
         "https://docs.mcp.cloudflare.com/sse"
-      ]
+      ],
+      "env": {}
     },
     "cloudflare-workers": {
       "source": "custom",
