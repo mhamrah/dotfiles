@@ -31,18 +31,13 @@
     "dark": "Rosé Pine"
   },
   "context_servers": {
-<<<<<<< Updated upstream
     "cloudflare-web": {
-=======
-    "cloudflare-docs": {
->>>>>>> Stashed changes
       "source": "custom",
       "enabled": true,
       "command": "npx",
       "args": [
         "-y",
         "mcp-remote",
-<<<<<<< Updated upstream
         "https://browser.mcp.cloudflare.com/sse"
       ]
     },
@@ -65,11 +60,6 @@
         "mcp-remote",
         "https://docs.mcp.cloudflare.com/sse"
       ]
-=======
-        "https://docs.mcp.cloudflare.com/sse"
-      ],
-      "env": {}
->>>>>>> Stashed changes
     },
     "cloudflare-workers": {
       "source": "custom",
