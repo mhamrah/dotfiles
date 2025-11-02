@@ -10,6 +10,7 @@
   "features": {
     "edit_prediction_provider": "copilot"
   },
+  "lsp_document_colors": "background",
   "agent": {
     "default_profile": "write",
     "always_allow_tool_actions": true,
