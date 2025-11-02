@@ -1,0 +1,16 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-backslash": "pane::SplitRight",
+      "cmd-d": "pane::SplitDown"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-backslash": "pane::SplitRight",
+      "cmd-d": "pane::SplitDown"
+    }
+  }
+]

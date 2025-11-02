@@ -15,7 +15,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-sonnet-4.5"
     }
   },
   "format_on_save": "on",
@@ -27,8 +27,8 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Rosé Pine",
-    "dark": "Rosé Pine"
+    "light": "Neovim default dark",
+    "dark": "Subliminal"
   },
   "context_servers": {
     "cloudflare-web": {

@@ -1,350 +1,422 @@
+### ============================================================================
+### ZSH CONFIGURATION — Organized, pragmatic, and fast
+### - Vi key bindings
+### - Exports and PATH grouped
+### - Homebrew completions before compinit
+### - mise + direnv, Ghostty OSC7
+### - Docker/Compose helpers + completion
+### - Kubernetes (kubectl completion, kubectx/kubens aliases)
+### - Cloud CLI hooks (gcloud, wrangler), no terraform
+### - Language ergonomics (Node/TS, Go, Rust)
+### - FZF (fd/bat), editor/AI aliases, timing & safety
+### - Starship config from repo (stow), zinit autoupdate
+### ============================================================================
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
-    print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
-    command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
-        print -P "%F{33} %F{34}Installation successful.%f%b" || \
-        print -P "%F{160} The clone has failed.%f%b"
-fi
-
-
-source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
-    zdharma-continuum/zinit-annex-patch-dl \
-    zdharma-continuum/zinit-annex-rust
-
-
-### End of Zinit's installer chunk
-
-
-# History settings
+# ----------------------------------------------------------------------------
+# History
+# ----------------------------------------------------------------------------
 HISTSIZE=50000
 HISTFILE="$HOME/.zsh_history"
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
 
-
-
 # History options
-setopt appendhistory          # Append history to the history file (no overwriting)
-setopt sharehistory          # Share history across terminals
-setopt hist_ignore_space     # Ignore commands that start with space
-setopt hist_ignore_all_dups  # Ignore duplicate commands
-setopt hist_save_no_dups     # Don't save duplicate commands
-setopt hist_ignore_dups      # Don't record an entry that was just recorded again
-setopt hist_find_no_dups     # Don't display a line previously found
-setopt hist_expire_dups_first # Expire a duplicate event first when trimming history
-# Directory options
-setopt auto_cd               # Auto change to a directory without typing cd
-setopt auto_pushd           # Push the old directory onto the stack on cd
-setopt pushd_ignore_dups    # Don't push multiple copies of the same directory
-setopt pushd_minus          # This reverts the +/- operators
+setopt appendhistory           # Append history (no overwrite)
+setopt sharehistory            # Share history across sessions
+setopt hist_ignore_space       # Ignore commands that start with a space
+setopt hist_ignore_all_dups    # Ignore duplicates
+setopt hist_save_no_dups       # Don't save duplicates
+setopt hist_ignore_dups        # Don't record an entry if it's a repeat
+setopt hist_find_no_dups       # Don't display a line previously found
+setopt hist_expire_dups_first  # Expire duplicates first when trimming
 
+# ----------------------------------------------------------------------------
+# General shell options
+# ----------------------------------------------------------------------------
+setopt auto_cd                 # `cd` is implied when path is given
+setopt auto_pushd              # Push old dir to stack on cd
+setopt pushd_ignore_dups       # No duplicate entries in dir stack
+setopt pushd_minus             # Use -/+ to traverse dir stack
 
 # Completion options
-setopt complete_in_word     # Complete from both ends of a word
-setopt always_to_end        # Move cursor to the end of a completed word
-setopt path_dirs            # Perform path search even on command names with slashes
-setopt auto_menu            # Show completion menu on successive tab press
-setopt auto_list            # Automatically list choices on ambiguous completion
-setopt auto_param_slash     # If completed parameter is a directory, add a trailing slash
-setopt extended_glob        # Enable extended globbing
-unsetopt menu_complete      # Don't autoselect the first completion entry
-unsetopt flowcontrol        # Disable start/stop characters in shell editor
-
+setopt complete_in_word        # Complete from both ends of a word
+setopt always_to_end           # Cursor to end on completion
+setopt path_dirs               # Search path also for commands with slashes
+setopt auto_menu               # Show menu on second Tab
+setopt auto_list               # List choices on ambiguity
+setopt auto_param_slash        # Add trailing slash for directories
+setopt extended_glob           # Richer globbing
+unsetopt menu_complete         # Don't autoselect first entry
 
 # Other useful options
-#setopt correct              # Try to correct the spelling of commands
-setopt interactivecomments  # Allow comments in interactive shells
+unsetopt flowcontrol           # Disable XON/XOFF in editor
+setopt interactivecomments     # Allow comments in interactive shells
 
+# ----------------------------------------------------------------------------
+# Environment variables and PATH
+# ----------------------------------------------------------------------------
+# Editor
+export EDITOR='vim'
+export VISUAL='vim'
 
+# Pager
+export PAGER='less'
+export LESS='-R'
 
-# =============================================================================
-# ZINIT PLUGIN LOADING (Performance Optimized Order)
-# =============================================================================
+# PATH
+export PATH="$HOME/.cargo/bin:$PATH"
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
 
-# fzf integration (use existing fzf installation)
-zinit load Aloxaf/fzf-tab
+# Go (defaults)
+export GOPATH="${GOPATH:-$HOME/go}"
+export GOBIN="${GOBIN:-$GOPATH/bin}"
+path=("$GOBIN" $path)
 
-
-# Load important completion enhancements first
-zinit load zsh-users/zsh-completions
-
-
-# Load fast syntax highlighting (faster than zsh-syntax-highlighting)
-zinit load zdharma-continuum/fast-syntax-highlighting
-
-
-# Load autosuggestions
-zinit load zsh-users/zsh-autosuggestions
-
-
-# Load history substring search (must be after syntax highlighting)
-zinit load zsh-users/zsh-history-substring-search
-
-
-# Git enhancements
-zinit load wfxr/forgit    # Interactive git commands with fzf
-
-
-# Tool-specific aliases and configurations
-zinit has"eza" for \
-  atinit"alias ls='eza --icons --group-directories-first';
-         alias ll='eza -l --icons --group-directories-first --git';
-         alias la='eza -la --icons --group-directories-first --git';
-         alias tree='eza --tree --icons'
-         alias lt='eza --tree --level=2 --icons'" \
-  zdharma-continuum/null
-
-
-zinit has"bat" for \
-  atinit"alias cat='bat --paging=never'
-         alias bathelp='bat --plain --language=help'
-         help() { \"\$@\" --help 2>&1 | bathelp }
-         alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'" \
-  zdharma-continuum/null
-
-
-zinit has"rg" for \
-  atinit"alias grep='rg'
-         alias rgg='rg --no-ignore --hidden'" \
-  zdharma-continuum/null
-
-
-# Load useful utilities
-zinit load djui/alias-tips           # Reminds you of your aliases
-zinit load hlissner/zsh-autopair     # Auto-pair brackets, quotes, etc.
-
-
-# =============================================================================
-# Starship Prompt
-# =============================================================================
-zinit light starship/starship
-# Starship prompt (modern, fast, customizable)
-if command -v starship >/dev/null 2>&1; then
-    eval "$(starship init zsh)"
-else
-    # Fallback to a simple prompt if starship isn't available
-    PROMPT='%F{cyan}%n@%m%f:%F{blue}%~%f%# '
+# ----------------------------------------------------------------------------
+# Homebrew completions (ensure FPATH before compinit)
+# ----------------------------------------------------------------------------
+if command -v brew >/dev/null 2>&1; then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 fi
 
-
-
-# =============================================================================
-# VERSION MANAGERS INITIALIZATION
-# =============================================================================
-
-
-# rbenv initialization (lazy loading for performance)
-lazy_load_rbenv() {
-    if command -v rbenv >/dev/null 2>&1; then
-        eval "$(rbenv init - zsh)"
-        # Remove the lazy loading functions after first use
-        unset -f ruby gem bundle rbenv
-    fi
-}
-
-
-if command -v rbenv >/dev/null 2>&1; then
-    # Create wrapper functions for lazy loading
-    ruby() { lazy_load_rbenv; ruby "$@"; }
-    gem() { lazy_load_rbenv; gem "$@"; }
-    bundle() { lazy_load_rbenv; bundle "$@"; }
-    rbenv() { lazy_load_rbenv; rbenv "$@"; }
+# ----------------------------------------------------------------------------
+# Zinit bootstrap (plugin manager)
+# ----------------------------------------------------------------------------
+if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
+  print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Plugin Manager (%F{33}zinit%F{220})…%f"
+  command mkdir -p "$HOME/.local/share/zinit" && command chmod g-rwX "$HOME/.local/share/zinit"
+  command git clone https://github.com/zdharma-continuum/zinit "$HOME/.local/share/zinit/zinit.git" && \
+    print -P "%F{33} %F{34}Installation successful.%f%b" || \
+    print -P "%F{160} The clone has failed.%f%b"
 fi
+source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
 
-#load nvm lazily via zinit
-zinit ice wait lucid
-zinit load lukechilds/zsh-nvm
+# Load important annexes (no Turbo)
+zinit light-mode for \
+  zdharma-continuum/zinit-annex-as-monitor \
+  zdharma-continuum/zinit-annex-bin-gem-node \
+  zdharma-continuum/zinit-annex-patch-dl \
+  zdharma-continuum/zinit-annex-rust
 
-# =============================================================================
-# FZF CONFIGURATION
-# =============================================================================
+# Periodic zinit update (weekly) without using deprecated/unknown subcommands
+# Runs quietly in the background if the last update was >= 7 days ago.
+{
+  local mark="${XDG_CACHE_HOME:-$HOME/.cache}/zinit.last-update"
+  mkdir -p "${mark:h}" 2>/dev/null
+  if [[ ! -e $mark || -n $mark(#qN.mh+168) ]]; then
+    zinit update --all >/dev/null 2>&1 || true
+    : >| "$mark"
+  fi
+} &!
 
-
-# Initialize fzf if available
-if command -v fzf >/dev/null 2>&1; then
-    # Source fzf key bindings and completion
-    if [[ -f ~/.fzf.zsh ]]; then
-        source ~/.fzf.zsh
-    elif [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
-        source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-        source /opt/homebrew/opt/fzf/shell/completion.zsh
-    elif [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
-        source /usr/local/opt/fzf/shell/key-bindings.zsh
-        source /usr/local/opt/fzf/shell/completion.zsh
-    fi
-
-
-    # FZF configuration
-    export FZF_DEFAULT_OPTS='
-      --height 50%
-      --layout=reverse
-      --border
-      --preview-window=right:60%
-      --bind ctrl-u:preview-page-up,ctrl-d:preview-page-down
-      --bind ctrl-/:toggle-preview
-      --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
-      --color=fg:#cdd6f4,header:#f38ba8,info:#cba6ac,pointer:#f5e0dc
-      --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6ac,hl+:#f38ba8
-    '
-
-
-    # Use rg for FZF if available
-    if command -v rg >/dev/null 2>&1; then
-        export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
-        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    fi
-
-
-    # Enhanced fzf functions
-    # fe - Edit file with fzf
-    fe() {
-        local files
-        IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0))
-        [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
-    }
-
-
-    # fcd - Change directory with fzf
-    fcd() {
-        local dir
-        dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
-        cd "$dir"
-    }
-fi
-
-
-# =============================================================================
-# ZOXIDE CONFIGURATION
-# =============================================================================
-
-
-# Initialize zoxide if available
-if command -v zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init zsh)"
-    # Add useful aliases for zoxide
-    alias zz='z -'              # Go to previous directory
-    alias zi='z -i'             # Interactive selection
-    alias zq='z -'              # Query mode
-fi
-
-
-# =============================================================================
-# PLUGIN CONFIGURATION
-# =============================================================================
-
-
-# ZSH Autosuggestions configuration
+# ----------------------------------------------------------------------------
+# Plugin configuration (variables set before loading plugins)
+# ----------------------------------------------------------------------------
+# Autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#a9a9a9"
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_USE_ASYNC=1
 
+# ----------------------------------------------------------------------------
+# Plugins (order matters)
+# ----------------------------------------------------------------------------
+# Completions should be available before compinit
+zinit load zsh-users/zsh-completions
 
-# History substring search configuration
-bindkey '^[[A' history-substring-search-up    # Up arrow
-bindkey '^[[B' history-substring-search-down  # Down arrow
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
-
-# fzf-tab configuration
-zstyle ':fzf-tab:complete:*:*' fzf-preview ''
-zstyle ':fzf-tab:*' fzf-flags --height=50% --layout=reverse
-zstyle ':fzf-tab:*' switch-group ',' '.'
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
-
-
-# =============================================================================
-# COMPLETION SYSTEM
-# =============================================================================
-
-
-# Initialize completion system
+# Completion system (after zsh-completions is in $fpath)
 autoload -Uz compinit
-
-
-# Speed up compinit by checking cache once per day
 if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
   compinit
 else
   compinit -C
 fi
 
+# Periodic compinit cache refresh (hourly); rebuild cache if older than 24h
+PERIOD=3600
+periodic() {
+  if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
+    compinit
+  else
+    compinit -C
+  fi
+}
 
-# Enable history completion
+# Completion styles
+# - General
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' group-name ''
+# - History words
 zstyle ':completion:*:history-words' stop yes
 zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' menu yes select
-
-
-# Add history-words to the list of completers
+# - Completers and processes
 zstyle ':completion:*' completer _expand _complete _history _ignored _approximate
-
-
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # Case insensitive completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"  # Colored completion
-zstyle ':completion:*' menu select  # Selectable menu
-zstyle ':completion:*' group-name ''  # Group matches and describe
-
-
-# Advanced completion for kill command
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
-
-
-# Disable hostname completion (speeds up completion)
+# - Hosts
 zstyle ':completion:*' hosts off
 
+# Completion helpers and UI
+zinit ice wait lucid depth=1
+zinit load Aloxaf/fzf-tab
+zstyle ':fzf-tab:complete:*:*' fzf-preview ''
+zstyle ':fzf-tab:*' fzf-flags --height=50% --layout=reverse
+zstyle ':fzf-tab:*' switch-group ',' '.'
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
 
-# Homebrew completion
-if command -v brew >/dev/null 2>&1; then
-    FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+# UI/UX
+zinit ice wait lucid depth=1
+zinit load zsh-users/zsh-autosuggestions
+zinit ice wait"1" lucid depth=1
+zinit load zsh-users/zsh-history-substring-search
+zinit ice wait lucid depth=1
+zinit load djui/alias-tips
+zinit ice wait lucid depth=1
+zinit load hlissner/zsh-autopair
+zinit ice wait lucid depth=1
+zinit load wfxr/forgit
+zinit ice wait"1" lucid depth=1
+zinit load zdharma-continuum/fast-syntax-highlighting
+
+# Version managers & per-project env
+# - mise
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
+# - direnv
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
 fi
 
+# rbenv: lazy init (kept for Ruby projects)
+lazy_load_rbenv() {
+  if command -v rbenv >/dev/null 2>&1; then
+    eval "$(rbenv init - zsh)"
+    unset -f ruby gem bundle rbenv
+  fi
+}
+if command -v rbenv >/dev/null 2>&1; then
+  ruby()   { lazy_load_rbenv; ruby   "$@"; }
+  gem()    { lazy_load_rbenv; gem    "$@"; }
+  bundle() { lazy_load_rbenv; bundle "$@"; }
+  rbenv()  { lazy_load_rbenv; rbenv  "$@"; }
+fi
 
-# =============================================================================
-# KEY BINDINGS
-# =============================================================================
+# nvm via zinit (lazy)
+zinit ice wait lucid depth=1
+zinit load lukechilds/zsh-nvm
+
+# ----------------------------------------------------------------------------
+# Prompt (Starship)
+# ----------------------------------------------------------------------------
 
 
-# Use emacs-style key bindings
-bindkey -e
+zinit light starship/starship
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+else
+  PROMPT='%F{cyan}%n@%m%f:%F{blue}%~%f%# '
+fi
 
-
-# Enhanced navigation
-bindkey '^[[1;5C' forward-word      # Ctrl+Right
-bindkey '^[[1;5D' backward-word     # Ctrl+Left
-bindkey '^[[3~' delete-char         # Delete key
-bindkey '^[^?' backward-kill-word   # Alt+Backspace
-
-
+# ----------------------------------------------------------------------------
+# Key bindings (Vi mode)
+# ----------------------------------------------------------------------------
+bindkey -v                            # Use vi key bindings
+# Useful navigation in both modes
+bindkey '^[[1;5C' forward-word        # Ctrl+Right
+bindkey '^[[1;5D' backward-word       # Ctrl+Left
+bindkey '^[[3~' delete-char           # Delete key
+bindkey '^[^?' backward-kill-word     # Alt+Backspace
+# History substring search (after plugin is loaded)
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 # Edit command line in $EDITOR
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey '^X^E' edit-command-line
 
+# ----------------------------------------------------------------------------
+# Ghostty nicety: OSC 7 on directory change (helps file dialogs)
+# ----------------------------------------------------------------------------
+function chpwd() {
+  emulate -L zsh
+  print -Pn "\e]7;file://%m$PWD\a"
+}
+# Emit once at shell start as well
+print -Pn "\e]7;file://%m$PWD\a"
 
-# =============================================================================
-# ALIASES
-# =============================================================================
+# ----------------------------------------------------------------------------
+# FZF configuration (prefer fd, bat)
+# ----------------------------------------------------------------------------
+if command -v fzf >/dev/null 2>&1; then
+  # Source fzf key bindings and completion
+  if [[ -f ~/.fzf.zsh ]]; then
+    source ~/.fzf.zsh
+  elif [[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ]]; then
+    source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+    source /opt/homebrew/opt/fzf/shell/completion.zsh
+  elif [[ -f /usr/local/opt/fzf/shell/key-bindings.zsh ]]; then
+    source /usr/local/opt/fzf/shell/key-bindings.zsh
+    source /usr/local/opt/fzf/shell/completion.zsh
+  fi
 
+  # Base options
+  export FZF_DEFAULT_OPTS='
+    --height 50%
+    --layout=reverse
+    --border
+    --preview-window=right:60%
+    --bind ctrl-u:preview-page-up,ctrl-d:preview-page-down
+    --bind ctrl-/:toggle-preview
+    --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+    --color=fg:#cdd6f4,header:#f38ba8,info:#cba6ac,pointer:#f5e0dc
+    --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6ac,hl+:#f38ba8
+  '
 
+  # Prefer fd (fast) for listing files
+  if command -v fd >/dev/null 2>&1; then
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  elif command -v rg >/dev/null 2>&1; then
+    export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  fi
+
+  # Preview with bat
+  if command -v bat >/dev/null 2>&1; then
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview 'bat --style=numbers --color=always --line-range :500 {}'"
+  fi
+
+  # fe - edit file(s) selected with fzf
+  fe() {
+    local files
+    IFS=$'\n' files=($(fzf --query="${1:-}" --multi --select-1 --exit-0))
+    [[ -n "$files" ]] && ${EDITOR:-vim} "${files[@]}"
+  }
+
+  # fcd - cd into selected directory
+  fcd() {
+    local dir
+    dir=$(find "${1:-.}" -path '*/\.*' -prune -o -type d -print 2>/dev/null | fzf +m) && cd "$dir"
+  }
+fi
+
+# ----------------------------------------------------------------------------
+# Docker & Docker Compose helpers + completion
+# ----------------------------------------------------------------------------
+alias d='docker'
+alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
+alias di='docker images'
+alias drm='docker rm'
+alias drmi='docker rmi'
+alias dlogs='docker logs -f'
+
+alias dc='docker compose'
+alias dcu='docker compose up'
+alias dcd='docker compose down'
+alias dcb='docker compose build'
+alias dcr='docker compose run --rm'
+alias dce='docker compose exec'
+alias dcp='docker compose pull'
+
+# Docker completion
+if command -v docker >/dev/null 2>&1; then
+  eval "$(docker completion zsh 2>/dev/null)"
+fi
+
+# ----------------------------------------------------------------------------
+# Kubernetes (kubectl completion, kubectx/kubens aliases)
+# ----------------------------------------------------------------------------
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+  compdef __start_kubectl k
+  alias k='kubectl'
+  alias kgp='kubectl get pods'
+  alias kgs='kubectl get svc'
+  alias kga='kubectl get all'
+  alias kctx='kubectl config use-context'
+  alias kns='kubectl config set-context --current --namespace'
+  alias kdes='kubectl describe'
+  alias kl='kubectl logs'
+fi
+
+# Prefer compiled kubectx/kubens if installed; fallback aliases
+if command -v kubectx >/dev/null 2>&1; then
+  alias kctx='kubectx'
+fi
+if command -v kubens >/dev/null 2>&1; then
+  alias kns='kubens'
+fi
+
+# ----------------------------------------------------------------------------
+# Cloud CLIs (autoload hooks)
+# ----------------------------------------------------------------------------
+# Google Cloud SDK (path and completion)
+if command -v brew >/dev/null 2>&1; then
+  [[ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]] && source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
+  [[ -f "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" ]] && source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+fi
+
+# Cloudflare Wrangler completion (handle version differences)
+if command -v wrangler >/dev/null 2>&1; then
+  eval "$(wrangler completions zsh 2>/dev/null)" || eval "$(wrangler completion zsh 2>/dev/null)" || true
+fi
+
+# ----------------------------------------------------------------------------
+# Language ergonomics
+# ----------------------------------------------------------------------------
+# Node/TypeScript
+export NVM_AUTO_USE=true
+# Guard pnpm completion until both pnpm and node are available
+if command -v pnpm >/dev/null 2>&1 && command -v node >/dev/null 2>&1; then
+  eval "$(pnpm completion zsh)"
+fi
+
+# Go: add common linters completion if installed
+if command -v golangci-lint >/dev/null 2>&1; then
+  eval "$(golangci-lint completion zsh)"
+fi
+
+# Rust: generate cargo completion on-demand to ~/.zfunc and add to fpath
+if command -v rustup >/dev/null 2>&1; then
+  if [[ ! -f "$HOME/.zfunc/_cargo" ]]; then
+    mkdir -p "$HOME/.zfunc"
+    rustup completions zsh cargo >| "$HOME/.zfunc/_cargo" 2>/dev/null || true
+  fi
+  fpath=("$HOME/.zfunc" $fpath)
+fi
+
+# ----------------------------------------------------------------------------
+# zoxide (fast directory jumping)
+# ----------------------------------------------------------------------------
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+  alias zz='z -'
+  alias zi='z -i'
+fi
+
+# ----------------------------------------------------------------------------
+# Aliases
+# ----------------------------------------------------------------------------
+# General
 alias ..="cd .."
 alias ...="cd ../.."
+
+# Git
 alias g="git"
 alias gst="git status"
 alias gco="git checkout"
@@ -354,40 +426,56 @@ alias gp="git push"
 alias grhh="git reset HEAD --hard"
 alias gcm="git checkout main"
 
+# Editors / tools
+alias z.='zed .'
+alias c.='cursor .'
 
-# =============================================================================
-# FUNCTIONS
-# =============================================================================
-
-# Create directory and cd into it
-mcd() {
-    mkdir -p "$1" && cd "$1"
+# AI helper (prefers ollama)
+ai() {
+  local prompt="$*"
+  if command -v ollama >/dev/null 2>&1; then
+    ollama run "${AI_MODEL:-llama3}" -p "${prompt}"
+  else
+    print "No AI CLI found. Install 'ollama' or set up your preferred CLI."
+  fi
 }
 
-# =============================================================================
-# ENVIRONMENT VARIABLES
-# =============================================================================
+# Conditional tool-based aliases via zinit
+zinit has"eza" for \
+  atinit"alias ls='eza --icons --group-directories-first';
+         alias ll='eza -l --icons --group-directories-first --git';
+         alias la='eza -la --icons --group-directories-first --git';
+         alias tree='eza --tree --icons';
+         alias lt='eza --tree --level=2 --icons'" \
+  zdharma-continuum/null
 
+zinit has"bat" for \
+  atinit"alias cat='bat --paging=never';
+         alias bathelp='bat --plain --language=help';
+         help() { \"\$@\" --help 2>&1 | bathelp };
+         alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'" \
+  zdharma-continuum/null
 
-# Editor
-export EDITOR='vim'
-export VISUAL='vim'
+zinit has"rg" for \
+  atinit"alias grep='rg';
+         alias rgg='rg --no-ignore --hidden'" \
+  zdharma-continuum/null
 
+# ----------------------------------------------------------------------------
+# Timing and safety
+# ----------------------------------------------------------------------------
+# Show elapsed time for commands that take >2s
+REPORTTIME=2
+TIMEFMT=$'\n↳ Time: %*E  User: %*U  Sys: %*S  CPU: %P\n'
 
-# Pager
-export PAGER='less'
-export LESS='-R'
+# Prevent terminal "freezes"
+[[ -t 1 ]] && stty -ixon -ixoff
 
-export PATH="$HOME/.cargo/bin:$PATH"
+# Safer redirection and pipes (interactive)
+set -o noclobber
+set -o pipefail
 
-
-# =============================================================================
-# FINAL SETUP
-# =============================================================================
-
-
-# Refresh completions for newly installed tools
-if command -v brew >/dev/null 2>&1; then
-    autoload -Uz compinit
-    compinit
-fi
+# ----------------------------------------------------------------------------
+# Done
+# ----------------------------------------------------------------------------
+# Everything initialized once; no redundant compinit below.
