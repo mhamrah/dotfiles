@@ -4,7 +4,7 @@ font-size = 15
 
 # Appearance
 background-opacity = 0.75
-background-blur-radius = 20
+background-blur = true
 window-decoration = true
 
 # Theme configuration
