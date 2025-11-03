@@ -26,7 +26,7 @@ shell-integration = detect
 # - cursor: Use bar cursor at prompt
 # - sudo: Wrap sudo to preserve environment (disabled by default)
 # - title: Update terminal title with working directory
-# - ssh-env: Pass Ghostty environment to SSH sessions (disabled by default) 
+# - ssh-env: Pass Ghostty environment to SSH sessions (disabled by default)
 # - ssh-terminfo: Pass Ghostty terminfo to SSH sessions (disabled by default)
 # - path: Inherit working directory for new splits/tabs
 shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path
@@ -39,8 +39,8 @@ keybind = cmd+backslash=new_split:right
 keybind = cmd+d=new_split:down
 
 # Prompt navigation keybindings (requires shell integration)
-keybind = opt+up=jump_to_prompt:backward
-keybind = opt+down=jump_to_prompt:forward
+#keybind = opt+up=jump_to_prompt:backward
+#keybind = opt+down=jump_to_prompt:forward
 
 # Window management
 window-padding-x = 2
