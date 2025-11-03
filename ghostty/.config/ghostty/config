@@ -1,16 +1,50 @@
-font-family=CommitMono Nerd Font
-background-opacity=.75
-background-blur=true
-font-size=15
+# Font configuration
+font-family = CommitMono Nerd Font
+font-size = 15
+
+# Appearance
+background-opacity = 0.75
+background-blur-radius = 20
+window-decoration = true
+
+# Theme configuration
+theme = xcodedarkhc
+theme = blazer
+theme = jellybeans
+theme = gitlab-dark
+theme = spacegray bright
+theme = subliminal
+theme = subliminal-nightfall
+
+# Cursor configuration
+cursor-style = block
+
+# Shell integration - auto-detect and inject for supported shells
+shell-integration = detect
+
+# Shell integration features
+# - cursor: Use bar cursor at prompt
+# - sudo: Wrap sudo to preserve environment (disabled by default)
+# - title: Update terminal title with working directory
+# - ssh-env: Pass Ghostty environment to SSH sessions (disabled by default) 
+# - ssh-terminfo: Pass Ghostty terminfo to SSH sessions (disabled by default)
+# - path: Inherit working directory for new splits/tabs
+shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path
+
+# Keybindings
 keybind = shift+enter=text:\n
 
 # Split pane keybindings
 keybind = cmd+backslash=new_split:right
 keybind = cmd+d=new_split:down
-theme=xcodedarkhc
-theme=blazer
-theme=jellybeans
-theme=gitlab-dark
-theme=spacegray bright
-theme=subliminal
-theme=subliminal-nightfall
+
+# Prompt navigation keybindings (requires shell integration)
+keybind = opt+up=jump_to_prompt:backward
+keybind = opt+down=jump_to_prompt:forward
+
+# Window management
+window-padding-x = 2
+window-padding-y = 2
+
+# Performance
+mouse-hide-while-typing = true
