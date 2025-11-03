@@ -32,7 +32,7 @@ shell-integration = detect
 shell-integration-features = cursor,no-sudo,title,no-ssh-env,no-ssh-terminfo,path
 
 # Keybindings
-keybind = shift+enter=text:\n
+keybind = shift+enter=text:\\x0a
 
 # Split pane keybindings
 keybind = cmd+backslash=new_split:right
