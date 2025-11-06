@@ -486,6 +486,6 @@ set -o pipefail
 # Work overlay (optional)
 # ----------------------------------------------------------------------------
 # If a work overlay file exists (on work laptop), source additional settings.
-if [[ -f "$HOME/dotfiles-work/zsh/work.zsh" ]]; then
-  source "$HOME/dotfiles-work/zsh/work.zsh"
+if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
+  source "$HOME/dotfiles-work/includes/zsh/work.zsh"
 fi
