@@ -19,12 +19,20 @@ Use this README to get productive quickly and learn the key workflows and bindin
 
 - This installs core tools (starship, zoxide, eza, bat, ripgrep, fd, fzf, neovim, docker, kubernetes-cli, kubectx, google-cloud-sdk, wrangler, mise, direnv, pnpm, uv, etc.), sets up fzf bindings, and keeps everything consistent.
 
-2) Stow modules (symlink into $HOME)
-- From the repo root:
+2) Clone and stow dotfiles
+- Clone this repo to `~/dotfiles`:
+
+      git clone https://github.com/mhamrah/dotfiles.git ~/dotfiles
+
+- Stow all modules at once:
+
+      cd ~/dotfiles
+      stow -d ~/dotfiles -t ~ .
+
+- Or stow individual modules:
 
       stow zsh
       stow starship
-      # Optionally:
       stow zed
       stow nvim
       stow git
