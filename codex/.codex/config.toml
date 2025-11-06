@@ -1,0 +1,6 @@
+## Codex CLI base config (personal)
+# Sandbox mode for local development
+sandbox = "workspace-write"
+# Enable full-auto mode by default (you can override per-session)
+full_auto = true
+

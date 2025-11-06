@@ -39,6 +39,8 @@
 	added = green
 	changed = yellow
 	untracked = red
+[includeIf "gitdir/i:**/paypal/**"]
+    path = ~/dotfiles-work/git/work.gitconfig
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager
