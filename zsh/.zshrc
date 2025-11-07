@@ -366,9 +366,11 @@ fi
 # Cloud CLIs (autoload hooks)
 # ----------------------------------------------------------------------------
 # Google Cloud SDK (path and completion)
-if command -v brew >/dev/null 2>&1; then
-  [[ -f "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc" ]] && source "$(brew --prefix)/share/google-cloud-sdk/path.zsh.inc"
-  [[ -f "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc" ]] && source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
+if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # Cloudflare Wrangler completion (handle version differences)
@@ -479,3 +481,11 @@ set -o pipefail
 # Done
 # ----------------------------------------------------------------------------
 # Everything initialized once; no redundant compinit below.
+
+# ----------------------------------------------------------------------------
+# Work overlay (optional)
+# ----------------------------------------------------------------------------
+# If a work overlay file exists (on work laptop), source additional settings.
+if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
+  source "$HOME/dotfiles-work/includes/zsh/work.zsh"
+fi
