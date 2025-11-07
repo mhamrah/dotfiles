@@ -60,8 +60,8 @@ echo "Installing packages..."
 TO_INSTALL=()
 for entry in "${PACKAGES[@]}"; do
   name="${entry%%#*}"                         # cut off everything from '#' to end
-  name="${name##[[:space:]]##}"               # trim leading whitespace (zsh pattern)
-  name="${name%%[[:space:]]##}"               # trim trailing whitespace
+  name="${name##*([[:space:]])}"              # trim leading whitespace (zsh pattern)
+  name="${name%%*([[:space:]])}"              # trim trailing whitespace
   [[ -n "$name" ]] && TO_INSTALL+=("$name")
 done
 
