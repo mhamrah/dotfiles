@@ -92,9 +92,15 @@ Tip: Starship’s config lives in this repo and is symlinked into ~/.config/star
 ## Completions and discovery
 
 - Completions are fast and rich (zsh-completions, fzf-tab).
-- Alias discovery: typing real commands will suggest shorter aliases (alias-tips).
+- **Alias discovery:**
+  - Automatic hints: typing real commands will suggest shorter aliases (alias-tips plugin)
+  - Manual lookup helpers:
+    - `ghelp`: list all git aliases
+    - `dhelp`: list all docker aliases
+    - `khelp`: list all kubectl aliases
+    - `ahelp <keyword>`: search aliases by keyword (e.g., `ahelp commit`)
 - Completion cache auto-refreshes hourly, keeping completions responsive without reinitializing every shell.
-- Homebrew completions are loaded from brew’s site-functions path.
+- Homebrew completions are loaded from brew's site-functions path.
 
 
 ## fzf workflows
@@ -147,42 +153,144 @@ Tip: Starship’s config lives in this repo and is symlinked into ~/.config/star
   - If you use Python, `uv` (installed via Homebrew) is recommended for dependency and venv management; you can optionally let mise track uv as a tool, but don’t let both manage the same Python interpreter version.
 
 
+
+## Git
+
+Using Oh My Zsh git plugin for comprehensive alias coverage (200+ aliases).
+
+**Discovery helpers:**
+- `ghelp`: list all git aliases
+- `ahelp git`: search aliases by keyword
+
+**Top Git aliases:**
+
+**Status & Info:**
+- `gst`: git status
+- `gd` / `gds`: git diff / git diff --staged
+- `glog`: git log with nice formatting
+- `gsh`: git show
+
+**Add & Commit:**
+- `ga` / `gaa`: git add / git add --all
+- `gapa`: git add --patch (interactive)
+- `gcmsg`: git commit -m
+- `gcam`: git commit -a -m
+- `gca`: git commit --amend
+- `gcn!`: git commit --amend --no-edit
+
+**Branch & Checkout:**
+- `gco` / `gcb`: git checkout / checkout -b
+- `gcm`: git checkout main (smart: detects main/master/trunk)
+- `gcd`: git checkout develop (smart: detects dev/devel/develop)
+- `gb` / `gba`: git branch / branch --all
+- `gbd` / `gbD`: git branch -d / -D (delete)
+- `gsw` / `gswc`: git switch / switch -c
+
+**Fetch, Pull, Push:**
+- `gf` / `gfa`: git fetch / fetch --all --prune
+- `gl` / `gup`: git pull / git pull --rebase
+- `gp` / `gpf`: git push / push --force-with-lease
+- `ggpush` / `ggpull`: push/pull to current branch
+
+**Merge & Rebase:**
+- `gm` / `gma`: git merge / merge --abort
+- `grb` / `grbi`: git rebase / rebase -i
+- `grba` / `grbc`: rebase --abort / --continue
+
+**Stash:**
+- `gsta` / `gstp`: git stash / stash pop
+- `gstl`: git stash list
+- `gstd`: git stash drop
+
+**Reset & Clean:**
+- `grhh`: git reset --hard HEAD
+- `grh`: git reset HEAD
+- `gclean`: git clean -id (interactive)
+
+**Other:**
+- `gcp` / `gcpa` / `gcpc`: cherry-pick / abort / continue
+- `grt`: cd to git root directory
+- `gwip`: git add all + commit with --wip-- message (work in progress)
+
 ## Docker and Docker Compose
 
-- Aliases:
-  - `d`: docker
-  - `dps`: docker ps (nice table)
-  - `di`: docker images
-  - `drm`: docker rm
-  - `drmi`: docker rmi
-  - `dlogs`: docker logs -f
-- Compose (V2):
-  - `dc`: docker compose
-  - `dcu`: docker compose up
-  - `dcd`: docker compose down
-  - `dcb`: docker compose build
-  - `dcr`: docker compose run --rm
-  - `dce`: docker compose exec
-  - `dcp`: docker compose pull
+Using Oh My Zsh docker and docker-compose plugins for comprehensive alias coverage.
 
-Completions for docker and compose are enabled if available.
+**Discovery helpers:**
+- `dhelp`: list all docker aliases
+- `ahelp docker`: search aliases by keyword
+
+**Top Docker aliases:**
+- `dps` / `dpsa`: docker ps / docker ps -a
+- `dil` / `dils`: docker image ls
+- `dlo`: docker container logs
+- `dxc` / `dxcit`: docker exec / docker exec -it
+- `dr` / `drit`: docker run / docker run -it
+- `drm` / `drm!`: docker rm / docker rm -f
+- `dst` / `dstp`: docker start / docker stop
+- `dsta`: docker stop all running containers
+- `dil`: docker image ls
+- `dirm`: docker image rm
+- `dipru`: docker image prune -a
+- `dnls`: docker network ls
+- `dvls`: docker volume ls
+- `dpsf`: custom formatted docker ps (preserved from old config)
+
+**Top Docker Compose aliases:**
+- `dco`: docker compose
+- `dcup` / `dcupd`: docker compose up / up -d
+- `dcupb` / `dcupdb`: up --build / up -d --build
+- `dcdn`: docker compose down
+- `dcb`: docker compose build
+- `dce`: docker compose exec
+- `dcr`: docker compose run
+- `dcl` / `dclf`: docker compose logs / logs -f
+- `dcps`: docker compose ps
+- `dcrestart`: docker compose restart
+- `dcpull`: docker compose pull
+
+Completions for docker and compose are auto-configured by the plugins.
 
 
 ## Kubernetes (kubectl, kubectx, kubens)
 
-- kubectl:
-  - `k`: kubectl
-  - `kgp`: get pods
-  - `kgs`: get services
-  - `kga`: get all
-  - `kdes`: describe
-  - `kl`: logs
-  - `kctx`: switch context (uses kubectl by default; if kubectx is installed, it maps to that)
-  - `kns`: change namespace (uses kubectl by default; if kubens is installed, it maps to that)
-- kubectx/kubens:
-  - If installed (recommended via Homebrew), aliases `kctx` and `kns` use the faster Go versions.
-- Starship shows current context and namespace inline in the prompt.
-- Tip: For GKE, your gcloud auth and contexts are visible via `kubectl config get-contexts` and switchable via `kctx`.
+Using Oh My Zsh kubectl plugin for comprehensive alias coverage (100+ aliases).
+
+**Discovery helpers:**
+- `khelp`: list all kubectl aliases
+- `ahelp kubectl`: search aliases by keyword
+
+**Top kubectl aliases:**
+- `k`: kubectl
+- `kgp` / `kgpa` / `kgpwide`: get pods / all namespaces / wide output
+- `kgs` / `kgsa` / `kgswide`: get services / all namespaces / wide output
+- `kgd` / `kgda`: get deployments / all namespaces
+- `kga` / `kgaa`: get all / all namespaces
+- `kdp` / `kds` / `kdd`: describe pod/service/deployment
+- `kl` / `klf`: logs / logs -f
+- `kl1h` / `kl1m`: logs from last 1h / 1m
+- `kaf`: kubectl apply -f
+- `kdel` / `kdelf`: delete / delete -f
+- `keti`: exec -t -i (interactive shell)
+- `kcuc`: kubectl config use-context
+- `kcsc` / `kcdc`: config set-context / delete-context
+- `kcgc`: config get-contexts
+- `kcn`: set current namespace
+- `kgns`: get namespaces
+- `kgcm` / `kgsec`: get configmaps / secrets
+- `kpf`: port-forward
+- `kcp`: kubectl cp (copy files)
+
+**Context and namespace switching:**
+- If kubectx/kubens installed (recommended via Homebrew):
+  - `kctx`: switch context (uses fast Go version)
+  - `kns`: change namespace (uses fast Go version)
+- Otherwise uses kubectl config commands
+
+**Starship integration:**
+- Shows current context and namespace inline in the prompt
+
+**Tip:** For GKE, your gcloud auth and contexts are visible via `kubectl config get-contexts` and switchable via `kctx`.
 
 
 ## Cloud CLIs (GCP and Cloudflare)

@@ -190,6 +190,12 @@ zinit load wfxr/forgit
 zinit ice wait"1" lucid depth=1
 zinit load zdharma-continuum/fast-syntax-highlighting
 
+# OMZ plugins (git, docker, docker-compose, kubectl)
+zi snippet OMZP::git
+zi snippet OMZP::docker
+zi snippet OMZP::docker-compose
+zi snippet OMZP::kubectl
+
 # Version managers & per-project env
 # - mise
 if command -v mise >/dev/null 2>&1; then
@@ -316,45 +322,15 @@ if command -v fzf >/dev/null 2>&1; then
 fi
 
 # ----------------------------------------------------------------------------
-# Docker & Docker Compose helpers + completion
+# Docker & Docker Compose (handled by OMZ plugins above)
 # ----------------------------------------------------------------------------
-alias d='docker'
-alias dps='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
-alias di='docker images'
-alias drm='docker rm'
-alias drmi='docker rmi'
-alias dlogs='docker logs -f'
-
-alias dc='docker compose'
-alias dcu='docker compose up'
-alias dcd='docker compose down'
-alias dcb='docker compose build'
-alias dcr='docker compose run --rm'
-alias dce='docker compose exec'
-alias dcp='docker compose pull'
-
-# Docker completion
-if command -v docker >/dev/null 2>&1; then
-  eval "$(docker completion zsh 2>/dev/null)"
-fi
+# Custom docker ps format (supplement to OMZ aliases)
+alias dpsf='docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"'
 
 # ----------------------------------------------------------------------------
-# Kubernetes (kubectl completion, kubectx/kubens aliases)
+# Kubernetes (handled by OMZ plugin above)
 # ----------------------------------------------------------------------------
-if command -v kubectl >/dev/null 2>&1; then
-  source <(kubectl completion zsh)
-  compdef __start_kubectl k
-  alias k='kubectl'
-  alias kgp='kubectl get pods'
-  alias kgs='kubectl get svc'
-  alias kga='kubectl get all'
-  alias kctx='kubectl config use-context'
-  alias kns='kubectl config set-context --current --namespace'
-  alias kdes='kubectl describe'
-  alias kl='kubectl logs'
-fi
-
-# Prefer compiled kubectx/kubens if installed; fallback aliases
+# Prefer compiled kubectx/kubens if installed
 if command -v kubectx >/dev/null 2>&1; then
   alias kctx='kubectx'
 fi
@@ -373,10 +349,11 @@ if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
-# Cloudflare Wrangler completion (handle version differences)
-if command -v wrangler >/dev/null 2>&1; then
-  eval "$(wrangler completions zsh 2>/dev/null)" || eval "$(wrangler completion zsh 2>/dev/null)" || true
-fi
+# Cloudflare Wrangler completion
+# Disabled: wrangler completion is unreliable and outputs invalid zsh syntax
+# if command -v wrangler >/dev/null 2>&1; then
+#   eval "$(wrangler completions zsh 2>/dev/null)" || eval "$(wrangler completion zsh 2>/dev/null)" || true
+# fi
 
 # ----------------------------------------------------------------------------
 # Language ergonomics
@@ -418,15 +395,7 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 
-# Git
-alias g="git"
-alias gst="git status"
-alias gco="git checkout"
-alias gcam="git add . && git commit -am"
-alias gl="git pull"
-alias gp="git push"
-alias grhh="git reset HEAD --hard"
-alias gcm="git checkout main"
+# Git (handled by OMZ plugin above)
 
 # Editors / tools
 alias z.='zed .'
@@ -439,6 +408,19 @@ ai() {
     ollama run "${AI_MODEL:-llama3}" -p "${prompt}"
   else
     print "No AI CLI found. Install 'ollama' or set up your preferred CLI."
+  fi
+}
+
+# Alias discovery helpers
+ghelp() { alias | grep '^g' | grep -v '^grep' | sort }
+dhelp() { alias | grep '^d' | sort }
+khelp() { alias | grep '^k' | sort }
+ahelp() {
+  if [[ -z "$1" ]]; then
+    echo "Usage: ahelp <search-term>"
+    echo "Example: ahelp commit"
+  else
+    alias | grep -i "$1"
   fi
 }
 
