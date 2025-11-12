@@ -16,7 +16,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "gpt-5"
     }
   },
   "format_on_save": "on",
