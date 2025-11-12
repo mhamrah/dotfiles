@@ -28,8 +28,8 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Subliminal Nightfall Hazy",
-    "dark": "Tailwind Syntax"
+    "light": "Subliminal Nightfall",
+    "dark": "Subliminal Nightfall"
   },
   "context_servers": {
     "cloudflare-web": {
