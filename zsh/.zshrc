@@ -99,6 +99,9 @@ source "$HOME/.local/share/zinit/zinit.git/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+# Ensure zinit completion cache directory exists to avoid tee errors
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zinit/completions" 2>/dev/null
+
 # Load important annexes (no Turbo)
 zinit light-mode for \
   zdharma-continuum/zinit-annex-as-monitor \
