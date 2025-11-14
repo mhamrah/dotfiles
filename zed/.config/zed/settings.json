@@ -15,8 +15,8 @@
     "default_profile": "write",
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5"
+      "provider": "ollama",
+      "model": "gpt-oss:latest"
     }
   },
   "format_on_save": "on",
