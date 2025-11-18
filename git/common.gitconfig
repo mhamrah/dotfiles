@@ -1,0 +1,25 @@
+[init]
+	defaultBranch = main
+[push]
+	default = current
+	autosetupremote = true
+[pull]
+	default = current
+	rebase = true
+[core]
+	editor = nvim
+
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[gpg]
+	program = /opt/homebrew/bin/gpg
+[alias]
+	co = checkout
+	cm = commit
+	st = status
+	br = branch
+	df = diff
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+

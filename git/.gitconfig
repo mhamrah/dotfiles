@@ -1,33 +1,14 @@
 # This is Git's per-user configuration file.
+
+# Common shared settings across personal and work
+[include]
+	path = ~/dotfiles/git/common.gitconfig
+
+# Personal identity and any personal-only tweaks
 [user]
-# Please adapt and uncomment the following lines:
 	name = Mike Hamrah
 	email = m@hamrah.com
 	signingkey = 022ACC3C17C985C0
-[init]
-	defaultBranch = main
-[push]
-	default = current
-	autosetupremote = true
-[pull]
-	default = current
-	rebase = true
-[core]
-	editor = nvim
-	
-[commit]
-	gpgsign = true
-[tag]
-	gpgSign = true
-[gpg]
-	program = /opt/homebrew/bin/gpg
-[alias]
-	co = checkout
-	cm = commit
-	st = status
-	br = branch
-	df = diff
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [color]
 	ui = true
@@ -39,6 +20,7 @@
 	added = green
 	changed = yellow
 	untracked = red
+
 [credential]
 	helper = 
 	helper = /usr/local/share/gcm-core/git-credential-manager

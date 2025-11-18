@@ -24,19 +24,24 @@ Use this README to get productive quickly and learn the key workflows and bindin
 
       git clone https://github.com/mhamrah/dotfiles.git ~/dotfiles
 
-- Stow all modules at once:
+- Stow specific modules (recommended):
 
       cd ~/dotfiles
-      stow -d ~/dotfiles -t ~ .
+      stow -t ~ zsh starship zed nvim git ghostty ssh gpg
 
-- Or stow individual modules:
+  This links files directly into `~` (e.g., `zsh/.zshrc` -> `~/.zshrc`,
+  `starship/.config/starship/starship.toml` -> `~/.config/starship/starship.toml`).
 
-      stow zsh
-      stow starship
-      stow zed
-      stow nvim
-      stow git
-      stow ghostty
+- Optionally stow all top-level packages:
+
+      stow -t ~ */
+
+  Note: Do not use `stow -t ~ .` (passing `.` as the package). That will
+  symlink entire directories like `~/zsh` instead of placing files at their
+  correct locations (you’d see `~/zsh/.zshrc` instead of `~/.zshrc`). If you
+  did this by accident, undo it with:
+
+      stow -t ~ -D .
 
 3) Restart the shell
 - Open a new terminal or source your shell:

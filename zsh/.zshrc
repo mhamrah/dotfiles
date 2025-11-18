@@ -430,8 +430,8 @@ ahelp() {
 # Conditional tool-based aliases via zinit
 zinit has"eza" for \
   atinit"alias ls='eza --icons --group-directories-first';
-         alias ll='eza -l --icons --group-directories-first --git';
-         alias la='eza -la --icons --group-directories-first --git';
+         alias ll='eza -l --icons --group-directories-first';
+         alias la='eza -la --icons --group-directories-first';
          alias tree='eza --tree --icons';
          alias lt='eza --tree --level=2 --icons'" \
   zdharma-continuum/null
