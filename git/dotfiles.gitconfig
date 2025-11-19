@@ -1,0 +1,19 @@
+# Per-repo overrides for ~/dotfiles
+
+[user]
+    name = Mike Hamrah
+    email = m@hamrah.com
+    signingkey = 022ACC3C17C985C0
+
+# Force SSH for GitHub within this repo so GCM/GitHub login selection
+# doesn't pick a work account. This rewrites https GitHub URLs to SSH.
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+# Disable HTTPS credential helper in this repo (not needed with SSH).
+[credential]
+    helper = 
+
+# For tools like gh/hub that read this
+[github]
+    user = mhamrah
