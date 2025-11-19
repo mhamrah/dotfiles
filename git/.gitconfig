@@ -28,3 +28,7 @@
 	useHttpPath = true
 [credential "https://github.com"]
 	provider = github
+
+# Repo-specific overrides for this dotfiles repo (load last to take precedence)
+[includeIf "gitdir:~/dotfiles/"]
+	path = ~/dotfiles/git/dotfiles.gitconfig

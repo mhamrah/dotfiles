@@ -29,6 +29,10 @@ Use this README to get productive quickly and learn the key workflows and bindin
       cd ~/dotfiles
       stow -t ~ zsh starship zed nvim git ghostty ssh gpg
 
+  Optional AI configs (symlink app settings into your home):
+
+      stow -t ~ claude copilot gemini
+
   This links files directly into `~` (e.g., `zsh/.zshrc` -> `~/.zshrc`,
   `starship/.config/starship/starship.toml` -> `~/.config/starship/starship.toml`).
 
@@ -167,6 +171,12 @@ Using Oh My Zsh git plugin for comprehensive alias coverage (200+ aliases).
 - `ghelp`: list all git aliases
 - `ahelp git`: search aliases by keyword
 
+**Config overlays:**
+- Global user config lives in `git/.gitconfig` and includes shared settings from `git/common.gitconfig`.
+- Personal identity is defined in `git/.gitconfig` and can be overridden by repo-specific includes.
+- Repo-specific override for this repo: when in `~/dotfiles`, Git includes `git/dotfiles.gitconfig` for any tweaks that should only apply to this repository.
+- To add your own conditional overrides, follow the same `includeIf` pattern in your user config.
+
 **Top Git aliases:**
 
 **Status & Info:**
@@ -216,6 +226,7 @@ Using Oh My Zsh git plugin for comprehensive alias coverage (200+ aliases).
 - `gcp` / `gcpa` / `gcpc`: cherry-pick / abort / continue
 - `grt`: cd to git root directory
 - `gwip`: git add all + commit with --wip-- message (work in progress)
+
 
 ## Docker and Docker Compose
 
@@ -304,7 +315,7 @@ Using Oh My Zsh kubectl plugin for comprehensive alias coverage (100+ aliases).
   - Path and completions are sourced if installed via Homebrew.
   - Starship displays the active GCP project inline.
 - wrangler:
-  - Completions are auto-enabled if the CLI supports generation.
+  - Zsh completion is intentionally disabled due to unreliable/invalid output from the CLI; see comments in `zsh/.zshrc`.
 
 
 ## Editors and AI
@@ -315,6 +326,16 @@ Using Oh My Zsh kubectl plugin for comprehensive alias coverage (100+ aliases).
 - AI helper:
   - `ai "your prompt"` uses `ollama` if installed (model default: `llama3`).
   - Set `AI_MODEL` to choose a different model.
+
+### AI tool configs (optional)
+
+- `claude/.claude` → `~/.claude`:
+  - Basic Claude app settings and notes to prefer `rg` for file search.
+- `copilot/.copilot` → `~/.copilot`:
+  - GitHub Copilot app config including Cloudflare MCP servers and OAuth personal auth.
+  - Adjust trusted folders and servers to your needs.
+- `gemini/.gemini` → `~/.gemini`:
+  - Gemini app settings (model, theme, trusted folders). Tweak as preferred.
 
 
 ## File and text tools
@@ -434,5 +455,8 @@ If startup regresses, check your `.zshrc` recent edits, temporarily disable new 
   - Starship: dotfiles/starship/.config/starship/starship.toml
   - Homebrew: dotfiles/homebrew.sh
 - Stow your modules as needed, and keep everything in-source so a new machine is a `stow` + `./homebrew.sh` away.
+
+- Optional work overlay:
+  - If present, `~/dotfiles-work/includes/zsh/work.zsh` is sourced automatically for work-specific settings.
 
 Happy hacking!
