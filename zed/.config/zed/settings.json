@@ -16,7 +16,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "ollama",
-      "model": "gpt-oss:latest"
+      "model": "gpt-oss:20b"
     }
   },
   "format_on_save": "on",

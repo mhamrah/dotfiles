@@ -476,3 +476,7 @@ if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
 fi
 export GPG_TTY=not a tty
 export DISABLE_AUTOUPDATER=1
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/mhamrah/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
