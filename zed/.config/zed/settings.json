@@ -54,7 +54,7 @@
     },
     "cloudflare-docs": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": [
         "-y",
