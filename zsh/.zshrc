@@ -474,8 +474,6 @@ set -o pipefail
 if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
   source "$HOME/dotfiles-work/includes/zsh/work.zsh"
 fi
-export GPG_TTY=not a tty
-export DISABLE_AUTOUPDATER=1
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mhamrah/.rd/bin:$PATH"
