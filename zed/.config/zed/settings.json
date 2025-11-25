@@ -34,7 +34,7 @@
   "context_servers": {
     "cloudflare-web": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": [
         "-y",
@@ -44,7 +44,7 @@
     },
     "cloudflare-builds": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": [
         "-y",
@@ -65,7 +65,7 @@
     },
     "cloudflare-workers": {
       "source": "custom",
-      "enabled": true,
+      "enabled": false,
       "command": "npx",
       "args": [
         "-y",
@@ -73,13 +73,6 @@
         "https://bindings.mcp.cloudflare.com/sse"
       ],
       "env": {}
-    },
-    "mcp-server-context7": {
-      "source": "extension",
-      "enabled": true,
-      "settings": {
-        "context7_api_key": "ctx7sk-61dbb452-2ce7-4a0a-b258-397b81126ffd"
-      }
     }
   }
 }
