@@ -398,7 +398,8 @@ fi
 alias ..="cd .."
 alias ...="cd ../.."
 
-# Git (handled by OMZ plugin above)
+# Git Supplemental (handled by OMZ plugin above)
+alias gac='git add -A && git commit -m'
 
 # Editors / tools
 alias z.='zed .'
@@ -479,3 +480,6 @@ fi
 export PATH="/Users/mhamrah/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export PATH=/Users/mhamrah/.local/bin:$PATH
+
+# Added by Antigravity
+export PATH="/Users/mhamrah/.antigravity/antigravity/bin:$PATH"

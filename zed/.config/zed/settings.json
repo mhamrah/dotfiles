@@ -1,4 +1,8 @@
 {
+  "vim_mode": true,
+  "minimap": {
+    "show": "auto"
+  },
   "features": {
     "edit_prediction_provider": "copilot"
   },
@@ -8,7 +12,7 @@
     "always_allow_tool_actions": true,
     "default_model": {
       "provider": "ollama",
-      "model": "gpt-oss:20b"
+      "model": "gpt-oss:latest"
     }
   },
   "format_on_save": "on",
@@ -20,12 +24,11 @@
   "buffer_font_size": 15,
   "theme": {
     "mode": "system",
-    "light": "Subliminal Nightfall",
-    "dark": "Subliminal Nightfall"
+    "light": "Subliminal Nightfall Cloudy",
+    "dark": "Subliminal Nightfall Cloudy"
   },
   "context_servers": {
     "cloudflare-web": {
-      "source": "custom",
       "enabled": false,
       "command": "npx",
       "args": [
@@ -35,7 +38,6 @@
       ]
     },
     "cloudflare-builds": {
-      "source": "custom",
       "enabled": false,
       "command": "npx",
       "args": [
@@ -45,7 +47,6 @@
       ]
     },
     "cloudflare-docs": {
-      "source": "custom",
       "enabled": false,
       "command": "npx",
       "args": [
@@ -56,8 +57,7 @@
       "env": {}
     },
     "cloudflare-workers": {
-      "source": "custom",
-      "enabled": false,
+      "enabled": true,
       "command": "npx",
       "args": [
         "-y",

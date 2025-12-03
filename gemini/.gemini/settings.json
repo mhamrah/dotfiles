@@ -1,46 +1,12 @@
 {
-  "mcpServers": {
-    "cloudflare-web": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://browser.mcp.cloudflare.com/sse"
-      ]
-    },
-    "cloudflare-builds": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://builds.mcp.cloudflare.com/sse"
-      ]
-    },
-    "cloudflare-docs": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://docs.mcp.cloudflare.com/sse"
-      ],
-      "env": {}
-    },
-    "cloudflare-workers": {
-      "command": "npx",
-      "args": [
-        "-y",
-        "mcp-remote",
-        "https://bindings.mcp.cloudflare.com/sse"
-      ],
-      "env": {}
-    }
-  },
+  "mcpServers": {},
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
     }
   },
   "general": {
-    "vimMode": false
+    "vimMode": false,
+    "previewFeatures": true
   }
 }
