@@ -476,10 +476,10 @@ if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
   source "$HOME/dotfiles-work/includes/zsh/work.zsh"
 fi
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/mhamrah/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 export PATH=/Users/mhamrah/.local/bin:$PATH
 
 # Added by Antigravity
 export PATH="/Users/mhamrah/.antigravity/antigravity/bin:$PATH"
+export GPG_TTY='not a tty'
+
+export PATH="$HOME/.local/bin:$PATH"
