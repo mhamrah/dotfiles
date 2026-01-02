@@ -121,6 +121,38 @@ zinit light-mode for \
 } &!
 
 # ----------------------------------------------------------------------------
+# Hardened Completion Setup (Rules 2 & 4)
+# ----------------------------------------------------------------------------
+# 1. Ensure ~/.zfunc exists and is in fpath
+mkdir -p "$HOME/.zfunc"
+fpath=("$HOME/.zfunc" $fpath)
+
+# 2. Static completion generation (Generate once, never eval at runtime)
+
+# Rust/Cargo
+if command -v rustup >/dev/null 2>&1 && [[ ! -f "$HOME/.zfunc/_cargo" ]]; then
+  rustup completions zsh cargo >| "$HOME/.zfunc/_cargo" 2>/dev/null || true
+fi
+
+# pnpm
+if command -v pnpm >/dev/null 2>&1 && [[ ! -f "$HOME/.zfunc/_pnpm" ]]; then
+  pnpm completion zsh >| "$HOME/.zfunc/_pnpm" 2>/dev/null || true
+fi
+
+# golangci-lint
+if command -v golangci-lint >/dev/null 2>&1 && [[ ! -f "$HOME/.zfunc/_golangci-lint" ]]; then
+  golangci-lint completion zsh >| "$HOME/.zfunc/_golangci-lint" 2>/dev/null || true
+fi
+
+# 3. Cloud SDKs (modify fpath before compinit)
+if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
+  source "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
+if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
+  source "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+# ----------------------------------------------------------------------------
 # Plugin configuration (variables set before loading plugins)
 # ----------------------------------------------------------------------------
 # Autosuggestions
@@ -132,26 +164,20 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 # ----------------------------------------------------------------------------
 # Plugins (order matters)
 # ----------------------------------------------------------------------------
-# Completions should be available before compinit
+# ----------------------------------------------------------------------------
+# Completion System Initialization (Rule 3)
+# ----------------------------------------------------------------------------
+autoload -Uz compinit
+
+# Load completions plugin via zinit
+zinit ice wait lucid
 zinit load zsh-users/zsh-completions
 
-# Completion system (after zsh-completions is in $fpath)
-autoload -Uz compinit
-if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
-  compinit
-else
-  compinit -C
-fi
+# Replay completion registrations and initialize
+zinit cdreplay -q
+compinit -i
 
-# Periodic compinit cache refresh (hourly); rebuild cache if older than 24h
-PERIOD=3600
-periodic() {
-  if [[ -n ${ZDOTDIR:-$HOME}/.zcompdump(#qN.mh+24) ]]; then
-    compinit
-  else
-    compinit -C
-  fi
-}
+
 
 # Completion styles
 # - General
@@ -344,13 +370,7 @@ fi
 # ----------------------------------------------------------------------------
 # Cloud CLIs (autoload hooks)
 # ----------------------------------------------------------------------------
-# Google Cloud SDK (path and completion)
-if [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]]; then
-  source "$HOME/google-cloud-sdk/path.zsh.inc"
-fi
-if [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]]; then
-  source "$HOME/google-cloud-sdk/completion.zsh.inc"
-fi
+
 
 # Cloudflare Wrangler completion
 # Disabled: wrangler completion is unreliable and outputs invalid zsh syntax
@@ -363,24 +383,11 @@ fi
 # ----------------------------------------------------------------------------
 # Node/TypeScript
 export NVM_AUTO_USE=true
-# Guard pnpm completion until both pnpm and node are available
-if command -v pnpm >/dev/null 2>&1 && command -v node >/dev/null 2>&1; then
-  eval "$(pnpm completion zsh)"
-fi
 
-# Go: add common linters completion if installed
-if command -v golangci-lint >/dev/null 2>&1; then
-  eval "$(golangci-lint completion zsh)"
-fi
 
-# Rust: generate cargo completion on-demand to ~/.zfunc and add to fpath
-if command -v rustup >/dev/null 2>&1; then
-  if [[ ! -f "$HOME/.zfunc/_cargo" ]]; then
-    mkdir -p "$HOME/.zfunc"
-    rustup completions zsh cargo >| "$HOME/.zfunc/_cargo" 2>/dev/null || true
-  fi
-  fpath=("$HOME/.zfunc" $fpath)
-fi
+
+
+
 
 # ----------------------------------------------------------------------------
 # zoxide (fast directory jumping)
