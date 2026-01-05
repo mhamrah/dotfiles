@@ -220,10 +220,11 @@ zinit ice wait"1" lucid depth=1
 zinit load zdharma-continuum/fast-syntax-highlighting
 
 # OMZ plugins (git, docker, docker-compose, kubectl)
-zi snippet OMZP::git
-zi snippet OMZP::docker
-zi snippet OMZP::docker-compose
-zi snippet OMZP::kubectl
+zinit snippet OMZL::git.zsh
+zinit snippet OMZP::git/git.plugin.zsh
+zinit snippet OMZP::docker/docker.plugin.zsh
+zinit snippet OMZP::docker-compose/docker-compose.plugin.zsh
+zinit snippet OMZP::kubectl/kubectl.plugin.zsh
 
 # Version managers & per-project env
 # - mise
@@ -490,3 +491,7 @@ export PATH="/Users/mhamrah/.antigravity/antigravity/bin:$PATH"
 export GPG_TTY='not a tty'
 
 export PATH="$HOME/.local/bin:$PATH"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/mhamrah/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
