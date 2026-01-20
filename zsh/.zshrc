@@ -64,11 +64,6 @@ export PAGER='less'
 export LESS='-R'
 
 # PATH
-if [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
-elif [[ -x /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
-fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # pnpm
@@ -500,3 +495,7 @@ export PATH="$HOME/.local/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/mhamrah/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# Homebrew first in PATH
+# Manually prepend Homebrew to PATH
+export PATH="/opt/homebrew/bin:$PATH"
