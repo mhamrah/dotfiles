@@ -64,6 +64,11 @@ export PAGER='less'
 export LESS='-R'
 
 # PATH
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -x /usr/local/bin/brew ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
 export PATH="$HOME/.cargo/bin:$PATH"
 
 # pnpm
@@ -132,6 +137,11 @@ fpath=("$HOME/.zfunc" $fpath)
 # Rust/Cargo
 if command -v rustup >/dev/null 2>&1 && [[ ! -f "$HOME/.zfunc/_cargo" ]]; then
   rustup completions zsh cargo >| "$HOME/.zfunc/_cargo" 2>/dev/null || true
+fi
+
+# mise
+if command -v mise >/dev/null 2>&1 && [[ ! -f "$HOME/.zfunc/_mise" ]]; then
+  mise completion zsh >| "$HOME/.zfunc/_mise" 2>/dev/null || true
 fi
 
 # pnpm
@@ -227,10 +237,6 @@ zinit snippet OMZP::docker-compose/docker-compose.plugin.zsh
 zinit snippet OMZP::kubectl/kubectl.plugin.zsh
 
 # Version managers & per-project env
-# - mise
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
-fi
 # - direnv
 if command -v direnv >/dev/null 2>&1; then
   eval "$(direnv hook zsh)"
@@ -250,9 +256,10 @@ if command -v rbenv >/dev/null 2>&1; then
   rbenv()  { lazy_load_rbenv; rbenv  "$@"; }
 fi
 
-# nvm via zinit (lazy)
-zinit ice wait lucid depth=1
-zinit load lukechilds/zsh-nvm
+# - mise (activate hook)
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
+fi
 
 # ----------------------------------------------------------------------------
 # Prompt (Starship)
@@ -483,8 +490,6 @@ set -o pipefail
 if [[ -f "$HOME/dotfiles-work/includes/zsh/work.zsh" ]]; then
   source "$HOME/dotfiles-work/includes/zsh/work.zsh"
 fi
-
-export PATH=/Users/mhamrah/.local/bin:$PATH
 
 # Added by Antigravity
 export PATH="/Users/mhamrah/.antigravity/antigravity/bin:$PATH"
