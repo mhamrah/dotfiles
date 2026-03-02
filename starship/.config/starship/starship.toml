@@ -3,6 +3,9 @@
 # Keep prompt readable and informative without being noisy.
 # You can tune or add modules as you see fit.
 
+# Some version managers (e.g. swiftly) can exceed Starship's default 500ms probe timeout.
+command_timeout = 2000
+
 # Show a distinct prompt symbol per vi mode.
 [character]
 success_symbol = "[❯](bold green)"
