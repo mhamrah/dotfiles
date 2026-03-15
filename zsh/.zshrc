@@ -181,8 +181,8 @@ zinit ice wait lucid
 zinit load zsh-users/zsh-completions
 
 # Replay completion registrations and initialize
-zinit cdreplay -q
 compinit -i
+zinit cdreplay -q
 
 
 
